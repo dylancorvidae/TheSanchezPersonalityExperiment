@@ -18,11 +18,12 @@
 
 #question-header{
     background-color:deeppink;
+    text-align: center;
 }
 
 #quiz-box{
     border:1px solid black;
-    padding:10px;
+    padding:10px;   
 }
 
 #back-button, #forward-button{
