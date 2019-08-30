@@ -1,0 +1,44 @@
+{
+  "name": "thesanchezpersonalityexperiment",
+  "version": "1.0.0",
+  "description": "Rick and Morty Themed Entertainment App",
+  "main": "server.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Team-C-137/TheSanchezPersonalityExperiment.git"
+  },
+  "keywords": [
+    "Rick",
+    "and/or",
+    "Morty"
+  ],
+  "author": "Sam, Kam, Angela, Dylan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Team-C-137/TheSanchezPersonalityExperiment/issues"
+  },
+  "homepage": "https://github.com/Team-C-137/TheSanchezPersonalityExperiment#readme",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^8.1.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "jsdom": "^15.1.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
+    "pg": "^7.12.1",
+    "superagent": "^5.1.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "nodemon": "^1.19.1"
+  }
+}
