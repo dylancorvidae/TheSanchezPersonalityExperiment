@@ -8,7 +8,6 @@ class StatsApp extends Component {
         const header = new Header();
         dom.prepend(header.renderDOM());
 
-
         const typeProps = {
             name: 'Toxic Rick',
             image: 'https://rickandmortyapi.com/api/character/avatar/361.jpeg',

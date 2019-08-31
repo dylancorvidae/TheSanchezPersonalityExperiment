@@ -48,13 +48,13 @@
     background-color: hsla(240, 100%, 91%, 0.69);
 }
 
-#all-time-stats {
+#all-time-stats, #results-wrapper {
     display:flex;
     flex-direction: column;
     align-items:center;
 }
 
-#bar-graph{
+#bar-graph, #previous-results{
     height:300px;
     width:700px;
     border:1px solid black;
@@ -89,4 +89,13 @@
 
 ul {
     list-style-type: none;
+}
+
+#most-common-character{
+    display:flex;
+    flex-direction: column;
+    width: 400px;
+    align-items: center;
+    margin:auto;
+    margin-top: 20px;
 }
