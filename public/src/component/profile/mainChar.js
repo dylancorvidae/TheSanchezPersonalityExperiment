@@ -8,7 +8,7 @@ class MainChar extends Component {
                     YOU ARE <h1><span>${props.name.toUpperCase()}</span></h1>
                     <img
                         src="${props.image}"
-                        height="400" ;>
+                        height="400">
                     <ul>
                         <li><h2>${props.personality}</h2></li>
                         <li>${props.status}</li>
