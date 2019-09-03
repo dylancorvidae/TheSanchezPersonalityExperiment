@@ -1,0 +1,40 @@
+@font-face {
+    font-family: "rick-and-morty";
+    src: url(../../assets/fonts/rick-and-morty.ttf);
+}
+
+@font-face {
+    font-family: "get-schwifty";
+    src: url(../../assets/fonts/get-schwifty.ttf);
+}
+
+@font-face {
+    font-family: "adult-swim-font";
+    src: url(../../assets/fonts/adult-swim-font.ttf);
+}
+
+body {
+    background-color: black;
+    color: rgb(16, 206, 212)
+}
+
+h1 {
+    font-family: "get-schwifty";
+    font-size: 7em;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 0.001px;
+    text-shadow:
+    -1px -1px 0 rgb(252, 255, 63),
+    0   -1px 0 rgb(252, 255, 63),
+    1px -1px 0 rgb(252, 255, 63),
+    1px  0   0 rgb(252, 255, 63),
+    1px  1px 0 rgb(252, 255, 63),
+    0    1px 0 rgb(252, 255, 63),
+   -1px  1px 0 rgb(252, 255, 63),
+   -1px  0   0 rgb(252, 255, 63), 
+    0 0 14px rgb(60, 253, 26),
+    0 0 12px rgb(252, 255, 63);
+
+    
+    
+}
