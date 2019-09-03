@@ -2,6 +2,7 @@ const client = require('../lib/client');
 const q = require('../data/questions-data');
 const answers = require('../data/answer-data');
 const mbti = require('../data/mbti-data');
+const characters = require('../data/character-data');
 
 
 client.connect()
@@ -32,6 +33,17 @@ client.connect()
                     INSERT INTO answers (text, mbti, question_id)
                     VALUES($1, $2, $3);
         `, [answer.text, answer.mbti, answer.question_id]
+                );
+            })
+        );
+    })
+    .then(() => {
+        return Promise.all(
+            characters.map(char => {
+                return client.query(`
+                    INSERT INTO characters (name, quote, mbti)
+                    VALUES($1, $2, $3);
+        `, [char.name, char.quote, char.mbti]
                 );
             })
         );
