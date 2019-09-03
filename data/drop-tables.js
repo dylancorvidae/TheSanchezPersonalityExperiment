@@ -3,12 +3,12 @@ const client = require('../lib/client');
 client.connect()
     .then(() => {
         return client.query(`
-    DROP TABLE IF EXISTS questions,
-    DROP TABLE IF EXISTS answers,
-    DROP TABLE IF EXISTS characters,
-    DROP TABLE IF EXISTS mbti,
-    DROP TABLE IF EXISTS users,
-    DROP TABLE IF EXISTS test
+    DROP TABLE IF EXISTS questions CASCADE;
+    DROP TABLE IF EXISTS answers CASCADE;
+    DROP TABLE IF EXISTS characters CASCADE;
+    DROP TABLE IF EXISTS mbti CASCADE;
+    DROP TABLE IF EXISTS users CASCADE;
+    DROP TABLE IF EXISTS test CASCADE;
     `);
     }
     )
