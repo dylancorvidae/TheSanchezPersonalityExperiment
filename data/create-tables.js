@@ -24,9 +24,7 @@ client.connect()
         answer_one_id INTEGER REFERENCES answers(id),
         answer_two_id INTEGER REFERENCES answers(id),
         answer_three_id INTEGER REFERENCES answers(id),
-        answer_four_id INTEGER REFERENCES answers(id),
-        user_answer VARCHAR(256),
-        users_id INTEGER REFERENCES users(id)
+        answer_four_id INTEGER REFERENCES answers(id)
     );
 
     
@@ -44,17 +42,22 @@ client.connect()
         mbti VARCHAR(256)
     );
 
-`
-        );
+    CREATE TABLE game(
+        id SERIAL PRIMARY KEY,
+        users_id INTEGER REFERENCES users(id),
+        user_answer VARCHAR(256),
+        question_order VARCHAR(256),
+        is_complete BOOLEAN NOT NULL
+    );
+
+`);
     })
 
     .then(
-
         () => console.log('tables created'),
         err => console.log(err)
     )
 
     .then(
-
         () => { client.end(); }
     );

@@ -8,6 +8,7 @@ client.connect()
     DROP TABLE IF EXISTS characters CASCADE;
     DROP TABLE IF EXISTS mbti CASCADE;
     DROP TABLE IF EXISTS users CASCADE;
+    DROP TABLE IF EXISTS game CASCADE;
     `);
     }
     )
