@@ -1,5 +1,5 @@
 import App from './component/app/app.js';
-import { getBackground } from './services/nasa-api.js';
+// import { getBackground } from './services/nasa-api.js';
 
 
 // const backgroundImage = getBackground('2019-01-01');

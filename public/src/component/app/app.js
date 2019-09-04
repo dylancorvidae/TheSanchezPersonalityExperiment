@@ -8,6 +8,25 @@ class App extends Component {
         const header = new Header();
         dom.prepend(header.renderDOM());
 
+        // quiz props
+        // Load question IDs
+        //      SELECT id from questions;
+        // Randomize IDs in js array
+        // On change radio button, get answer's MBTI
+        //      SELECT mbti FROM answers WHERE id = [answer.id];
+        // On change radio button, update test table
+        //      JS: get answers, append `${answer.mbti},`
+        //      UPDATE test SET answers = [newAnswer];
+        //      
+        // back and forward buttons go up and down the array, loading data by ID
+        // back button updates test table to remove answer
+        //      JS: get answers, remove -5 characters
+        //      UPDATE test SET answers = [newAnswer];
+        // forward button disabled if question is unanswered
+        // 
+
+
+
         const quizProps = {
             quizLength: 10,
             questionText: `Whoa, spoilers! I'm a whole season behind. You

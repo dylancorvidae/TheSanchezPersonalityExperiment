@@ -1,28 +1,23 @@
 module.exports = [
-    {
-        questions: [
-            `What do you do at a party?`,
-            `Your reality has become a disaster. Good thing you have access to infinite realities and infinite timelines. What do you do?`,
-            `You have family therapy. Ugh!!! What do you do?`,
-            `All of your toxic personality traits have been filtered out of you. Who are they?`,
-            `You encounter a perfect level field. What do you do?`,
-            `Which character do you think is real?`,
-            `What would you do with Unity's Hive Mind?`,
-            `Choose a sidekick:`,
-            `If you had to flee earth, which new planet do you move to?`,
-            `Choose a catch phrase:`,
-            `You have LEVEL 9 access.  What do you do with it?`,
-            `What is your favorite ride at Anatomy Park?`,
-            `What the hell do you have to be uncertain about?`,
-            `What do you choose to watch on Interdimensional Television?`,
-            `What do you buy from “Needful Things”?`,
-            `Which Vindicator do you choose to call when in need of help?`,
-            `What “Rick and Morty” invention do you want to exist in real life?`,
-            `Which is the best McNugget sauce?`,
-            `If you created and then met your created species, what sign language would you teach them for the term “Peace”?`,
-            `What is your favorite treat?`,
-            `How would you disguise your brainwaves from detection?`
-        ]
-
-    }
+    { question_text: `What do you do at a party?`, answer_one_id: 1, answer_two_id: 2, answer_three_id: 3, answer_four_id: 4 },
+    { question_text: `Your reality has become a disaster. Good thing you have access to infinite realities and infinite timelines. What do you do?`, answer_one_id: 5, answer_two_id: 6, answer_three_id: 7, answer_four_id: 8 },
+    { question_text: `You have family therapy. Ugh!!! What do you do?`, answer_one_id: 9, answer_two_id: 10, answer_three_id: 11, answer_four_id: 12 },
+    { question_text: `All of your toxic personality traits have been filtered out of you. Who are they?`, answer_one_id: 13, answer_two_id: 14, answer_three_id: 15, answer_four_id: 16 },
+    { question_text: `You encounter a perfect level field. What do you do?`, answer_one_id: 17, answer_two_id: 18, answer_three_id: 19, answer_four_id: 20 },
+    { question_text: `Which character do you think is real?`, answer_one_id: 21, answer_two_id: 22, answer_three_id: 23, answer_four_id: 24 },
+    { question_text: `What would you do with Unity's Hive Mind?`, answer_one_id: 25, answer_two_id: 26, answer_three_id: 27, answer_four_id: 28 },
+    { question_text: `Choose a sidekick:`, answer_one_id: 29, answer_two_id: 30, answer_three_id: 31, answer_four_id: 32 },
+    { question_text: `If you had to flee earth, which new planet do you move to?`, answer_one_id: 33, answer_two_id: 34, answer_three_id: 35, answer_four_id: 36 },
+    { question_text: `Choose a catch phrase:`, answer_one_id: 37, answer_two_id: 38, answer_three_id: 39, answer_four_id: 40 },
+    { question_text: `You have LEVEL 9 access.  What do you do with it?`, answer_one_id: 41, answer_two_id: 42, answer_three_id: 43, answer_four_id: 44 },
+    { question_text: `What is your favorite ride at Anatomy Park?`, answer_one_id: 45, answer_two_id: 46, answer_three_id: 47, answer_four_id: 48 },
+    { question_text: `What the hell do you have to be uncertain about?`, answer_one_id: 49, answer_two_id: 50, answer_three_id: 51, answer_four_id: 52 },
+    { question_text: `What do you choose to watch on Interdimensional Television?`, answer_one_id: 53, answer_two_id: 54, answer_three_id: 55, answer_four_id: 56 },
+    { question_text: `What do you buy from “Needful Things”?`, answer_one_id: 57, answer_two_id: 58, answer_three_id: 59, answer_four_id: 60 },
+    { question_text: `Which Vindicator do you choose to call when in need of help?`, answer_one_id: 61, answer_two_id: 62, answer_three_id: 63, answer_four_id: 64 },
+    { question_text: `What “Rick and Morty” invention do you want to exist in real life?`, answer_one_id: 65, answer_two_id: 66, answer_three_id: 67, answer_four_id: 68 },
+    { question_text: `Which is the best McNugget sauce?`, answer_one_id: 69, answer_two_id: 70, answer_three_id: 71, answer_four_id: 72 },
+    { question_text: `If you created and then met your created species, what sign language would you teach them for the term “Peace”?`, answer_one_id: 73, answer_two_id: 74, answer_three_id: 75, answer_four_id: 76 },
+    { question_text: `What is your favorite treat?`, answer_one_id: 77, answer_two_id: 78, answer_three_id: 79, answer_four_id: 80 },
+    { question_text: `How would you disguise your brainwaves from detection?`, answer_one_id: 81, answer_two_id: 82, answer_three_id: 83, answer_four_id: 84 }
 ];
