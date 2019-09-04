@@ -1,5 +1,5 @@
 .wrapper{
-    width:1000px;
+    width:1200px;
     display:flex;
     flex-direction: row;
     align-items:center;
@@ -37,15 +37,6 @@
     max-width: 100%;
 }
 
-#back-button{
-    margin:50px;
-    background-image: url('../../assets/icons/portal-gun.png');
-} 
-
-#forward-button{
-    margin:50px;
-}
-
 #answer-box{
     border: 2px solid black;
     display: flex;
@@ -81,4 +72,32 @@
 
 .answer-input {
     margin-right: 10px;
+}
+
+.back-btn {
+    background-color: transparent;
+    border-color: transparent;
+    font-family: "adult-swim-font";
+    font-size: 1.5em;
+    color: white;
+    margin-right: 10px;
+}
+
+.next-btn {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 10px;
+    font-family: "adult-swim-font";
+    font-size: 1.5em;
+    color: white;
+    margin-left: 10px;
+}
+
+.back-btn-img {
+    width: 150px; 
+    transform: scaleX(-1);
+}
+
+.next-btn-img {
+    width: 150px; 
 }
