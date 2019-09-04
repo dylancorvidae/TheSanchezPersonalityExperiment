@@ -4,10 +4,17 @@ client.connect()
     .then(() => {
         return client.query(`
 
+    CREATE TABLE test(
+        id SERIAL PRIMARY KEY, 
+        question_text VARCHAR(1024),
+        img VARCHAR(256)
+    );
+
     CREATE TABLE answers(
         id SERIAL PRIMARY KEY,
-        text VARCHAR(1024) NOT NULL,
-        mbti VARCHAR(256)
+        text VARCHAR(1024),
+        mbti VARCHAR(256),
+        question_id INTEGER
     );
 
     CREATE TABLE users(
@@ -17,16 +24,6 @@ client.connect()
         token VARCHAR(512),
         display_name VARCHAR(256) NOT NULL
     );
-
-    CREATE TABLE test(
-        id SERIAL PRIMARY KEY, 
-        question_text VARCHAR(1024),
-        answer_one_id INTEGER REFERENCES answers(id),
-        answer_two_id INTEGER REFERENCES answers(id),
-        answer_three_id INTEGER REFERENCES answers(id),
-        answer_four_id INTEGER REFERENCES answers(id)
-    );
-
     
     CREATE TABLE mbti(
         id SERIAL PRIMARY KEY,

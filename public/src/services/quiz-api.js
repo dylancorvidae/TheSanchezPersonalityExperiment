@@ -1,5 +1,5 @@
-const URL = '/api';
 import store from './store.js';
+const URL = '/api';
 
 const userToken = store.getToken();
 
@@ -44,7 +44,26 @@ export function getGames() {
     return fetchWithError(url);
 }
 
+export function getQuestion(id) {
+    const url = `${URL}/test`;
+    return fetchWithError(url)
+        .then(test => {
+            return test.find(test => {
+                return test.id === id;
+            });
+        });
+}
 
+export function getAnswers(id) {
+    const url = `${URL}/answers`;
+    return fetchWithError(url)
+        .then(answers => {
+            console.log(answers);
+            return answers.filter(answer => {
+                return answer.question_id === id;
+            });
+        });
+}
 
 
 
