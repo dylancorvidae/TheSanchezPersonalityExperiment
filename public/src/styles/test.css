@@ -17,9 +17,9 @@ body {
     background-color: black;
 }
 
-h5 {
+h1.title {
     font-family: "get-schwifty";
-    font-size: 3em;
+    font-size: 4em;
     -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 0.001px;
     color: rgb(16, 206, 212);
