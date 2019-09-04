@@ -89,9 +89,8 @@ h1 {
     0 0 12px rgb(252, 255, 63);
 }
 
-#log-out {
+#log-out-container{
     border: none;
-    margin: 20px;
     border-radius: 100%;
     width: 20vh;
     height: 20vh;
@@ -101,14 +100,51 @@ h1 {
     background: url('../../assets/img/smallportal.png');
     background-size: 100%;
     color: white;
+    font-family: "adult-swim-font";
+    text-shadow: 2px 2px 4px #000000; 
+}
+
+#log-out-container:hover {
+    animation-name: spin1;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin1 {
+    100% { transform: rotate(360deg); }
+}
+
+#log-out {
+    border: none;
+    border-radius: 100%;
+    width: 20vh;
+    height: 20vh;
+    max-width: 150px;
+    max-height: 150px;
+    font-size: 4vh;
+    background: url('../../assets/img/smallportal.png');
+    background-size: 100%;
+    color: white;
+    font-family: "adult-swim-font";
+    text-shadow: 2px 2px 4px #000000;
+    animation-name: spin2;
+    animation-duration: 8000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;    
+}
+
+@keyframes spin2 {
+    100% { transform: rotate(360deg); }
 }
 
 #log-out:focus {
     outline: 0;
- }
+}
  
- #log-out:hover {
-    background-color: rgb(92, 185, 15);
-    transform: translate3d(-2px, -2px, 10px);
-    box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
- }
+#log-out:hover {
+background-color: rgb(92, 185, 15);
+box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
+transition-duration: 1000ms;
+}
+
