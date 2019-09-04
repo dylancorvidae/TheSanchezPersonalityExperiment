@@ -1,5 +1,5 @@
 const client = require('../lib/client');
-const q = require('../data/questions-data');
+const questions = require('../data/questions-data');
 const answers = require('../data/answer-data');
 const mbti = require('../data/mbti-data');
 const characters = require('../data/character-data');
@@ -8,11 +8,22 @@ const characters = require('../data/character-data');
 client.connect()
     .then(() => {
         return Promise.all(
-            q[0].questions.map(question => {
+            answers.map(answer => {
                 return client.query(`
-                    INSERT INTO questions (text)
-                    VALUES ($1);
-                `, [question]);
+                    INSERT INTO answers (text, mbti)
+                    VALUES($1, $2);
+        `, [answer.text, answer.mbti]
+                );
+            })
+        );
+    })
+    .then(() => {
+        return Promise.all(
+            questions.map(question => {
+                return client.query(`
+                    INSERT INTO test (question_text, answer_one_id, answer_two_id, answer_three_id, answer_four_id)
+                    VALUES ($1, $2, $3, $4, $5);
+                `, [question.question_text, question.answer_one_id, question.answer_two_id, question.answer_three_id, question.answer_four_id]);
             }),
         );
     })
@@ -24,17 +35,6 @@ client.connect()
                     VALUES ($1, $2, $3);
                 `, [type.name, type.title, type.description]);
             }),
-        );
-    })
-    .then(() => {
-        return Promise.all(
-            answers.map(answer => {
-                return client.query(`
-                    INSERT INTO answers (text, mbti, question_id)
-                    VALUES($1, $2, $3);
-        `, [answer.text, answer.mbti, answer.question_id]
-                );
-            })
         );
     })
     .then(() => {
