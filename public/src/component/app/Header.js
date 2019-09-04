@@ -6,10 +6,9 @@ class Header extends Component {
             <header id="main-header">
                 <div id="logo">
 
-                <h1 class="title">
-                    The Sanchez Personality Experiment
-                </h1>
-
+                    <h1 class="title">
+                        The Sanchez Personality Experiment
+                    </h1>
                 </div>
                 <a href="./profile.html"><span>[profile]</span></a>
                 <a href="./about.html"><span>[about us]</span></a>

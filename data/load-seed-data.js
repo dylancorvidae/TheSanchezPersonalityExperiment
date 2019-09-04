@@ -10,9 +10,9 @@ client.connect()
         return Promise.all(
             answers.map(answer => {
                 return client.query(`
-                    INSERT INTO answers (text, mbti)
-                    VALUES($1, $2);
-        `, [answer.text, answer.mbti]
+                    INSERT INTO answers (text, mbti, question_id)
+                    VALUES($1, $2, $3);
+        `, [answer.text, answer.mbti_id, answer.question_id]
                 );
             })
         );
@@ -21,9 +21,9 @@ client.connect()
         return Promise.all(
             questions.map(question => {
                 return client.query(`
-                    INSERT INTO test (question_text, answer_one_id, answer_two_id, answer_three_id, answer_four_id)
-                    VALUES ($1, $2, $3, $4, $5);
-                `, [question.question_text, question.answer_one_id, question.answer_two_id, question.answer_three_id, question.answer_four_id]);
+                    INSERT INTO test (question_text, img)
+                    VALUES ($1, $2);
+                `, [question.question_text, question.img]);
             }),
         );
     })

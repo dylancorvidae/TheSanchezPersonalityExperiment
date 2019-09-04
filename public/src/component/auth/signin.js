@@ -8,33 +8,34 @@ class SignIn extends Component {
         form.addEventListener('submit', event => {
             event.preventDefault();
 
-            const formData = new FormData(form);
+            const formDaddy = new FormData(form);
 
-            const credentials = {
-                email: formData.get('email'),
-                password: formData.get('password')
+            const userCred = {
+                email: formDaddy.get('email'),
+                password: formDaddy.get('password')
             };
-            onSignIn(credentials);
+            onSignIn(userCred);
         });
+
     }
 
     renderHTML() {
         return /*html*/`
-        <form class="auth-form">
-        <p>
-            <label for="sign-in">Email</label>
-            <input id="sign-in" type="email" name="email" required placeholder="username@email.com">
-        </p>
+            <form class="auth-form">
+                <p>
+                    <label for="signin-email">Email</label>
+                    <input id="signin-email" type="email" name="email" required placeholder="your@email.com">
+                </p>
+                
+                <p>
+                    <label for="signin-password">Password</label>
+                    <input id="signin-password" type="password" name="password" required>
+                </p>
 
-        <p>
-            <label for="sign-in-pass">Password</label>
-            <input id="sign-in-pass" type="password" name="password" required placeholder="******">
-        </p>
-
-        <p>
-            <button>Sign In</button>
-        </p>
-    </form>
+                <p>
+                    <button>Sign In</button>
+                </p>
+            </form>
         `;
     }
 }
