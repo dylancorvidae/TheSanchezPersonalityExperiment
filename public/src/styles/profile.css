@@ -21,23 +21,47 @@
     filter: drop-shadow(4px 4px 5px gray);
 }
 
-.list-container p {
+.title {
+    text-align: center;
+}
+
+.first {
     text-align: center;
     font-family: "adult-swim-font";
     font-size: 200%;
 }
 
-p span {
-    font-size: 200%;
+.character {
+    font-family: "adult-swim-font";
+    text-align: center;
+    font-size: 400%;
 }
 
-.details {
+.quote {
+    font-family: "rick-and-morty";
     text-align: center;
-    margin-top: 20px;
     font-size: 200%;
+    margin-top: 10px;
+}
+
+.personality {
+    text-align: center;
 }
 
 h2 {
     font-family: "adult-swim-font";
-    margin-bottom: 20px;
+    margin-top: 15px;
+    font-size: 200%;
 }
+
+.description {
+    font-family: "adult-swim-font";
+    font-size: 125%;
+}
+
+.details {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 150%;
+}
+

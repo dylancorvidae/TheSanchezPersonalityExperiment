@@ -12,27 +12,35 @@
     </head>
     <body>
         <div id="root">
-            <header id="main-header">
-                <div id="logo">
-
-                    <h1 class="title">
-                        The Sanchez Personality Experiment
-                    </h1>
-                </div>
-                <span>Profile</span>
-                <span>Stats</span>
-                <span>About Us</span>
-                <div id="log-out-container"><button id="log-out">[log out]</button></div>
-            </header>
+                <header id="main-header">
+                        <div id="logo">
+                            <h1 class="title">
+                                The Sanchez Personality Experiment
+                            </h1>
+                        </div>
+                        <a href="./profile.html"><span>[profile]</span></a>
+                        <a href="./about.html"><span>[about us]</span></a>
+                        <a href="./stats.html" class="stat-link"><span>[stats]</span></a>
+        
+                        <div id="log-out-container"><button id="log-out">[log out]</button></div>
+                </header>
 
             <div id="main-char">
                 <div class="main-img-container"><img class="main-img" src="assets/profile-img/sleepy-gary.png" height="500";></div>
                 
                 <div class="list-container">
-                <p>YOU ARE</p> 
-                <p><span>SLEEPY GARY</span></p>
+                    <div class="title">
+                        <p class="first">YOU ARE</p> 
+                        <p><span class="character">SLEEPY GARY</span></p>
+                        <p class="quote">"We're trying to sleep!"</p>
+                    </div>
+
+                    <div class="personality">
+                        <h2>INTJ</h2>
+                        <p><span class="description">description of personality type</span></p>
+                    </div>
+
                     <ul class="details">
-                        <li><h2>INTJ</h2></li>
                         <li>Status: Alive</li>
                         <li>Species: Human</li>
                         <li>Gender: Male</li>
