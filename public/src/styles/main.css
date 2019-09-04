@@ -1,36 +1,98 @@
-.wrapper{
-    width:1000px;
-    display:flex;
-    flex-direction: row;
-    align-items:center;
-    justify-content: center;
-    margin:auto;
-    margin-top: 50px;
+* {
+    box-sizing: border-box;
+}
 
+@font-face {
+    font-family: "rick-and-morty";
+    src: url(../../assets/fonts/rick-and-morty.ttf);
+}
+
+@font-face {
+    font-family: "get-schwifty";
+    src: url(../../assets/fonts/get-schwifty.ttf);
+}
+
+@font-face {
+    font-family: "adult-swim-font";
+    src: url(../../assets/fonts/adult-swim-font.ttf);
+}
+
+body {
+    background-image: url('../../assets/img/rick\ and\ morty\ bg.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: "rick-and-morty";
 }
 
 #main-header{
-    background-color: hotpink;
+    background-color: black;
     display:flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+    padding: 20px;
 }
 
-#question-header{
-    background-color:deeppink;
-    text-align: center;
+#main-header a{
+    color: white;
+    text-decoration: none;
+    font-size: 150%;
+    font-family: "adult-swim-font"
 }
 
-#quiz-box{
-    border:1px solid black;
-    padding:10px;   
+h1.title{
+    color: rgb(16, 206, 212);
+    font-family: "get-schwifty";
+    font-size: 200%;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;
+    text-shadow:
+    -1px -1px 0 rgb(213, 255, 63),
+    0   -1px 0 rgb(213, 255, 63),
+    1px -1px 0 rgb(213, 255, 63),
+    1px  0   0 rgb(213, 255, 63),
+    1px  1px 0 rgb(213, 255, 63),
+    0    1px 0 rgb(213, 255, 63),
+   -1px  1px 0 rgb(213, 255, 63),
+   -1px  0   0 rgb(213, 255, 63), 
+    0 0 12px rgb(60, 253, 26, .7),
+    0 0 10px rgb(213, 255, 63, .7);
+    letter-spacing: .05em;
 }
 
-#back-button, #forward-button{
-    margin:50px;
+
+#log-out {
+    border: none;
+    border-radius: 100%;
+    width: 15vh;
+    height: 15vh;
+    max-width: 150px;
+    max-height: 150px;
+    font-size: 3.5vh;
+    font-family: "adult-swim-font";
+    text-shadow: 2px 2px 4px #000000;
+    background: url('../../assets/img/smallportal.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
 }
 
-#answer-box{
+#log-out:focus {
+    outline: 0;
+ }
+ 
+ #log-out:hover {
+    background-color: rgb(92, 185, 15);
+    transform: translate3d(-2px, -2px, 10px);
+    box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
+ }
+
+.stat-link {
+    margin-right: 20%;
+}
+
+/* #answer-box{
     border: 2px dashed grey;
     display: flex;
     flex-direction: column;
@@ -136,4 +198,4 @@ ul {
     object-fit: cover;
     width:100%;
     height:100%;
-}
+} */
