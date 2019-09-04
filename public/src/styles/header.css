@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: "rick-and-morty";
     src: url(../../assets/fonts/rick-and-morty.ttf);
@@ -13,43 +17,52 @@
     src: url(../../assets/fonts/adult-swim-font.ttf);
 }
 
-body {
+
+#main-header{
     background-color: black;
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 20px;
+    align-items: center;
 }
 
-h1.title {
-    font-family: "get-schwifty";
-    font-size: 4em;
-    -webkit-text-stroke-color: #000000;
-    -webkit-text-stroke-width: 0.001px;
-    color: rgb(16, 206, 212);
-    text-shadow:
-    -1px -1px 0 rgb(252, 255, 63),
-    0   -1px 0 rgb(252, 255, 63),
-    1px -1px 0 rgb(252, 255, 63),
-    1px  0   0 rgb(252, 255, 63),
-    1px  1px 0 rgb(252, 255, 63),
-    0    1px 0 rgb(252, 255, 63),
-<<<<<<< HEAD
-    -1px  1px 0 rgb(252, 255, 63),
-    -1px  0   0 rgb(252, 255, 63), 
-    0 0 14px rgb(60, 253, 26),
-    0 0 12px rgb(252, 255, 63);
-=======
-   -1px  1px 0 rgb(252, 255, 63),
-   -1px  0   0 rgb(252, 255, 63), 
-    0 0 12px rgb(60, 253, 26, .7),
-    0 0 10px rgb(252, 255, 63, .7);
+#main-header a{
+    color: white;
+    text-decoration: none;
+    font-size: 150%;
+    font-family: "adult-swim-font"
 }
+
+h1.title{
+    color: rgb(16, 206, 212);
+    font-family: "get-schwifty";
+    font-size: 250%;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;
+    text-shadow:
+    -1px -1px 0 rgb(213, 255, 63),
+    0   -1px 0 rgb(213, 255, 63),
+    1px -1px 0 rgb(213, 255, 63),
+    1px  0   0 rgb(213, 255, 63),
+    1px  1px 0 rgb(213, 255, 63),
+    0    1px 0 rgb(213, 255, 63),
+   -1px  1px 0 rgb(213, 255, 63),
+   -1px  0   0 rgb(213, 255, 63), 
+    0 0 12px rgb(60, 253, 26, .7),
+    0 0 10px rgb(213, 255, 63, .7);
+    letter-spacing: .05em;
+}
+
 
 #log-out-container{
     border: none;
     border-radius: 100%;
     width: 20vh;
     height: 20vh;
-    max-width: 150px;
-    max-height: 150px;
-    font-size: 4vh;
+    max-width: 100px;
+    max-height: 100px;
     background: url('../../assets/img/smallportal.png');
     background-size: 100%;
     color: white;
@@ -66,7 +79,6 @@ h1.title {
 
 @keyframes spin1 {
     100% { transform: rotate(360deg); }
->>>>>>> 87cf68875a222660af56c7d63441b94000917a96
 }
 
 #log-out {
@@ -74,10 +86,10 @@ h1.title {
     border-radius: 100%;
     width: 20vh;
     height: 20vh;
-    max-width: 150px;
-    max-height: 150px;
-    font-size: 4vh;
-    background: url('../../assets/img/clipportal.png');
+    max-width: 100px;
+    max-height: 100px;
+    font-size: 2.6vh;
+    background: url('../../assets/img/smallportal.png');
     background-size: 100%;
     color: white;
     font-family: "adult-swim-font";
@@ -101,5 +113,3 @@ background-color: rgb(92, 185, 15);
 box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
 transition-duration: 1000ms;
 }
-
-
