@@ -75,5 +75,10 @@
 }
 
 .answer {
-    padding: 7px;
+    display: flex;
+    padding:7px;
+}
+
+.answer-input {
+    margin-right: 10px;
 }

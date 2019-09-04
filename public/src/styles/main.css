@@ -60,12 +60,33 @@ h1.title{
     letter-spacing: .05em;
 }
 
+
 #log-out {
-    margin-right: 20px;
-    width: 100px;
+    border: none;
+    border-radius: 100%;
+    width: 15vh;
+    height: 15vh;
+    max-width: 150px;
+    max-height: 150px;
+    font-size: 3.5vh;
     font-family: "adult-swim-font";
-    font-size: 20px;
+    text-shadow: 2px 2px 4px #000000;
+    background: url('../../assets/img/smallportal.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
 }
+
+#log-out:focus {
+    outline: 0;
+ }
+ 
+ #log-out:hover {
+    background-color: rgb(92, 185, 15);
+    transform: translate3d(-2px, -2px, 10px);
+    box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
+ }
 
 .stat-link {
     margin-right: 20%;
