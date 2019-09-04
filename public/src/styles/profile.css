@@ -1,0 +1,43 @@
+#main-char {
+    height: auto;
+    width: 80%;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    margin-top: 50px;
+    background-color: rgba(255, 255, 255, 0.75);
+    border:1px solid black;
+}
+
+.main-img-container {
+    margin: 20px;
+    margin-left: -30px;
+}
+
+.main-img {
+    -webkit-filter: drop-shadow(4px 4px 5px gray);
+    filter: drop-shadow(4px 4px 5px gray);
+}
+
+.list-container p {
+    text-align: center;
+    font-family: "adult-swim-font";
+    font-size: 200%;
+}
+
+p span {
+    font-size: 200%;
+}
+
+.details {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 200%;
+}
+
+h2 {
+    font-family: "adult-swim-font";
+    margin-bottom: 20px;
+}
