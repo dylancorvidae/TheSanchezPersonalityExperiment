@@ -1,3 +1,56 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 @font-face {
     font-family: "rick-and-morty";
     src: url(../../assets/fonts/rick-and-morty.ttf);
@@ -20,7 +73,7 @@ body {
 
 h1 {
     font-family: "get-schwifty";
-    font-size: 7em;
+    font-size: 3em;
     -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 0.001px;
     text-shadow:
@@ -34,7 +87,28 @@ h1 {
    -1px  0   0 rgb(252, 255, 63), 
     0 0 14px rgb(60, 253, 26),
     0 0 12px rgb(252, 255, 63);
-
-    
-    
 }
+
+#log-out {
+    border: none;
+    margin: 20px;
+    border-radius: 100%;
+    width: 20vh;
+    height: 20vh;
+    max-width: 150px;
+    max-height: 150px;
+    font-size: 4vh;
+    background: url('../../assets/img/smallportal.png');
+    background-size: 100%;
+    color: white;
+}
+
+#log-out:focus {
+    outline: 0;
+ }
+ 
+ #log-out:hover {
+    background-color: rgb(92, 185, 15);
+    transform: translate3d(-2px, -2px, 10px);
+    box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
+ }
