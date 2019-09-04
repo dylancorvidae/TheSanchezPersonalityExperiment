@@ -12,8 +12,10 @@ class Header extends Component {
                 </div>
                 <a href="./profile.html"><span>[profile]</span></a>
                 <a href="./about.html"><span>[about us]</span></a>
-                <a href="./stats.html" class="stat-link"><span>[stats]</span></a>
+                <a href="./stats.html"><span>[stats]</span></a>
+                <div id="log-out-container">
                 <button id="log-out">[log out]</button>
+                </div>
             </header>
         `;
     }

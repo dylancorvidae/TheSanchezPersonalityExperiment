@@ -7,13 +7,14 @@
         <link rel="stylesheet" href="./src/styles/reset.css" type="text/css">
         <link rel="stylesheet" href="./src/styles/quiz.css" type="text/css">
         <link rel="stylesheet" href="./src/styles/main.css" type="text/css">
+        <link rel="stylesheet" href="./src/styles/header.css" type="text/css">
         <title>The Sanchez Personality Experiment</title>
     </head>
     <body>
         <div id="root">
+            
             <header id="main-header">
                 <div id="logo">
-
                     <h1 class="title">
                         The Sanchez Personality Experiment
                     </h1>
@@ -21,8 +22,9 @@
                 <a href="./profile.html"><span>[profile]</span></a>
                 <a href="./about.html"><span>[about us]</span></a>
                 <a href="./stats.html" class="stat-link"><span>[stats]</span></a>
-                <button id="log-out">[log out]</button>
+                <div id="log-out-container"><button id="log-out">[log out]</button></div>
             </header>
+
             <div class="wrapper">
                 <div id="back-button"><button class="back-btn"><img
                             class="back-btn-img"
@@ -31,8 +33,7 @@
                     <header id="question-header">
                         <p>Question 1</p>
                     </header>
-                    <div class="quiz-img-container"><img class="quiz-image"
-                            src="./assets/quiz-art/question-1.png" alt="portal"></div>
+                    <div class="quiz-img-container"><img class="quiz-image" src="./assets/quiz-art/question-1.png" alt="portal"></div>
                     <div id="question">
                         <span>Whoa, spoilers! I'm a whole season behind. You
                             don't
