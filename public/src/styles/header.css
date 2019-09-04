@@ -25,6 +25,7 @@
     flex-wrap: wrap;
     justify-content: space-between;
     padding: 20px;
+    align-items: center;
 }
 
 #main-header a{
@@ -37,7 +38,7 @@
 h1.title{
     color: rgb(16, 206, 212);
     font-family: "get-schwifty";
-    font-size: 200%;
+    font-size: 250%;
     -webkit-text-stroke-color: #000000;
     -webkit-text-stroke-width: 1px;
     text-shadow:
@@ -55,21 +56,52 @@ h1.title{
 }
 
 
+#log-out-container{
+    border: none;
+    border-radius: 100%;
+    width: 20vh;
+    height: 20vh;
+    max-width: 100px;
+    max-height: 100px;
+    background: url('../../assets/img/smallportal.png');
+    background-size: 100%;
+    color: white;
+    font-family: "adult-swim-font";
+    text-shadow: 2px 2px 4px #000000; 
+}
+
+#log-out-container:hover {
+    animation-name: spin1;
+    animation-duration: 4000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin1 {
+    100% { transform: rotate(360deg); }
+}
+
 #log-out {
     border: none;
     border-radius: 100%;
-    width: 15vh;
-    height: 15vh;
-    max-width: 150px;
-    max-height: 150px;
-    font-size: 3.5vh;
-    font-family: "adult-swim-font";
-    text-shadow: 2px 2px 4px #000000;
+    width: 20vh;
+    height: 20vh;
+    max-width: 100px;
+    max-height: 100px;
+    font-size: 2.6vh;
     background: url('../../assets/img/smallportal.png');
     background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
     color: white;
+    font-family: "adult-swim-font";
+    text-shadow: 2px 2px 4px #000000;
+    animation-name: spin2;
+    animation-duration: 8000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;    
+}
+
+@keyframes spin2 {
+    100% { transform: rotate(360deg); }
 }
 
 #log-out:focus {
@@ -77,7 +109,7 @@ h1.title{
 }
  
 #log-out:hover {
-    background-color: rgb(92, 185, 15);
-    transform: translate3d(-2px, -2px, 10px);
-    box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
+background-color: rgb(92, 185, 15);
+box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
+transition-duration: 1000ms;
 }
