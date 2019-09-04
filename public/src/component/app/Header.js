@@ -11,11 +11,12 @@ class Header extends Component {
                 </h1>
 
                 </div>
-                <a href="./profile.html"><span>Profile</span></a>
-                <a href="./about.html"><span>About Us</span></a>
-                <a href="./stats.html"><span>Stats</span></a>
-
-                <button id="log-out">Log out</button>
+                <a href="./profile.html"><span>[profile]</span></a>
+                <a href="./about.html"><span>[about us]</span></a>
+                <a href="./stats.html"><span>[stats]</span></a>
+                <div id="log-out-container">
+                <button id="log-out">[log out]</button>
+                </div>
             </header>
         `;
     }
