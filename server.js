@@ -32,7 +32,7 @@ const morgan = require('morgan');
 // });
 
 const app = express();
-// const PORT = process.env.PORT;
+const PORT = process.env.PORT;
 app.use(morgan('dev'));
 app.use(cors());
 app.use(express.static('public'));
@@ -40,3 +40,9 @@ app.use(express.json());
 
 // app.use('/api/auth', authRoutes);
 // app.use('/api', ensureAuth);
+
+
+// Start the server
+app.listen(PORT, () => {
+    console.log('server running on PORT', PORT);
+});
