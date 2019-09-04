@@ -1,6 +1,7 @@
 import Component from '../Component.js';
 import Header from '../app/Header.js';
 import AboutCard from './AboutCard.js';
+import { about } from '../../../../data/about-us.js';
 
 class AboutApp extends Component {
     onRender(dom) {
@@ -8,12 +9,11 @@ class AboutApp extends Component {
         dom.prepend(header.renderDOM());
 
         const cardContainer = dom.querySelector('#about-card-container');
-        const aboutCard = new AboutCard();
-        cardContainer.appendChild(aboutCard.renderDOM());
-        cardContainer.appendChild(aboutCard.renderDOM());
-        cardContainer.appendChild(aboutCard.renderDOM());
-        cardContainer.appendChild(aboutCard.renderDOM());
 
+        about.forEach(elem => {
+            const aboutCard = new AboutCard({ name: elem.name, image: elem.image, desc: elem.desc });
+            cardContainer.appendChild(aboutCard.renderDOM());
+        });
 
     }
     renderHTML() {
