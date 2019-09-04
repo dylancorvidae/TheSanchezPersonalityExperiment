@@ -1,10 +1,10 @@
-import Component from '../types/Component.js';
+import Component from '../Component.js';
 
 class SignUp extends Component {
 
     onRender(form) {
         const onSignUp = this.props.onSignUp;
-        
+
         form.addEventListener('submit', event => {
             event.preventDefault();
 

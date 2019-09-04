@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import Header from './Header.js';
-import SignUp from '../auth/SignUp.js';
-import SignIn from '../auth/SignIn.js';
+import SignUp from '../auth/signup.js';
+import SignIn from '../auth/signin.js';
 // import store from '../../services/store.js';
 
 // function success(user) {

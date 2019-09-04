@@ -1,4 +1,4 @@
-import Component from '../types/Component.js';
+import Component from '../Component.js';
 
 class SignIn extends Component {
 
