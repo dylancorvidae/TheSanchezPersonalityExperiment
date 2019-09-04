@@ -6,6 +6,8 @@ const morgan = require('morgan');
 
 const client = require('./lib/client');
 
+client.connect();
+
 const ensureAuth = require('./lib/auth/ensure-auth');
 const createAuthRoutes = require('./lib/auth/create-auth-routes');
 const authRoutes = createAuthRoutes({
@@ -19,8 +21,6 @@ const authRoutes = createAuthRoutes({
         ).then(result => result.rows[0]);
     },
     insertUser(user, hash) {
-        console.log('user', user);
-        console.log('hash', hash);
         return client.query(`
             INSERT into users (email, hash, display_name)
             VALUES ($1, $2, $3)
@@ -43,7 +43,33 @@ app.use('/api', ensureAuth);
 
 //ROUTES
 
+app.get('/api/test', (req, res) => {
+    client.query(`
+        SELECT * FROM test
+    `)
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
 
+app.get('/api/answers', (req, res) => {
+    client.query(`
+        SELECT * FROM answers
+    `)
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
 
 
 

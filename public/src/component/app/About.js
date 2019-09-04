@@ -20,7 +20,7 @@ class AboutApp extends Component {
         return /*html*/`
         <div id="root">
             <div id="about-container">
-                <h1>About "Us"</h1>
+                <h2>Meet The Developers</h2>
                 
                 <div id="about-card-container">
 

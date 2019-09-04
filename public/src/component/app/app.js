@@ -1,6 +1,7 @@
 import Component from '../Component.js';
 import Header from './Header.js';
 import QuizApp from '../quiz/QuizApp.js';
+import { getQuestion, getAnswers } from '../../services/quiz-api.js';
 
 class App extends Component {
 
@@ -8,35 +9,48 @@ class App extends Component {
         const header = new Header();
         dom.prepend(header.renderDOM());
 
-        const quizProps = {
-            quizLength: 10,
-            questionText: `Whoa, spoilers! I'm a whole season behind. You
-                            don't
-                            know me! Well he roped me into this! I wanna be
-                            alive, I
-                            am alive!
-                            Alive i tell you. Mother, I love you.`,
-            questionHeader: 'Question 1',
-            image: `assets/img/portal-realistic-background.gif`,
-            answerOne: 'Answer ONE!!!!!!',
-            answerTwo: 'Answer TWO!!!!!!',
-            answerThree: 'Answer THREEeeeeee!!!!!!',
-            answerFour: 'Answer FOURRRRLOKO!!!!!!',
+        const quizApp = new QuizApp();
 
-        };
+        let quizProps = {};
 
-        const quizApp = new QuizApp(quizProps);
+        getQuestion(1)
+            .then(data => {
+                quizProps.questionHeader = 'Question 1';
+                quizProps.image = data.img;
+                quizProps.questionText = data.question_text;
+                this.state.quizProps = quizProps;
+                quizApp.update(quizProps);
+            })
+            .catch(err => {
+                console.log(err);
+            });
+
+        getAnswers(1)
+            .then(data => {
+                quizProps.answerOne = data[0].text;
+                quizProps.answerTwo = data[1].text;
+                quizProps.answerThree = data[2].text;
+                quizProps.answerFour = data[3].text;
+                this.state.quizProps = quizProps;
+                quizApp.update(quizProps);
+            });
+
         dom.querySelector('#quiz-box').appendChild(quizApp.renderDOM());
+
     }
 
     renderHTML() {
         return /*html*/`
             <div id="root">
                 <div class="wrapper">
-                    <div id="back-button">BACK</div>
+                    <div id="back-button"><button class="back-btn"><img
+                            class="back-btn-img"
+                            src="assets/icons/portal-gun.png">BACK</button></div>
                     <section id="quiz-box">
                     </section>
-                    <div id="forward-button">NEXT</div>
+                    <div id="forward-button"><button class="next-btn"><img
+                            class="next-btn-img"
+                            src="assets/icons/portal-gun.png">NEXT</button></div>
 
                 </div>            
             </div>
