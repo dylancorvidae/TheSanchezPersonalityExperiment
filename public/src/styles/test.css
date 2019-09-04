@@ -83,8 +83,8 @@ h1 {
     1px  0   0 rgb(252, 255, 63),
     1px  1px 0 rgb(252, 255, 63),
     0    1px 0 rgb(252, 255, 63),
-   -1px  1px 0 rgb(252, 255, 63),
-   -1px  0   0 rgb(252, 255, 63), 
+    -1px  1px 0 rgb(252, 255, 63),
+    -1px  0   0 rgb(252, 255, 63), 
     0 0 14px rgb(60, 253, 26),
     0 0 12px rgb(252, 255, 63);
 }
@@ -98,7 +98,7 @@ h1 {
     max-width: 150px;
     max-height: 150px;
     font-size: 4vh;
-    background: url('../../assets/img/smallportal.png');
+    background: url('../../assets/img/clipportal.png');
     background-size: 100%;
     color: white;
 }
