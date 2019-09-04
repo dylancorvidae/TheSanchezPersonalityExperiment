@@ -14,14 +14,15 @@ class QuizApp extends Component {
                         <span>${props.questionText}</span>
                     </div>
                     <div id="answer-box">
-                        <input type="radio" name="question-one"
-                            value="answer-one">${props.answerOne}
-                        <input type="radio" name="question-one"
+                    <label for="question-one"><input type="radio" name="question-one"
+                            value="answer-one">${props.answerOne}</label>
+                            <label for="question-two"><input type="radio" name="question-one"
                             value="answer-two">${props.answerTwo}
-                        <input type="radio" name="question-one"
-                            value="answer-three">${props.answerThree}
-                        <input type="radio" name="question-one"
-                            value="answer-four">${props.answerFour}
+                            </label>
+                            <label for="question-three"><input type="radio" name="question-one"
+                            value="answer-three">${props.answerThree}</label>
+                            <label for="question-four"><input type="radio" name="question-one"
+                            value="answer-four">${props.answerFour}</label>
                     </div>
                     </div>
         `;
