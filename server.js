@@ -72,7 +72,44 @@ app.get('/api/answers', (req, res) => {
 });
 
 
+app.put('/api/game/:id', (req, res) => {
+    console.log('SERVER', req.params.id);
+    const data = req.body;
+    const id = req.params.id;
+    if(data.quizOrder) {
+        client.query(`
+        UPDATE game SET question_order = $1 WHERE id = $2
+        `[data.quizOrder, id]
+        )
+            .then(result => {
+                console.log(result);
+                res.json(result.rows[0]);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    error: err.message || err
+                });
+            });
+    }
+});
 
+app.post('/api/game', (req, res) => {
+    const userId = req.body.userId;
+    client.query(`
+        INSERT INTO game (user_id)
+        VALUES ($1)
+        RETURNING id;
+    `[userId])
+        .then(result => {
+            console.log(result);
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
 
 
 // Start the server

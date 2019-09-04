@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import Header from './Header.js';
 import QuizApp from '../quiz/QuizApp.js';
-import { getQuestion, getAnswers } from '../../services/quiz-api.js';
+import { getQuestion, getAnswers, updateGame, createGame } from '../../services/quiz-api.js';
 
 class App extends Component {
 
@@ -10,6 +10,25 @@ class App extends Component {
         dom.prepend(header.renderDOM());
 
         const quizApp = new QuizApp();
+
+        const quizOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+
+        shuffle(quizOrder);
+
+        createGame(1);
+        // .then((id) => {
+        //     updateGame({ id: id, quizOrder: quizOrder.join('') });
+        // });
+
+
+
+        function shuffle(arr) { // Fisher-Yates Shuffle. Source: https://javascript.info/task/shuffle
+            for(let i = arr.length - 1; i > 0; i--) {
+                let j = Math.floor(Math.random() * (i + 1));
+                [arr[i], arr[j]] = [arr[j], arr[i]];
+            }
+        }
+
 
         let quizProps = {};
 

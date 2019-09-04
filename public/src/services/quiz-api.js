@@ -3,13 +3,13 @@ const URL = '/api';
 
 const userToken = store.getToken();
 
-if(!userToken && location.pathname !== '/auth.html') {
+if (!userToken && location.pathname !== '/auth.html') {
     const searchParams = new URLSearchParams();
     searchParams.set('redirect', location.pathname);
     location = `auth.html?${searchParams.toString()}`;
 }
 function fetchWithError(url, options) {
-    if(userToken) {
+    if (userToken) {
         options = options || {};
         options.headers = options.headers || {};
         options.headers.Authorization = userToken;
@@ -17,7 +17,7 @@ function fetchWithError(url, options) {
 
     return fetch(url, options)
         .then(response => {
-            if(response.ok) {
+            if (response.ok) {
                 return response.json();
             }
             else {
@@ -58,7 +58,6 @@ export function getAnswers(id) {
     const url = `${URL}/answers`;
     return fetchWithError(url)
         .then(answers => {
-            console.log(answers);
             return answers.filter(answer => {
                 return answer.question_id === id;
             });
@@ -66,7 +65,27 @@ export function getAnswers(id) {
 }
 
 
+export function updateGame(data) {
+    const url = `${URL}/game/${data.id}`;
+    return fetchWithError(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+}
 
+export function createGame(userId) {
+    const url = `${URL}/game/`;
+    return fetchWithError(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(userId)
+    });
+}
 
 
 //copy paste from Marty
