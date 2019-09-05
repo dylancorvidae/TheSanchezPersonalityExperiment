@@ -1,7 +1,7 @@
 export const about = [
     {
         name: 'Rick',
-        image: './assets/img/rick.jpg',
+        image: './assets/img/Rick.png',
         desc: `Oh, I'm sorry Morty, are you the scientist or are you the kid who wanted to get laid? Do you know how many characters there are in the Simpsons Morty? There's like a-a billion characters, M-Morty. There was an episode where Former President BUSH was their neighbor! Puh rum pum pow! Hello Jerry, come to rub my face in urine again?`
     },
     {
@@ -16,7 +16,7 @@ export const about = [
     },
     {
         name: 'Dylan',
-        image: '',
+        image: './assets/img/Dylan-icon.png',
         desc: `Those guys are inside you building a piece of shit Ethan! They're inside you building a monument to compromise! Fuck them, fuck those people, fuck this whole thing Ethan. Your blood will be my lotion! Lick, lick, lick my balls! I turned myself into a pickle, Morty! Boom! Big reveal! I'm a pickle! What do you think about that? I turned myself into a pickle! W-what are you just staring at me for, bro? I turned myself into a pickle, Morty.`
     },
     {
