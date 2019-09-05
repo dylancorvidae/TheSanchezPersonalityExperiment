@@ -40,10 +40,10 @@ class App extends Component {
             if(questionNumber === 21) {
                 endGame();
             } else {
-                console.log(questionNumber);
                 updateGame({ userAnswer: answer, id: gameId });
-                updateQuiz(questionOrder[questionNumber]);
+                updateQuiz(parseInt(questionOrder[questionNumber]));
                 questionNumber++;
+                console.log('NEXT BUTTON QUESTION NUMBER', questionNumber);
             }
         });
 
@@ -61,7 +61,6 @@ class App extends Component {
                     newGame();
                 }
             }).catch(err => {
-                // eslint-disable-next-line no-console
                 console.log(err);
             });
 
@@ -79,12 +78,11 @@ class App extends Component {
         }
 
         function updateQuiz(id) {
-
             let quizProps = {};
 
             getQuestion(id)
                 .then(data => {
-                    quizProps.questionHeader = 'Question X';
+                    quizProps.questionHeader = `Question ${questionNumber}`;
                     quizProps.image = data.img;
                     quizProps.questionText = data.question_text;
                     // this.state.quizProps = quizProps;
@@ -113,6 +111,18 @@ class App extends Component {
 
         function resumeGame(lastGame) {
             console.log('resuming game', lastGame.id);
+            console.log(lastGame);
+
+            let position;
+            lastGame.user_answer ? position = lastGame.user_answer.length / 5 : position = 0;
+
+            const order = lastGame.question_order.split(',');
+            questionNumber = position + 1;
+            gameId = lastGame.id;
+            questionOrder = order;
+
+            updateQuiz(parseInt(order[position]));
+
         }
 
         function endGame() {

@@ -17,7 +17,7 @@ class AuthApp extends Component {
         const header = new Header();
         dom.prepend(header.renderDOM());
 
-        const error = dom.querySelector('.error');
+        const error = dom.querySelector('.errors');
         const signUpBox = dom.querySelector('#signup-box');
         const signInBox = dom.querySelector('#signin-box');
 
@@ -57,7 +57,7 @@ class AuthApp extends Component {
             signInBox.classList.remove('hidden');
             signUpBox.classList.add('hidden');
         });
-        
+
         const switchToSignUp = dom.querySelector('#signup-switch-button');
         switchToSignUp.addEventListener('click', () => {
             signUpBox.classList.remove('hidden');
