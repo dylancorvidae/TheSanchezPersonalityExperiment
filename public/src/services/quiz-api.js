@@ -28,16 +28,6 @@ function fetchWithError(url, options) {
         });
 }
 
-export function makeNewGame(userId) {
-    const url = `${URL}/game`;
-    return fetchWithError(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userId)
-    });
-}
 
 export function getGames() {
     const url = `${URL}/game`;
@@ -58,7 +48,6 @@ export function getAnswers(id) {
     const url = `${URL}/answers`;
     return fetchWithError(url)
         .then(answers => {
-            console.log(answers);
             return answers.filter(answer => {
                 return answer.question_id === id;
             });
@@ -66,7 +55,27 @@ export function getAnswers(id) {
 }
 
 
+export function updateGame(data) {
+    const url = `${URL}/game/${data.id}`;
+    return fetchWithError(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+}
 
+export function createGame(order) {
+    const url = `${URL}/game/`;
+    return fetchWithError(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(order)
+    });
+}
 
 
 //copy paste from Marty
