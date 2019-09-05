@@ -1,4 +1,5 @@
 import store from './store.js';
+// import { pathToFileURL } from 'url';
 const URL = '/api';
 
 const userToken = store.getToken();
@@ -68,6 +69,18 @@ export function updateGame(data) {
         },
         body: JSON.stringify(data)
     });
+}
+
+export function backOne(data) {
+    const url = `${URL}/game/${data.id}`;
+    return fetchWithError(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+
 }
 
 export function createGame(order) {

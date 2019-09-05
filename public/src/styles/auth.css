@@ -41,13 +41,19 @@ div#auth-container {
     background-position: center;
 }
 
-
+.errors {
+    font-family: "adult-swim-font";
+    color: red;
+    font-size: 1em;
+    align-self: center;
+}
 
 main p.switch, main p.errors {
     text-align: center;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
 #signin-box, #signup-box {
@@ -83,11 +89,6 @@ input {
     color: rgb(199, 199, 199);
 }
 
-.errors {
-    font-family: "adult-swim-font";
-    color: red;
-}
-
 
 
 #signup-switch-button, #signin-switch-button {
@@ -95,7 +96,7 @@ input {
     font-size: 50%;
     margin: 10px 0px 20px 0px;
     color:rgb(199, 199, 199);
-    font-family: 'Noto Serif', serif;
+    font-family: "adult-swim-font";
     border-radius: 50%;
     padding: 12px;
     border: none;
@@ -111,7 +112,7 @@ input {
     font-size: 50%;
     margin: 20px 0px 10px 0px;
     color:rgb(199, 199, 199);
-    font-family: 'Noto Serif', serif;
+    font-family: "adult-swim-font";
     border-radius: 50%;
     padding: 12px;
     border: none;
