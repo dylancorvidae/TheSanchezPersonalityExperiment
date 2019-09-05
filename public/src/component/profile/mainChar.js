@@ -3,6 +3,7 @@ import Component from '../Component.js';
 class MainChar extends Component {
     renderHTML() {
         const props = this.props;
+        console.log('PROPS', props);
         return /*html*/`
             <div id="main-img-container" class="main-img">
                 <img class="main-img" src="${props.image}" height="500";>

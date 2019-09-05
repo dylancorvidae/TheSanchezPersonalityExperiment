@@ -43,8 +43,23 @@ app.use('/api', ensureAuth);
 
 //ROUTES
 
+app.get('/api/mbti/:name', (req, res) => {
+    const name = req.params.name;
+    client.query(`
+        SELECT * FROM mbti WHERE name = $1;
+    `, [name])
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
+
+
 app.get('/api/test', (req, res) => {
-    console.log('SERVER CALL');
     client.query(`
         SELECT * FROM test;
     `)
@@ -89,7 +104,6 @@ app.get('/api/game', (req, res) => {
 app.put('/api/game/:id', (req, res) => {
     const data = req.body;
     const id = req.params.id;
-    console.log(data, id);
     if(data.isComplete) {
         client.query(`
         UPDATE game SET is_complete = $1 WHERE id = $2;
@@ -105,7 +119,6 @@ app.put('/api/game/:id', (req, res) => {
             });
     }
     if(data.userAnswer) {
-        console.log(data.userAnswer);
         client.query(`
         UPDATE game SET user_answer = CONCAT(user_answer, $1::text) WHERE id = $2;
         `, [data.userAnswer, id])
@@ -136,31 +149,30 @@ app.post('/api/game', (req, res) => {
         });
 });
 
-app.get('/api/characters/', (req, res) => {
-    client.query(`SELECT *
-                  FROM characters
-                  WHERE id = $1 `, [req.id])
-        .then(result => {
-            res.json(result.rows);
-        })
-        .catch(err => {
-            res.status(500).json({
-                error: err.message || err
-            });
-        });
-});
+// app.get('/api/characters/', (req, res) => {
+//     client.query(`SELECT *
+//                   FROM characters
+//                   WHERE id = $1 `, [req.id])
+//         .then(result => {
+//             res.json(result.rows);
+//         })
+//         .catch(err => {
+//             res.status(500).json({
+//                 error: err.message || err
+//             });
+//         });
+// });
 
 app.get('/api/characters/:mbti', (req, res) => {
     const mbti = req.params.mbti;
-
     client.query(`
         SELECT *
         FROM characters
         WHERE mbti = $1 
     `, [mbti])
         .then(result => {
-            const character = result.row[0];
-            if(!character){
+            const character = result.rows[0];
+            if(!character) {
                 res.status(404).json({
                     error: `character mbti ${mbti} does not exist`
                 });

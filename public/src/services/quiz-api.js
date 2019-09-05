@@ -28,6 +28,10 @@ function fetchWithError(url, options) {
         });
 }
 
+export function getMBTI(name) {
+    const url = `${URL}/mbti/${name}`;
+    return fetchWithError(url);
+}
 
 export function getGames() {
     const url = `${URL}/game`;
@@ -77,14 +81,15 @@ export function createGame(order) {
     });
 }
 
-export function getCharacterFromApi(name){
+export function getCharacterFromApi(name) {
     const url = `https://rickandmortyapi.com/api/character/?name=${name}`;
     return fetch(url)
         .then(response => response.json());
 }
 
-export function getCharacter(mbti){
-    const url = `${URL}/character/${mbti}`;
+export function getCharacter(mbti) {
+    console.log(mbti);
+    const url = `${URL}/characters/${mbti}`;
     return fetchWithError(url);
 }
 
