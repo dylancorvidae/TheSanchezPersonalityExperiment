@@ -28,6 +28,7 @@ function fetchWithError(url, options) {
         });
 }
 
+
 export function getGames() {
     const url = `${URL}/game`;
     return fetchWithError(url);

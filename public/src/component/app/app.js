@@ -13,7 +13,7 @@ class App extends Component {
         let answer = '';
         let gameId = 0;
         let questionOrder = [];
-        let questionNumber = 0;
+        let questionNumber = 1;
 
         const quizApp = new QuizApp({
             questions: [],
@@ -31,16 +31,19 @@ class App extends Component {
             window.location = 'auth.html';
         });
 
+        //button event listeners
+
         const backButton = dom.querySelector('#back-button');
         const forwardButton = dom.querySelector('#forward-button');
 
         forwardButton.addEventListener('click', () => {
-            questionNumber++;
-            if(questionNumber === 22) {
+            if(questionNumber === 21) {
                 endGame();
             } else {
+                console.log(questionNumber);
                 updateGame({ userAnswer: answer, id: gameId });
                 updateQuiz(questionOrder[questionNumber]);
+                questionNumber++;
             }
         });
 
@@ -105,8 +108,6 @@ class App extends Component {
                     // this.state.quizProps = quizProps;
                     quizApp.update(quizProps);
                 });
-
-
         }
 
 
@@ -115,18 +116,12 @@ class App extends Component {
         }
 
         function endGame() {
-            getGames()
-                .then(data => {
-                    const lastGame = data.find(game => {
-                        return game.is_complete === false;
-                    });
-                    console.log(lastGame.user_answer);
-                    updateGame({ isComplete: true, id: gameId });
-                }).catch(err => {
+            updateGame({ isComplete: true, id: gameId })
+                .catch(err => {
                     // eslint-disable-next-line no-console
                     console.log(err);
                 });
-
+            window.location = './profile.html';
         }
 
 
