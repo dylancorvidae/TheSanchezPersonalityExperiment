@@ -1,5 +1,8 @@
+/* eslint-disable no-undef */
 const ctx = document.getElementById('all-user-stats').getContext('2d');
 
+
+Chart.defaults.global.defaultFontColor = '#FFF';
 
 // eslint-disable-next-line no-unused-vars
 const allTimeStats = new Chart(ctx, {
@@ -17,6 +20,7 @@ const allTimeStats = new Chart(ctx, {
     options: {
         responsive: true,
         maintainAspectRatio: true,
+        scaleFontColor: '#FFFFFF',
         scales: {
             yAxes: [{
                 ticks: {
