@@ -1,7 +1,7 @@
 export const about = [
     {
         name: 'Rick',
-        image: './assets/img/rick.jpg',
+        image: './assets/img/Rick.png',
         desc: `Oh, I'm sorry Morty, are you the scientist or are you the kid who wanted to get laid? Do you know how many characters there are in the Simpsons Morty? There's like a-a billion characters, M-Morty. There was an episode where Former President BUSH was their neighbor! Puh rum pum pow! Hello Jerry, come to rub my face in urine again?`
     },
     {
