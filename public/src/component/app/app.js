@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import Header from './Header.js';
 import QuizApp from '../quiz/QuizApp.js';
-import { getQuestion, getAnswers, updateGame, createGame } from '../../services/quiz-api.js';
+import { getQuestion, getAnswers, updateGame, createGame, getGames } from '../../services/quiz-api.js';
 
 class App extends Component {
 
@@ -9,53 +9,28 @@ class App extends Component {
         const header = new Header();
         dom.prepend(header.renderDOM());
 
-        const quizApp = new QuizApp();
 
-        const quizOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+        // check if current user has an unfinished game and resume it
+        // if not, start a new game
 
-        shuffle(quizOrder);
-
-        createGame(2)
-            .then(id => {
-                updateGame({ id: id, quizOrder: quizOrder.join(',') });
-            });
-
-        function shuffle(arr) { // Fisher-Yates Shuffle. Source: https://javascript.info/task/shuffle
-            for (let i = arr.length - 1; i > 0; i--) {
-                let j = Math.floor(Math.random() * (i + 1));
-                [arr[i], arr[j]] = [arr[j], arr[i]];
-            }
-        }
-
-
-
-
-        let quizProps = {};
-
-        getQuestion(1)
+        getGames()
             .then(data => {
-                quizProps.questionHeader = 'Question 1';
-                quizProps.image = data.img;
-                quizProps.questionText = data.question_text;
-                this.state.quizProps = quizProps;
-                quizApp.update(quizProps);
-            })
-            .catch(err => {
+                if (data) {
+                    const lastGame = data.find(game => {
+                        return game.is_complete === false
+                    });
+                    lastGame ? this.resumeGame(lastGame.id) : this.newGame();
+                } else {
+                    this.newGame();
+                }
+            }).catch(err => {
                 // eslint-disable-next-line no-console
                 console.log(err);
             });
 
-        getAnswers(1)
-            .then(data => {
-                quizProps.answerOne = data[0].text;
-                quizProps.answerTwo = data[1].text;
-                quizProps.answerThree = data[2].text;
-                quizProps.answerFour = data[3].text;
-                this.state.quizProps = quizProps;
-                quizApp.update(quizProps);
-            });
 
-        dom.querySelector('#quiz-box').appendChild(quizApp.renderDOM());
+
+
 
         const logoutButton = dom.querySelector('#log-out');
 
@@ -64,6 +39,52 @@ class App extends Component {
             window.location = 'auth.html';
         });
     }
+
+    newGame() {
+        const quizOrder = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21];
+        this.shuffle(quizOrder);
+        return createGame({ order: quizOrder.join(',') })
+            .then(result => {
+                const questionID = result.question_order.split(',');
+                this.updateQuiz(parseInt(questionID[0]))
+            })
+    }
+
+    updateQuiz(id) {
+        const quizApp = new QuizApp();
+        document.querySelector('#quiz-box').appendChild(quizApp.renderDOM());
+
+        let quizProps = {};
+
+        getQuestion(id)
+            .then(data => {
+                quizProps.questionHeader = 'Question X';
+                quizProps.image = data.img;
+                quizProps.questionText = data.question_text;
+                // this.state.quizProps = quizProps;
+                quizApp.update(quizProps);
+            })
+            .catch(err => {
+                // eslint-disable-next-line no-console
+                console.log(err);
+            });
+
+        getAnswers(id)
+            .then(data => {
+                quizProps.answerOne = data[0].text;
+                quizProps.answerTwo = data[1].text;
+                quizProps.answerThree = data[2].text;
+                quizProps.answerFour = data[3].text;
+                // this.state.quizProps = quizProps;
+                quizApp.update(quizProps);
+            });
+    }
+
+
+    resumeGame(id) {
+        console.log('resuming game', id)
+    }
+
 
     renderHTML() {
         return /*html*/`
@@ -82,6 +103,15 @@ class App extends Component {
             </div>
             `;
     }
+
+
+    shuffle(arr) { // Fisher-Yates Shuffle. Source: https://javascript.info/task/shuffle
+        for (let i = arr.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            [arr[i], arr[j]] = [arr[j], arr[i]];
+        }
+    }
+
 }
 
 export default App;

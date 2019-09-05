@@ -17,7 +17,7 @@ const authRoutes = createAuthRoutes({
             FROM users
             WHERE email = $1;
         `,
-        [email]
+            [email]
         ).then(result => result.rows[0]);
     },
     insertUser(user, hash) {
@@ -26,7 +26,7 @@ const authRoutes = createAuthRoutes({
             VALUES ($1, $2, $3)
             RETURNING id, email, display_name as "displayName";
         `,
-        [user.email, hash, user.displayName]
+            [user.email, hash, user.displayName]
         ).then(result => result.rows[0]);
     }
 });
@@ -71,11 +71,24 @@ app.get('/api/answers', (req, res) => {
         });
 });
 
+app.get('/api/game', (req, res) => {
+    client.query(`
+        SELECT * FROM game WHERE users_id = $1;
+    `, [req.userId])
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+})
 
 app.put('/api/game/:id', (req, res) => {
     const data = req.body;
     const id = req.params.id;
-    if(data.quizOrder) {
+    if (data.quizOrder) {
         client.query(`
         UPDATE game SET question_order = $1 WHERE id = $2;
         `, [data.quizOrder, id]
@@ -91,16 +104,15 @@ app.put('/api/game/:id', (req, res) => {
     }
 });
 
-app.post('/api/game/', (req, res) => {
-    const userId = req.body.userId;
+app.post('/api/game', (req, res) => {
     client.query(`
-        INSERT INTO game (users_id, is_complete)
-        VALUES ($1, $2)
-        RETURNING id;
-    `, [userId, false])
+        INSERT INTO game (users_id, question_order, is_complete)
+        VALUES ($1, $2, $3)
+        RETURNING *;
+    `, [req.userId, req.body.order, false])
         .then(result => {
-            console.log('here');
-            res.json(result.rows[0].id);
+            console.log(result.rows)
+            res.json(result.rows[0]);
         })
         .catch(err => {
             res.status(500).json({
