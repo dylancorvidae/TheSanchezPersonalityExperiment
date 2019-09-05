@@ -16,7 +16,7 @@ class ProfileApp extends Component {
             species: `Species: Human`,
             gender: `Gender: Male`,
             origin: `Origin: Earth (C-137)`,
-            personality: `INTJ`
+            personality: `INTJ`git pu
         };
 
 
