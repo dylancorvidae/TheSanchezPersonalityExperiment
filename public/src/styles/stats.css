@@ -78,7 +78,28 @@ li {
     font-size: 25px;
 }
 
-h1{
+h2 {
+    margin: 20px;
+    color: rgb(16, 206, 212);
+    font-family: "get-schwifty";
+    font-size: 250%;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;
+    text-shadow:
+    -1px -1px 0 rgb(213, 255, 63),
+    0   -1px 0 rgb(213, 255, 63),
+    1px -1px 0 rgb(213, 255, 63),
+    1px  0   0 rgb(213, 255, 63),
+    1px  1px 0 rgb(213, 255, 63),
+    0    1px 0 rgb(213, 255, 63),
+    -1px  1px 0 rgb(213, 255, 63),
+    -1px  0   0 rgb(213, 255, 63), 
+    0 0 12px rgb(60, 253, 26, .7),
+    0 0 10px rgb(213, 255, 63, .7);
+    letter-spacing: .05em;
+}
+
+h3{
     font-size: 25px;
     color: white;
 }
