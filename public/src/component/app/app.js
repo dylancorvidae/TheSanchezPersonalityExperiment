@@ -1,6 +1,7 @@
 import Component from '../Component.js';
 import Header from './Header.js';
 import QuizApp from '../quiz/QuizApp.js';
+import store from '../../services/store.js';
 import { getQuestion, getAnswers } from '../../services/quiz-api.js';
 
 class App extends Component {
@@ -22,6 +23,7 @@ class App extends Component {
                 quizApp.update(quizProps);
             })
             .catch(err => {
+                // eslint-disable-next-line no-console
                 console.log(err);
             });
 
@@ -37,6 +39,12 @@ class App extends Component {
 
         dom.querySelector('#quiz-box').appendChild(quizApp.renderDOM());
 
+        const logoutButton = dom.querySelector('#log-out');
+
+        logoutButton.addEventListener('click', () => {
+            store.removeToken();
+            window.location = 'auth.html';
+        });
     }
 
     renderHTML() {
@@ -54,7 +62,7 @@ class App extends Component {
 
                 </div>            
             </div>
-        `;
+            `;
     }
 }
 
