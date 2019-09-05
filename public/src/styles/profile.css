@@ -45,12 +45,14 @@
 }
 
 .personality {
+    border: solid 1px black;
     text-align: center;
+    margin-top: 15px;
+    padding: 10px;
 }
 
 h2 {
     font-family: "adult-swim-font";
-    margin-top: 15px;
     font-size: 200%;
 }
 

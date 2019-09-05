@@ -21,7 +21,7 @@ class App extends Component {
             });
 
         function shuffle(arr) { // Fisher-Yates Shuffle. Source: https://javascript.info/task/shuffle
-            for(let i = arr.length - 1; i > 0; i--) {
+            for (let i = arr.length - 1; i > 0; i--) {
                 let j = Math.floor(Math.random() * (i + 1));
                 [arr[i], arr[j]] = [arr[j], arr[i]];
             }
@@ -41,6 +41,7 @@ class App extends Component {
                 quizApp.update(quizProps);
             })
             .catch(err => {
+                // eslint-disable-next-line no-console
                 console.log(err);
             });
 
@@ -56,6 +57,12 @@ class App extends Component {
 
         dom.querySelector('#quiz-box').appendChild(quizApp.renderDOM());
 
+        const logoutButton = dom.querySelector('#log-out');
+
+        logoutButton.addEventListener('click', () => {
+            store.removeToken();
+            window.location = 'auth.html';
+        });
     }
 
     renderHTML() {
@@ -73,7 +80,7 @@ class App extends Component {
 
                 </div>            
             </div>
-        `;
+            `;
     }
 }
 

@@ -24,7 +24,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 20px;
+    padding: 20px 30px;
     align-items: center;
 }
 
@@ -48,15 +48,16 @@ h1.title{
     1px  0   0 rgb(213, 255, 63),
     1px  1px 0 rgb(213, 255, 63),
     0    1px 0 rgb(213, 255, 63),
-   -1px  1px 0 rgb(213, 255, 63),
-   -1px  0   0 rgb(213, 255, 63), 
+    -1px  1px 0 rgb(213, 255, 63),
+    -1px  0   0 rgb(213, 255, 63), 
     0 0 12px rgb(60, 253, 26, .7),
     0 0 10px rgb(213, 255, 63, .7);
-    letter-spacing: .05em;
+    letter-spacing: .03em;
 }
 
 
 #log-out-container{
+    margin-right: 20px;
     border: none;
     border-radius: 100%;
     width: 20vh;

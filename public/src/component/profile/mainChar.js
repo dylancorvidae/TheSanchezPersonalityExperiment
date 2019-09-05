@@ -4,19 +4,29 @@ class MainChar extends Component {
     renderHTML() {
         const props = this.props;
         return /*html*/`
-            <div id="most-common-character">
-                    YOU ARE <h1><span>${props.name.toUpperCase()}</span></h1>
-                    <img
-                        src="${props.image}"
-                        height="400">
-                    <ul>
-                        <li><h2>${props.personality}</h2></li>
-                        <li>${props.status}</li>
-                        <li>${props.species}</li>
-                        <li>${props.gender}</li>
-                        <li>${props.origin}</li>
-                    </ul>
+            <div id="main-img-container" class="main-img">
+                <img class="main-img" src="${props.image}" height="500";>
+            <div>
+
+            <div class="list-container">
+                <div class="title">
+                    <p class="first">YOU ARE</p> 
+                    <p><span class="character">${props.name.toUpperCase()}</span></p>
+                    <p class="quote">${props.quote}</p>
                 </div>
+
+                <div class="personality">
+                    <h2>${props.personality}</h2>
+                        <p><span class="description">${props.description}</span></p>
+                </div>
+
+                <ul class="details">
+                    <li>${props.status}</li>
+                    <li>${props.species}</li>
+                    <li>${props.gender}</li>
+                    <li>${props.origin}</li>
+                </ul>
+            </div>
         `;
     }
 }
