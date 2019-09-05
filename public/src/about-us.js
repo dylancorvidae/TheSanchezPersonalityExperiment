@@ -16,7 +16,7 @@ export const about = [
     },
     {
         name: 'Dylan',
-        image: '',
+        image: './assets/img/Dylan-icon.png',
         desc: `Those guys are inside you building a piece of shit Ethan! They're inside you building a monument to compromise! Fuck them, fuck those people, fuck this whole thing Ethan. Your blood will be my lotion! Lick, lick, lick my balls! I turned myself into a pickle, Morty! Boom! Big reveal! I'm a pickle! What do you think about that? I turned myself into a pickle! W-what are you just staring at me for, bro? I turned myself into a pickle, Morty.`
     },
     {
