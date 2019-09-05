@@ -3,11 +3,11 @@ import Component from '../Component.js';
 class MainChar extends Component {
     renderHTML() {
         const props = this.props;
-        console.log('PROPS', props);
         return /*html*/`
+        <div>
             <div id="main-img-container" class="main-img">
                 <img class="main-img" src="${props.image}" height="500";>
-            <div>
+            </div>
 
             <div class="list-container">
                 <div class="title">
@@ -22,11 +22,12 @@ class MainChar extends Component {
                 </div>
 
                 <ul class="details">
-                    <li>${props.status}</li>
-                    <li>${props.species}</li>
-                    <li>${props.gender}</li>
-                    <li>${props.origin}</li>
+                    <li>Status: ${props.status}</li>
+                    <li>Species: ${props.species}</li>
+                    <li>Gender: ${props.gender}</li>
+                    <li>Origin: ${props.origin}</li>
                 </ul>
+            </div>
             </div>
         `;
     }
