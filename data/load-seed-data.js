@@ -42,9 +42,9 @@ client.connect()
         return Promise.all(
             characters.map(char => {
                 return client.query(`
-                    INSERT INTO characters (name, quote, mbti)
-                    VALUES($1, $2, $3);
-        `, [char.name, char.quote, char.mbti]
+                    INSERT INTO characters (name, quote, mbti, profile)
+                    VALUES($1, $2, $3, $4);
+        `, [char.name, char.quote, char.mbti, char.image]
                 );
             })
         );
@@ -53,8 +53,10 @@ client.connect()
     //     return Promise.all(
     //         profile.map(prof => {
     //             return client.query(`
-    //                 UPDATE characters SET profile = $2 WHERE name = $1
-    //                 VALUES($1, $2);
+    //                 INSERT INTO characters (profile)
+    //                 VALUES ($2)
+    //                 WHERE name = $1;
+
     //     `, [prof.name, prof.image]
     //             );
     //         })
