@@ -4,11 +4,11 @@ class Header extends Component {
     renderHTML() {
         return /*html*/`
             <header id="main-header">
-                <div id="logo">
+                 <div id="logo">
 
-                    <h1 class="title">
+                   <a href="./"><h1 class="title">
                         The Sanchez Personality Experiment
-                    </h1>
+                    </h1></a>
                 </div>
                 <a href="./profile.html"><span>[profile]</span></a>
                 <a href="./about.html"><span>[about us]</span></a>

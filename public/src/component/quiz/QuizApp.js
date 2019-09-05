@@ -18,7 +18,7 @@ class QuizApp extends Component {
         return /*html*/`
         <div>
             <header id="question-header">
-                        <p>QUESTION X</p>
+                        <p>${props.questionHeader}</p>
                     </header>
                     <div class="quiz-img-container"><img class="quiz-image" src="${props.image}" alt="portal"></div>
                     <div id="question">
