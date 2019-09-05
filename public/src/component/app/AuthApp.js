@@ -52,24 +52,35 @@ class AuthApp extends Component {
 
         signInBox.appendChild(signIn.renderDOM());
 
-        dom.querySelector('#signin-button').addEventListener('click', () => {
-            signInBox.classList.remove('hidden');
-            signUpBox.classList.add('hidden');
-            dom.querySelector('#signin-button').classList.add('selected');
-            dom.querySelector('#signup-button').classList.remove('selected');
-            error.textContent = '';
-
-
+        const switchToSignIn = dom.querySelector('#signin-button');
+        switchToSignIn.addEventListener('click', () => {
+            signInBox.classList.remove('no-display');
+            signUpBox.classList.add('no-display');
         });
-
-        dom.querySelector('#signup-button').addEventListener('click', () => {
-            signInBox.classList.add('hidden');
-            signUpBox.classList.remove('hidden');
-            dom.querySelector('#signin-button').classList.remove('selected');
-            dom.querySelector('#signup-button').classList.add('selected');
-            error.textContent = '';
-
+        
+        const switchToSignUp = dom.querySelector('#signup-button');
+        switchToSignUp.addEventListener('click', () => {
+            signUpBox.classList.remove('no-display');
+            signInBox.classList.add('no-display');
         });
+        // dom.querySelector('#signin-button').addEventListener('click', () => {
+        //     signInBox.classList.remove('hidden');
+        //     signUpBox.classList.add('hidden');
+        //     dom.querySelector('#signin-button').classList.add('selected');
+        //     dom.querySelector('#signup-button').classList.remove('selected');
+        //     error.textContent = '';
+
+
+        // });
+
+        // dom.querySelector('#signup-button').addEventListener('click', () => {
+        //     signInBox.classList.add('hidden');
+        //     signUpBox.classList.remove('hidden');
+        //     dom.querySelector('#signin-button').classList.remove('selected');
+        //     dom.querySelector('#signup-button').classList.add('selected');
+        //     error.textContent = '';
+
+        // });
 
 
     }
@@ -78,25 +89,50 @@ class AuthApp extends Component {
     renderHTML() {
         return /*html*/`
              <div id="root">
-                <main>
-                    <div id="auth-container">
-                 <section id="button-box"> 
-                        <button id="signin-button" class="option selected">Sign In</button>
-                        <button id="signup-button" class="option">Sign Up</button>
-                        </section>
-                 <section id="auth-box">
-                    <section id="signin-box">
-                    </section>
-                    <section id="signup-box" class="hidden">
-                    </section>
-                    </section>
-                    <p class="error"></p>
-                    </div>
-
-                </main>
+             <main>
+             <div id="auth-container">
+             <p class="errors"></p>
+             <section class="no-display" id="signup-box">
+                 <p class="switch">
+                     <button id="signin-button">Already a User?</button>
+                 </p>
+             </section>
+             <section id="signin-box">
+                 <p class="switch">
+                     <button id="signup-button">Need to create an Account?</button>
+                 </p>
+             </section>
+             </div>
+         </main>
             </div>
         `;
     }
 }
+
+
+//Old Code
+// renderHTML() {
+//     return /*html*/`
+//          <div id="root">
+//             <main>
+//                 <div id="auth-container">
+//              <section id="button-box"> 
+//                     <button id="signin-button" class="option selected">Sign In</button>
+//                     <button id="signup-button" class="option">Sign Up</button>
+//                     </section>
+//              <section id="auth-box">
+//                 <section id="signin-box">
+//                 </section>
+//                 <section id="signup-box" class="hidden">
+//                 </section>
+//                 </section>
+//                 <p class="error"></p>
+//                 </div>
+//             </main>
+//         </div>
+//     `;
+// }
+
+
 
 export default AuthApp;
