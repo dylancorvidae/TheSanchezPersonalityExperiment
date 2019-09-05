@@ -3,6 +3,7 @@ const questions = require('../data/questions-data');
 const answers = require('../data/answer-data');
 const mbti = require('../data/mbti-data');
 const characters = require('../data/character-data');
+const profile = require('../data/profile-data');
 
 
 client.connect()
@@ -44,6 +45,17 @@ client.connect()
                     INSERT INTO characters (name, quote, mbti)
                     VALUES($1, $2, $3);
         `, [char.name, char.quote, char.mbti]
+                );
+            })
+        );
+    })
+    .then(() => {
+        return Promise.all(
+            profile.map(prof => {
+                return client.query(`
+                    INSERT INTO profile (name, image)
+                    VALUES($1, $2);
+        `, [prof.name, prof.image]
                 );
             })
         );
