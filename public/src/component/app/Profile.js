@@ -41,7 +41,6 @@ class ProfileApp extends Component {
                     return acc;
                 }, { E: 0, I: 0, S: 0, N: 0, F: 0, T: 0, P: 0, J: 0 });
 
-                console.log(userTotals);
 
                 userTotals.E > userTotals.I ? userMBTI += 'E' : userMBTI += 'I';
                 userTotals.S > userTotals.N ? userMBTI += 'S' : userMBTI += 'N';
@@ -59,7 +58,6 @@ class ProfileApp extends Component {
 
                     getCharacterFromApi(result.name)
                         .then(result => {
-                            console.log(result);
                             mainCharProps.status = result.results[0].status;
                             mainCharProps.species = result.results[0].species;
                             mainCharProps.gender = result.results[0].gender;
