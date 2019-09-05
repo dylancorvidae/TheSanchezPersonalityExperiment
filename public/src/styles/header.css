@@ -24,7 +24,7 @@
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
-    padding: 20px;
+    padding: 20px 30px;
     align-items: center;
 }
 
@@ -57,6 +57,7 @@ h1.title{
 
 
 #log-out-container{
+    margin-right: 20px;
     border: none;
     border-radius: 100%;
     width: 20vh;
