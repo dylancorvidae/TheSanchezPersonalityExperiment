@@ -24,20 +24,23 @@ class SignIn extends Component {
             <form class="auth-form">
                 <p>
                     <label for="signin-email">Email</label>
-                    <input id="signin-email" type="email" name="email" required placeholder="your@email.com">
+                    <input id="signin-email" type="email" name="email" required placeholder="god@anatomypark.com">
                 </p>
                 
                 <p>
                     <label for="signin-password">Password</label>
-                    <input id="signin-password" type="password" name="password" required>
+                    <input id="signin-password" type="password" name="password" required placeholder="
+                    vitaedolorsit69!">
                 </p>
 
                 <p>
-                    <button>Sign In</button>
+                    <button id="signin-button">Sign In</button>
                 </p>
             </form>
         `;
     }
 }
+
+// email placeholder for NSFW version licklicklick@myballs.com
 
 export default SignIn;

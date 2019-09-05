@@ -25,21 +25,22 @@ class SignUp extends Component {
             <form class="auth-form">
                 <p>
                     <label for="name">Name</label>
-                    <input id="name" name="name" required placeholder="Your Name">
+                    <input id="name" name="name" required placeholder="Mr. PoopyButthole">
                 </p>
                     
                 <p>
                     <label for="email">Email</label>
-                    <input id="email" type="email" name="email" required placeholder="your@email.com">
+                    <input id="email" type="email" name="email" required placeholder="god@anatomypark.com">
                 </p>
                 
                 <p>
                     <label for="password">Password</label>
-                    <input id="password" type="password" name="password" required>
+                    <input id="password" type="password" name="password" required placeholder="
+                    vitaedolorsit69">
                 </p>
 
                 <p>
-                    <button>Sign Up</button>
+                    <button id="signup-button">Sign Up</button>
                 </p>
 
             </form>

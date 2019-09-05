@@ -1,116 +1,118 @@
-/* 
-.hidden {
-    display:none;
+* {
+    box-sizing: border-box;
 }
 
-.option {
-    background-color: white;
-    padding: 20px;
-    width:50%;
-    font-size:2em;
-    border:transparent;
+@font-face {
+    font-family: "rick-and-morty";
+    src: url(../../assets/fonts/rick-and-morty.ttf);
 }
 
-.option:focus{
-        outline:0;
+@font-face {
+    font-family: "get-schwifty";
+    src: url(../../assets/fonts/get-schwifty.ttf);
 }
 
-#auth-box{
-    background-color: white;
-    border:3px dashed grey;
-    padding: 10%;
-    width: 79%;
-}
-
-#button-box{
-width: 100%;
-display:flex;
-flex-direction: row;
-justify-content:space-between;
-
-
-}
-
-#auth-container{
-    width: 500px;
-}
-
-.selected {
-    border:3px dashed grey;
-    border-bottom: 0;
-
-} */
-
-div#auth-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-content: space-between;
-    width: 500px;
-    margin:40px auto;
-    background-color: rgba(0, 0, 0, 0.75);
-    color: white;
+@font-face {
+    font-family: "adult-swim-font";
+    src: url(../../assets/fonts/adult-swim-font.ttf);
 }
 
 main {
     display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-content: center;
 }
 
-main p.switch, main p.errors {
-    margin-top: 20px;
-    text-align: center;
-}
-
-.auth-form-standard {
+div#auth-container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    align-content: center;
+    margin: 30px;
+    width: 60vw;
+    height: 60vh;
+    max-width: 580px;
+    max-height: 580px;
+    color: black;
+    border-radius: 100%;
+    background: url('../../assets/img/largeportal.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.auth-form-standard p {
+
+
+main p.switch, main p.errors {
+    text-align: center;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#signin-box, #signup-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
     justify-content: space-around;
-    
+    align-items: center;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 250%;
+    width: 20vw;
 }
 
 input {
-    margin-left: 10%;
-    font-size: 1.2em;
-    background-color: rgb(199, 199, 199);
+    font-size: 50%;
+    background-color: rgba(27, 27, 27, 0.75);
+    border: 1px solid black;
+    color: rgb(199, 199, 199);
 }
 
 .errors {
-    font-family: monospace;
+    font-family: "adult-swim-font";
     color: red;
 }
 
-.no-display {
-    display: none;
-}
 
-#signup-button, #signin-button {
-    background: url('../../assets/img/smallportal.png');
-    background-size: 100%;
-    margin-left: 30px;
-    font-size: 1.1em;
-    margin: 5px;
+
+#signup-switch-button, #signin-switch-button {
+    background-color: rgba(27, 27, 27, 0.75);
+    font-size: 50%;
+    margin: 10px 0px 20px 0px;
     color:rgb(199, 199, 199);
     font-family: 'Noto Serif', serif;
     border-radius: 50%;
-    padding: 7px;
-}
-
-button:hover {
-    box-shadow: 0px 0px 8px 2px rgb(199, 199, 199);
-}
-
-#signup-button {
     padding: 12px;
+    border: none;
 }
 
-#signin-button {
+#signup-switch-button:hover, #signin-switch-button:hover, #signup-button:hover, #signin-button:hover {
+    box-shadow: 0px 0px 8px 6px rgb(214, 255, 181);
+    transform: scale(1.2);
+}
+
+#signup-button, #signin-button {
+    background-color: rgba(27, 27, 27, 0.75);
+    font-size: 50%;
+    margin: 20px 0px 10px 0px;
+    color:rgb(199, 199, 199);
+    font-family: 'Noto Serif', serif;
+    border-radius: 50%;
     padding: 12px;
+    border: none;
 }
