@@ -9,6 +9,47 @@
 
 }
 
+.back-btn, .next-btn {
+    outline: 0;
+}
+
+.back-btn:hover {
+    text-shadow: 
+    0 -1px 0px rgb(185, 15, 15),
+    -1px 0 0px rgb(219, 47, 47),
+    -1px 2px 1px rgb(185, 15, 15),
+    -2px 1px 1px rgb(219, 47, 47),
+    -2px 3px 2px rgb(185, 15, 15),
+    -3px 2px 2px rgb(219, 47, 47),
+    -3px 4px 2px rgb(185, 15, 15),
+    -4px 3px 3px rgb(219, 47, 47),
+    -4px 5px 3px rgb(185, 15, 15),
+    -5px 4px 2px rgb(219, 47, 47),
+    -5px 6px 2px rgb(185, 15, 15);
+    transition-duration: 500ms;
+} 
+
+
+.next-btn:hover {
+    text-shadow: 
+    0 1px 0px rgb(92, 185, 15),
+    1px 0 0px rgb(124, 219, 47),
+    1px 2px 1px rgb(92, 185, 15),
+    2px 1px 1px rgb(124, 219, 47),
+    2px 3px 2px rgb(92, 185, 15),
+    3px 2px 2px rgb(124, 219, 47),
+    3px 4px 2px rgb(92, 185, 15),
+    4px 3px 3px rgb(124, 219, 47),
+    4px 5px 3px rgb(92, 185, 15),
+    5px 4px 2px rgb(124, 219, 47),
+    5px 6px 2px rgb(92, 185, 15);
+    transition-duration: 500ms;
+}
+
+.quiz-buttons-p {
+    font-size: 200%;
+}
+
 #question-header{
     background-color:black;
     text-align: center;
