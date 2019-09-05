@@ -2,6 +2,11 @@
     box-sizing: border-box;
 }
 
+
+html {
+    height: 100%;
+}
+
 @font-face {
     font-family: "rick-and-morty";
     src: url(../../assets/fonts/rick-and-morty.ttf);
@@ -19,74 +24,14 @@
 
 body {
     background-image: url('../../assets/img/rick\ and\ morty\ bg.png');
+    background-size: cover;
     background-position: center;
+    background-size: cover;
     background-repeat: no-repeat;
     font-family: "rick-and-morty";
+    background-size: cover;
 }
 
-#main-header{
-    background-color: black;
-    display:flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    padding: 20px;
-}
-
-#main-header a{
-    color: white;
-    text-decoration: none;
-    font-size: 150%;
-    font-family: "adult-swim-font"
-}
-
-h1.title{
-    color: rgb(16, 206, 212);
-    font-family: "get-schwifty";
-    font-size: 200%;
-    -webkit-text-stroke-color: #000000;
-    -webkit-text-stroke-width: 1px;
-    text-shadow:
-    -1px -1px 0 rgb(213, 255, 63),
-    0   -1px 0 rgb(213, 255, 63),
-    1px -1px 0 rgb(213, 255, 63),
-    1px  0   0 rgb(213, 255, 63),
-    1px  1px 0 rgb(213, 255, 63),
-    0    1px 0 rgb(213, 255, 63),
-   -1px  1px 0 rgb(213, 255, 63),
-   -1px  0   0 rgb(213, 255, 63), 
-    0 0 12px rgb(60, 253, 26, .7),
-    0 0 10px rgb(213, 255, 63, .7);
-    letter-spacing: .05em;
-}
-
-
-#log-out {
-    border: none;
-    border-radius: 100%;
-    width: 15vh;
-    height: 15vh;
-    max-width: 150px;
-    max-height: 150px;
-    font-size: 3.5vh;
-    font-family: "adult-swim-font";
-    text-shadow: 2px 2px 4px #000000;
-    background: url('../../assets/img/smallportal.png');
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: white;
-}
-
-#log-out:focus {
-    outline: 0;
- }
- 
- #log-out:hover {
-    background-color: rgb(92, 185, 15);
-    transform: translate3d(-2px, -2px, 10px);
-    box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
- }
 
 .stat-link {
     margin-right: 20%;
