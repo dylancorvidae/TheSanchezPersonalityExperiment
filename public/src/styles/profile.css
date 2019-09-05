@@ -8,26 +8,24 @@
     margin: auto;
     margin-top: 50px;
     background-color: rgba(255, 255, 255, 0.75);
-    border:1px solid black;
+    border: 1px solid black;
 }
 
 .main-img-container {
-    /* width: 3; */
-}
-
-#mainchar > div:first-of-type {
-    display: flex;
-    flex-direction: row;
+    height: auto;
+    width: 30%;
+    margin: 10px;
 }
 
 .main-img {
-    max-height: 500px;
+    max-height: 600px;
     -webkit-filter: drop-shadow(4px 4px 5px gray);
     filter: drop-shadow(4px 4px 5px gray);
 }
 
 .list-container {
-    width: 50%;
+    height: auto;
+    width: 55%;
 }
 
 .title {
@@ -75,4 +73,3 @@ h2 {
     margin-top: 25px;
     font-size: 150%;
 }
-

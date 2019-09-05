@@ -5,7 +5,7 @@ class MainChar extends Component {
         const props = this.props;
         console.log('PROPS', props);
         return /*html*/`
-            <div>
+            <div id="main-char">
                 <div id="main-img-container" class="main-img">
                     <img class="main-img" src="${props.image}";>
                 </div>
