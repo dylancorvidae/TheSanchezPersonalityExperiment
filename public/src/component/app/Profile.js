@@ -2,10 +2,48 @@ import Component from '../Component.js';
 import Header from './Header.js';
 import MainChar from '../profile/mainChar.js';
 import ProfileResults from '../profile/ProfileResults.js';
+import { getGames } from '../../services/quiz-api.js';
 
 class ProfileApp extends Component {
 
     onRender(dom) {
+
+        //CALCULATE LATEST GAME RESULT
+
+        let userMBTI = '';
+
+        getGames()
+            .then(data => {
+                const gameIds = data.reduce((acc, val) => {
+                    acc.push(val.id);
+                    return acc;
+                }, []);
+
+                const lastGame = Math.max.apply(Math, gameIds);
+
+                const answer = data.find(val => {
+                    return val.id = lastGame;
+                });
+
+                const userAnswer = answer.user_answer.split(',');
+                const userTotals = userAnswer.reduce((acc, val) => {
+                    const answer = val.split('');
+                    answer.forEach(letter => {
+                        acc[letter]++;
+                    });
+                    return acc;
+                }, { E: 0, I: 0, S: 0, N: 0, F: 0, T: 0, P: 0, J: 0 });
+
+                userTotals.E > userTotals.I ? userMBTI += 'E' : userMBTI += 'I';
+                userTotals.S > userTotals.N ? userMBTI += 'S' : userMBTI += 'N';
+                userTotals.F > userTotals.T ? userMBTI += 'F' : userMBTI += 'T';
+                userTotals.P > userTotals.J ? userMBTI += 'P' : userMBTI += 'J';
+
+            }).catch(err => {
+                // eslint-disable-next-line no-console
+                console.log(err);
+            });
+
         const header = new Header();
         dom.prepend(header.renderDOM());
 

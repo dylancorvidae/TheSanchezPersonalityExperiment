@@ -36,12 +36,13 @@ client.connect()
         id SERIAL PRIMARY KEY,
         name VARCHAR(256),
         quote VARCHAR(1024),
-        mbti VARCHAR(256)
+        mbti VARCHAR(256),
+        profile VARCHAR(256)
     );
 
     CREATE TABLE game(
         id SERIAL PRIMARY KEY,
-        users_id INTEGER REFERENCES users(id),
+        users_id INTEGER,
         user_answer VARCHAR(256),
         question_order VARCHAR(256),
         is_complete BOOLEAN NOT NULL
