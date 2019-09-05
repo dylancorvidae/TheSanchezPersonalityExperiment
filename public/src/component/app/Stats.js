@@ -39,6 +39,8 @@ class StatsApp extends Component {
                 <section id="all-time-stats">
                     <h1>ALL TIME STATS</h1>
                     <div id="bar-graph">
+                        <canvas id="all-user-stats" width="100" height="40">
+                        </canvas>
                         <!-- insert bar graph -->
                     </div>
                 </section>

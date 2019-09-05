@@ -1,8 +1,9 @@
 #bar-graph {
-    width: 1120px;
-    height: 450px;
+    width: 1000px;
+    height: 460px;
     margin-top: 20px;
     margin-bottom: 20px;
+    overflow: scroll;
 }
 
 #all-user-stats {
