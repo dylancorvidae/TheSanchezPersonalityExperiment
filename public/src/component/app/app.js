@@ -2,12 +2,20 @@ import Component from '../Component.js';
 import Header from './Header.js';
 import QuizApp from '../quiz/QuizApp.js';
 import { getQuestion, getAnswers, updateGame, createGame, getGames } from '../../services/quiz-api.js';
+import store from '../../services/store.js'
 
 class App extends Component {
 
     onRender(dom) {
         const header = new Header();
         dom.prepend(header.renderDOM());
+
+        const logoutButton = dom.querySelector('#log-out');
+
+        logoutButton.addEventListener('click', () => {
+            store.removeToken();
+            window.location = 'auth.html';
+        });
 
 
         // check if current user has an unfinished game and resume it
@@ -27,17 +35,6 @@ class App extends Component {
                 // eslint-disable-next-line no-console
                 console.log(err);
             });
-
-
-
-
-
-        const logoutButton = dom.querySelector('#log-out');
-
-        logoutButton.addEventListener('click', () => {
-            store.removeToken();
-            window.location = 'auth.html';
-        });
     }
 
     newGame() {
@@ -58,10 +55,11 @@ class App extends Component {
 
         getQuestion(id)
             .then(data => {
-                quizProps.questionHeader = 'Question X';
-                quizProps.image = data.img;
-                quizProps.questionText = data.question_text;
+                // quizProps.questionHeader = 'Question X';
+                // quizProps.image = data.img;
+                // quizProps.questionText = data.question_text;
                 // this.state.quizProps = quizProps;
+                quizProps.questions = data;
                 quizApp.update(quizProps);
             })
             .catch(err => {
@@ -71,13 +69,16 @@ class App extends Component {
 
         getAnswers(id)
             .then(data => {
-                quizProps.answerOne = data[0].text;
-                quizProps.answerTwo = data[1].text;
-                quizProps.answerThree = data[2].text;
-                quizProps.answerFour = data[3].text;
+                // quizProps.answerOne = data[0].text;
+                // quizProps.answerTwo = data[1].text;
+                // quizProps.answerThree = data[2].text;
+                // quizProps.answerFour = data[3].text;
                 // this.state.quizProps = quizProps;
+                quizProps.answers = data;
                 quizApp.update(quizProps);
             });
+
+
     }
 
 

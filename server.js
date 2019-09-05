@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 
 const client = require('./lib/client');
 
@@ -33,7 +33,7 @@ const authRoutes = createAuthRoutes({
 
 const app = express();
 const PORT = process.env.PORT;
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
@@ -44,6 +44,7 @@ app.use('/api', ensureAuth);
 //ROUTES
 
 app.get('/api/test', (req, res) => {
+    console.log('SERVER CALL')
     client.query(`
         SELECT * FROM test;
     `)
@@ -111,7 +112,6 @@ app.post('/api/game', (req, res) => {
         RETURNING *;
     `, [req.userId, req.body.order, false])
         .then(result => {
-            console.log(result.rows)
             res.json(result.rows[0]);
         })
         .catch(err => {
