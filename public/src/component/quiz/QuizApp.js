@@ -3,7 +3,6 @@ import Component from '../Component.js';
 class QuizApp extends Component {
     renderHTML() {
         const props = this.props;
-        console.log(props);
 
         return /*html*/`
         <div>

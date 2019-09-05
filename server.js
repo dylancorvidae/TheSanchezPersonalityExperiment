@@ -24,7 +24,7 @@ const authRoutes = createAuthRoutes({
         return client.query(`
             INSERT into users (email, hash, display_name)
             VALUES ($1, $2, $3)
-            RETURNING id, email, display_name as "displayName"
+            RETURNING id, email, display_name as "displayName";
         `,
         [user.email, hash, user.displayName]
         ).then(result => result.rows[0]);
@@ -45,7 +45,7 @@ app.use('/api', ensureAuth);
 
 app.get('/api/test', (req, res) => {
     client.query(`
-        SELECT * FROM test
+        SELECT * FROM test;
     `)
         .then(result => {
             res.json(result.rows);
@@ -59,7 +59,7 @@ app.get('/api/test', (req, res) => {
 
 app.get('/api/answers', (req, res) => {
     client.query(`
-        SELECT * FROM answers
+        SELECT * FROM answers;
     `)
         .then(result => {
             res.json(result.rows);
@@ -73,16 +73,14 @@ app.get('/api/answers', (req, res) => {
 
 
 app.put('/api/game/:id', (req, res) => {
-    console.log('SERVER', req.params.id);
     const data = req.body;
     const id = req.params.id;
     if(data.quizOrder) {
         client.query(`
-        UPDATE game SET question_order = $1 WHERE id = $2
-        `[data.quizOrder, id]
+        UPDATE game SET question_order = $1 WHERE id = $2;
+        `, [data.quizOrder, id]
         )
             .then(result => {
-                console.log(result);
                 res.json(result.rows[0]);
             })
             .catch(err => {
@@ -93,16 +91,16 @@ app.put('/api/game/:id', (req, res) => {
     }
 });
 
-app.post('/api/game', (req, res) => {
+app.post('/api/game/', (req, res) => {
     const userId = req.body.userId;
     client.query(`
-        INSERT INTO game (user_id)
-        VALUES ($1)
+        INSERT INTO game (users_id, is_complete)
+        VALUES ($1, $2)
         RETURNING id;
-    `[userId])
+    `, [userId, false])
         .then(result => {
-            console.log(result);
-            res.json(result.rows[0]);
+            console.log('here');
+            res.json(result.rows[0].id);
         })
         .catch(err => {
             res.status(500).json({

@@ -15,12 +15,10 @@ class App extends Component {
 
         shuffle(quizOrder);
 
-        createGame(1);
-        // .then((id) => {
-        //     updateGame({ id: id, quizOrder: quizOrder.join('') });
-        // });
-
-
+        createGame(2)
+            .then(id => {
+                updateGame({ id: id, quizOrder: quizOrder.join(',') });
+            });
 
         function shuffle(arr) { // Fisher-Yates Shuffle. Source: https://javascript.info/task/shuffle
             for(let i = arr.length - 1; i > 0; i--) {
@@ -28,6 +26,8 @@ class App extends Component {
                 [arr[i], arr[j]] = [arr[j], arr[i]];
             }
         }
+
+
 
 
         let quizProps = {};
