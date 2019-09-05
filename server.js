@@ -17,7 +17,7 @@ const authRoutes = createAuthRoutes({
             FROM users
             WHERE email = $1;
         `,
-            [email]
+        [email]
         ).then(result => result.rows[0]);
     },
     insertUser(user, hash) {
@@ -26,7 +26,7 @@ const authRoutes = createAuthRoutes({
             VALUES ($1, $2, $3)
             RETURNING id, email, display_name as "displayName";
         `,
-            [user.email, hash, user.displayName]
+        [user.email, hash, user.displayName]
         ).then(result => result.rows[0]);
     }
 });
@@ -44,7 +44,7 @@ app.use('/api', ensureAuth);
 //ROUTES
 
 app.get('/api/test', (req, res) => {
-    console.log('SERVER CALL')
+    console.log('SERVER CALL');
     client.query(`
         SELECT * FROM test;
     `)
@@ -84,16 +84,31 @@ app.get('/api/game', (req, res) => {
                 error: err.message || err
             });
         });
-})
+});
 
 app.put('/api/game/:id', (req, res) => {
     const data = req.body;
     const id = req.params.id;
-    if (data.quizOrder) {
+    console.log(data, id);
+    if(data.isComplete) {
         client.query(`
-        UPDATE game SET question_order = $1 WHERE id = $2;
-        `, [data.quizOrder, id]
+        UPDATE game SET is_complete = $1 WHERE id = $2;
+        `, [data.isComplete, id]
         )
+            .then(result => {
+                res.json(result.rows[0]);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    error: err.message || err
+                });
+            });
+    }
+    if(data.userAnswer) {
+        console.log(data.userAnswer);
+        client.query(`
+        UPDATE game SET user_answer = CONCAT(user_answer, $1::text) WHERE id = $2;
+        `, [data.userAnswer, id])
             .then(result => {
                 res.json(result.rows[0]);
             })

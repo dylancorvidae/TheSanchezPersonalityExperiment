@@ -1,4 +1,4 @@
-export const profile = [
+module.exports = [
     {
         name: 'Birdperson',
         image: './assets/profile-img/Birdperson.png',

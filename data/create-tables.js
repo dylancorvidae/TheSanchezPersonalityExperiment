@@ -36,7 +36,8 @@ client.connect()
         id SERIAL PRIMARY KEY,
         name VARCHAR(256),
         quote VARCHAR(1024),
-        mbti VARCHAR(256)
+        mbti VARCHAR(256),
+        profile VARCHAR(256)
     );
 
     CREATE TABLE game(

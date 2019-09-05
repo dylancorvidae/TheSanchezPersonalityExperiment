@@ -49,17 +49,17 @@ client.connect()
             })
         );
     })
-    .then(() => {
-        return Promise.all(
-            profile.map(prof => {
-                return client.query(`
-                    INSERT INTO profile (name, image)
-                    VALUES($1, $2);
-        `, [prof.name, prof.image]
-                );
-            })
-        );
-    })
+    // .then(() => {
+    //     return Promise.all(
+    //         profile.map(prof => {
+    //             return client.query(`
+    //                 UPDATE characters SET profile = $2 WHERE name = $1
+    //                 VALUES($1, $2);
+    //     `, [prof.name, prof.image]
+    //             );
+    //         })
+    //     );
+    // })
 
     .then(
         () => console.log('List data seeded successfully'),

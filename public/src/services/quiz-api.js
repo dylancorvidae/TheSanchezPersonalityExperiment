@@ -34,7 +34,6 @@ export function getGames() {
 }
 
 export function getQuestion(id) {
-    console.log('HERE')
     const url = `${URL}/test`;
     return fetchWithError(url)
         .then(test => {
