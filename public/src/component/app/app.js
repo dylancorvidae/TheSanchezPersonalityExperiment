@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import Header from './Header.js';
 import QuizApp from '../quiz/QuizApp.js';
-import { getQuestion, getAnswers, updateGame, createGame, getGames, getCharacter } from '../../services/quiz-api.js';
+import { getQuestion, getAnswers, updateGame, createGame, getGames, getCharacter, backOne } from '../../services/quiz-api.js';
 import store from '../../services/store.js';
 
 class App extends Component {
@@ -24,12 +24,6 @@ class App extends Component {
         });
         dom.querySelector('#quiz-box').appendChild(quizApp.renderDOM());
 
-        const logoutButton = dom.querySelector('#log-out');
-
-        logoutButton.addEventListener('click', () => {
-            store.removeToken();
-            window.location = 'auth.html';
-        });
 
         //button event listeners
 
@@ -40,10 +34,20 @@ class App extends Component {
             if(questionNumber === 21) {
                 endGame();
             } else {
-                console.log(questionNumber);
-                updateGame({ userAnswer: answer, id: gameId });
-                updateQuiz(questionOrder[questionNumber]);
-                questionNumber++;
+                if(answer) {
+                    updateGame({ userAnswer: answer, id: gameId });
+                    updateQuiz(parseInt(questionOrder[questionNumber]));
+                    questionNumber++;
+                    answer = '';
+                }
+            }
+        });
+
+        backButton.addEventListener('click', () => {
+            if(questionNumber > 1) {
+                backOne({ id: gameId, method: 'back' }).then(result => {
+                    resumeGame(result);
+                });
             }
         });
 
@@ -61,7 +65,6 @@ class App extends Component {
                     newGame();
                 }
             }).catch(err => {
-                // eslint-disable-next-line no-console
                 console.log(err);
             });
 
@@ -79,15 +82,13 @@ class App extends Component {
         }
 
         function updateQuiz(id) {
-
             let quizProps = {};
 
             getQuestion(id)
                 .then(data => {
-                    quizProps.questionHeader = 'Question X';
+                    quizProps.questionHeader = `Question ${questionNumber}`;
                     quizProps.image = data.img;
                     quizProps.questionText = data.question_text;
-                    // this.state.quizProps = quizProps;
                     quizApp.update(quizProps);
                 })
                 .catch(err => {
@@ -105,14 +106,22 @@ class App extends Component {
                     quizProps.answerTwoMBTI = data[1].mbti;
                     quizProps.answerThreeMBTI = data[2].mbti;
                     quizProps.answerFourMBTI = data[3].mbti;
-                    // this.state.quizProps = quizProps;
                     quizApp.update(quizProps);
                 });
         }
 
-
         function resumeGame(lastGame) {
-            console.log('resuming game', lastGame.id);
+
+            let position;
+            lastGame.user_answer ? position = lastGame.user_answer.length / 5 : position = 0;
+
+            const order = lastGame.question_order.split(',');
+            questionNumber = position + 1;
+            gameId = lastGame.id;
+            questionOrder = order;
+
+            updateQuiz(parseInt(order[position]));
+
         }
 
         function endGame() {

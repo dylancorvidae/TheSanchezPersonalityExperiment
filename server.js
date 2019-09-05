@@ -136,6 +136,21 @@ app.put('/api/game/:id', (req, res) => {
                 });
             });
     }
+    if(data.method === 'back') {
+        client.query(`
+        UPDATE game SET user_answer = SUBSTR(user_answer, 1, LENGTH(user_answer)-5) 
+        WHERE id = $1
+        RETURNING *;
+        `, [id])
+            .then(result => {
+                res.json(result.rows[0]);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    error: err.message || err
+                });
+            });
+    }
 });
 
 app.post('/api/game', (req, res) => {
