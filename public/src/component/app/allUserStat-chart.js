@@ -1,5 +1,13 @@
 const ctx = document.getElementById('all-user-stats').getContext('2d');
+import { getGames } from '../../services/quiz-api.js';
 
+let labels = [];
+let data = [];
+
+getGames()
+    .then(results => {
+        console.log(results);
+    });
 
 // eslint-disable-next-line no-unused-vars
 const allTimeStats = new Chart(ctx, {

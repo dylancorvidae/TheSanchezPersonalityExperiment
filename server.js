@@ -38,15 +38,24 @@ app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 
-//NON AUTH ROUTES
-
-
-
-
 app.use('/api/auth', authRoutes);
 app.use('/api', ensureAuth);
 
 //AUTH ROUTES
+
+app.get('/data/game', (req, res) => {
+    client.query(`
+    SELECT * FROM game WHERE is_complete = $1;
+    `, [true])
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
 
 app.get('/api/mbti/:name', (req, res) => {
     const name = req.params.name;
@@ -142,6 +151,21 @@ app.put('/api/game/:id', (req, res) => {
         WHERE id = $1
         RETURNING *;
         `, [id])
+            .then(result => {
+                res.json(result.rows[0]);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    error: err.message || err
+                });
+            });
+    }
+    if(data.method === 'char') {
+        client.query(`
+        UPDATE game SET result = $2
+        WHERE id = $1
+        RETURNING *;
+        `, [id, data.character])
             .then(result => {
                 res.json(result.rows[0]);
             })

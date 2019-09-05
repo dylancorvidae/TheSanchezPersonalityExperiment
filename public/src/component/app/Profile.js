@@ -2,7 +2,7 @@ import Component from '../Component.js';
 import Header from './Header.js';
 import MainChar from '../profile/mainChar.js';
 import ProfileResults from '../profile/ProfileResults.js';
-import { getGames, getCharacter, getCharacterFromApi, getMBTI } from '../../services/quiz-api.js';
+import { getGames, getCharacter, getCharacterFromApi, getMBTI, updateGame } from '../../services/quiz-api.js';
 
 class ProfileApp extends Component {
 
@@ -48,6 +48,8 @@ class ProfileApp extends Component {
                 userTotals.P > userTotals.J ? userMBTI += 'P' : userMBTI += 'J';
 
                 getCharacter(userMBTI).then(result => {
+
+                    updateGame({ id: lastGame, method: 'char', character: result.name });
 
                     const mainCharProps = {
                         name: result.name,
