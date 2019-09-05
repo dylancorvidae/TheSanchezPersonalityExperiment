@@ -29,12 +29,13 @@
     justify-content: flex-start;
     height: 150px;
     width: 100%;
-    margin-bottom: -24px;
 }
 
 .quiz-image{
-    object-fit: contain;
+    object-fit: cover;
     max-width: 100%;
+    max-height: 450px;
+    min-height: 450px;
 }
 
 #answer-box{
@@ -43,7 +44,7 @@
     flex-direction: column;
     padding: 30px;
     background-color: white;
-    font-size: 1.3em;
+    font-size: 1.5em;
 
 }
 
@@ -63,6 +64,7 @@
     padding: 20px;
     font-size: 1.3em;
     text-align: center;
+    width: 100%;
 }
 
 .answer {
