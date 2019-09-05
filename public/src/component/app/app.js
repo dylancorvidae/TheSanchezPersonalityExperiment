@@ -98,6 +98,7 @@ class App extends Component {
 
             getAnswers(id)
                 .then(data => {
+                    const 
                     quizProps.answerOne = data[0].text;
                     quizProps.answerTwo = data[1].text;
                     quizProps.answerThree = data[2].text;
