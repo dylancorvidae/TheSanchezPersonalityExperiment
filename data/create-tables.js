@@ -45,6 +45,7 @@ client.connect()
         users_id INTEGER,
         user_answer VARCHAR(256),
         question_order VARCHAR(256),
+        result VARCHAR(256),
         is_complete BOOLEAN NOT NULL
     );
 

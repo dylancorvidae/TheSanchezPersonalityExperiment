@@ -38,10 +38,15 @@ app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
 
+//NON AUTH ROUTES
+
+
+
+
 app.use('/api/auth', authRoutes);
 app.use('/api', ensureAuth);
 
-//ROUTES
+//AUTH ROUTES
 
 app.get('/api/mbti/:name', (req, res) => {
     const name = req.params.name;
