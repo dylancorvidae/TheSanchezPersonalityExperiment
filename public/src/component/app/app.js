@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import Header from './Header.js';
 import QuizApp from '../quiz/QuizApp.js';
-import { getQuestion, getAnswers, updateGame, createGame, getGames } from '../../services/quiz-api.js';
+import { getQuestion, getAnswers, updateGame, createGame, getGames, getCharacter } from '../../services/quiz-api.js';
 import store from '../../services/store.js';
 
 class App extends Component {

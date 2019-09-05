@@ -136,7 +136,39 @@ app.post('/api/game', (req, res) => {
         });
 });
 
+app.get('/api/characters/', (req, res) => {
+    client.query(`SELECT *
+                  FROM characters
+                  WHERE id = $1 `, [req.id])
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
 
+app.get('/api/characters/:mbti', (req, res) => {
+    const mbti = req.params.mbti;
+
+    client.query(`
+        SELECT *
+        FROM characters
+        WHERE mbti = $1 
+    `, [mbti])
+        .then(result => {
+            const character = result.row[0];
+            if(!character){
+                res.status(404).json({
+                    error: `character mbti ${mbti} does not exist`
+                });
+            } else {
+                res.json(result.rows[0]);
+            }
+        });
+});
 // Start the server
 app.listen(PORT, () => {
     console.log('server running on PORT', PORT);
