@@ -11,7 +11,7 @@ export const about = [
     },
     {
         name: 'Angela',
-        image: '',
+        image: './assets/img/Angela-icon.png',
         desc: `Oh, that's Million Ants. I can't see the ants from over here, I just assumed that was um.. Turd Man, Wiggly Turd Man. Alan Rails, ladies and gentlemen. After his parents' tragic death in a railroad accident, he gained the power to summon ghost trains. It's not all bad though, they were spared having to see their grown son wear a whistle. You have to turn them on Morty! The shoes need to be turned on! Is he keeping his shoulders square? Oooooooh he's tryin'!`
     },
     {
