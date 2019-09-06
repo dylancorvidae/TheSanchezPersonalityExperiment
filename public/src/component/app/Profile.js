@@ -72,7 +72,8 @@ class ProfileApp extends Component {
 
 
                                     const mainChar = new MainChar(mainCharProps);
-                                    dom.querySelector('#main-char').appendChild(mainChar.renderDOM());
+                                    console.log(document.getElementById('root'));
+                                    document.getElementById('root').appendChild(mainChar.renderDOM());
                                 });
                         });
                 });
@@ -81,20 +82,13 @@ class ProfileApp extends Component {
                 console.log(err);
             });
 
-
-
-
     }
 
     renderHTML() {
         return /*html*/`
             <div id="root">
 
-            <div id="main-char">
-
-            </div>
-
-            <div id="results-wrapper">
+            <div id="results-wrapper"></div>
             <h1>PREVIOUS RESULTS</h1>
 
             </div>

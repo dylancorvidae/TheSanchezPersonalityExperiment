@@ -49,7 +49,7 @@ class StatsApp extends Component {
         return /*html*/`
             <div id="root">
                 <section id="all-time-stats">
-                    <h1>ALL TIME STATS</h1>
+                    <h2>ALL TIME STATS</h2>
                     <div id="bar-graph">
                         <canvas id="all-user-stats" width="100" height="40">
                         </canvas>
@@ -58,7 +58,7 @@ class StatsApp extends Component {
                 </section>
 
                 <div id ="types-wrapper">
-                <h1>PERSONALITY TYPES</h1>
+                <h2>PERSONALITY TYPES</h2>
                 <div id="types">
 
                 </div>
