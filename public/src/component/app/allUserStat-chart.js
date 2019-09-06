@@ -7,9 +7,10 @@ let data = {};
 
 getGames()
     .then(results => {
-        console.log(results);
         results.forEach(result => {
-            data[result.result] ? data[result.result] = data[result.result] + 1 : data[result.result] = 1;
+            if(result.result) {
+                data[result.result] ? data[result.result] = data[result.result] + 1 : data[result.result] = 1;
+            }
         });
     })
     .then(() => {
@@ -37,9 +38,10 @@ getGames()
                 maintainAspectRatio: true,
                 scaleFontColor: '#FFFFFF',
                 scales: {
-                    yAxes: [{
+                    xAxes: [{
                         ticks: {
-                            beginAtZero: false
+                            beginAtZero: true,
+                            stepSize: 1,
                         }
                     }]
                 }
