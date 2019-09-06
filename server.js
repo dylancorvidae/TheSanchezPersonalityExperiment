@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 
 const client = require('./lib/client');
 
@@ -17,7 +17,7 @@ const authRoutes = createAuthRoutes({
             FROM users
             WHERE email = $1;
         `,
-        [email]
+            [email]
         ).then(result => result.rows[0]);
     },
     insertUser(user, hash) {
@@ -26,14 +26,14 @@ const authRoutes = createAuthRoutes({
             VALUES ($1, $2, $3)
             RETURNING id, email, display_name as "displayName";
         `,
-        [user.email, hash, user.displayName]
+            [user.email, hash, user.displayName]
         ).then(result => result.rows[0]);
     }
 });
 
 const app = express();
 const PORT = process.env.PORT;
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
@@ -106,6 +106,7 @@ app.get('/api/game', (req, res) => {
         SELECT * FROM game WHERE users_id = $1;
     `, [req.userId])
         .then(result => {
+            console.log(result.rows);
             res.json(result.rows);
         })
         .catch(err => {
@@ -118,13 +119,13 @@ app.get('/api/game', (req, res) => {
 app.put('/api/game/:id', (req, res) => {
     const data = req.body;
     const id = req.params.id;
-    if(data.isComplete) {
+    if (data.isComplete) {
         client.query(`
         UPDATE game SET is_complete = $1 WHERE id = $2;
         `, [data.isComplete, id]
         )
-            .then(result => {
-                res.json(result.rows[0]);
+            .then(() => {
+                res.status(204).send();
             })
             .catch(err => {
                 res.status(500).json({
@@ -132,7 +133,7 @@ app.put('/api/game/:id', (req, res) => {
                 });
             });
     }
-    if(data.userAnswer) {
+    if (data.userAnswer) {
         client.query(`
         UPDATE game SET user_answer = CONCAT(user_answer, $1::text) WHERE id = $2;
         `, [data.userAnswer, id])
@@ -145,7 +146,7 @@ app.put('/api/game/:id', (req, res) => {
                 });
             });
     }
-    if(data.method === 'back') {
+    if (data.method === 'back') {
         client.query(`
         UPDATE game SET user_answer = SUBSTR(user_answer, 1, LENGTH(user_answer)-5) 
         WHERE id = $1
@@ -160,7 +161,7 @@ app.put('/api/game/:id', (req, res) => {
                 });
             });
     }
-    if(data.method === 'char') {
+    if (data.method === 'char') {
         client.query(`
         UPDATE game SET result = $2
         WHERE id = $1
@@ -215,7 +216,7 @@ app.get('/api/characters/:mbti', (req, res) => {
     `, [mbti])
         .then(result => {
             const character = result.rows[0];
-            if(!character) {
+            if (!character) {
                 res.status(404).json({
                     error: `character mbti ${mbti} does not exist`
                 });

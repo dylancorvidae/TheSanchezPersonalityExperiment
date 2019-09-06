@@ -1,8 +1,8 @@
 export const about = [
     {
-        name: 'Sam',
+        name: 'Sam (ISFJ)',
         image: './assets/img/sam-icon.png',
-        desc: `This is because you give Morty Smith bad grades, bitch! Get off the high road Summer. We all got pink eye because you wouldn't stop texting on the toilet. Slow down! I'm Mr. Crowbar, and here is my friend, who is also a crowbar!`
+        desc: `Morty at heart, Jerry in practice.`
     },
     {
         name: 'Angela',

@@ -31,7 +31,7 @@ class App extends Component {
         const forwardButton = dom.querySelector('#forward-button');
 
         forwardButton.addEventListener('click', () => {
-            if(questionNumber === 21) {
+            if(questionNumber === 22) {
                 endGame();
             } else {
                 if(answer) {
@@ -129,11 +129,7 @@ class App extends Component {
         }
 
         function endGame() {
-            updateGame({ isComplete: true, id: gameId })
-                .catch(err => {
-                    // eslint-disable-next-line no-console
-                    console.log(err);
-                });
+            updateGame({ isComplete: true, id: gameId });
             window.location = './profile.html';
         }
 

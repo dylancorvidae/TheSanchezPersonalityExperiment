@@ -28,6 +28,25 @@ function fetchWithError(url, options) {
             }
         });
 }
+function fetchWithoutResponse(url, options) {
+    if(userToken) {
+        options = options || {};
+        options.headers = options.headers || {};
+        options.headers.Authorization = userToken;
+    }
+
+    return fetch(url, options)
+        .then(response => {
+            if(response.ok) {
+                return response;
+            }
+            else {
+                return response.json().then(json => {
+                    throw json.error;
+                });
+            }
+        });
+}
 
 
 

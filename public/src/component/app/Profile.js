@@ -14,12 +14,16 @@ class ProfileApp extends Component {
         const profileResults = new ProfileResults();
         dom.querySelector('#results-wrapper').appendChild(profileResults.renderDOM());
 
+        const mainChar = new MainChar({});
+        dom.appendChild(mainChar.renderDOM());
+
         //CALCULATE LATEST GAME RESULT
 
         let userMBTI = '';
 
         getGames()
             .then(data => {
+                console.log(data);
                 const gameIds = data.reduce((acc, val) => {
                     if(val.is_complete) {
                         acc.push(val.id);
@@ -31,7 +35,7 @@ class ProfileApp extends Component {
                     const lastGame = Math.max.apply(Math, gameIds);
 
                     const answer = data.find(val => {
-                        return val.id = lastGame;
+                        return val.id === lastGame;
                     });
 
                     const userAnswer = answer.user_answer.split(',');
@@ -43,6 +47,7 @@ class ProfileApp extends Component {
                         return acc;
                     }, { E: 0, I: 0, S: 0, N: 0, F: 0, T: 0, P: 0, J: 0 });
 
+                    console.log(userTotals);
 
                     userTotals.E > userTotals.I ? userMBTI += 'E' : userMBTI += 'I';
                     userTotals.S > userTotals.N ? userMBTI += 'S' : userMBTI += 'N';
@@ -74,8 +79,8 @@ class ProfileApp extends Component {
                                         mainCharProps.description = result[0].description;
                                         mainCharProps.title = result[0].title;
 
-                                        const mainChar = new MainChar(mainCharProps);
-                                        document.getElementById('root').appendChild(mainChar.renderDOM());
+                                        console.log(result);
+                                        mainChar.update(mainCharProps);
                                     });
                             });
                     });
