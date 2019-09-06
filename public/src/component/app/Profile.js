@@ -23,7 +23,6 @@ class ProfileApp extends Component {
 
         getGames()
             .then(data => {
-                console.log(data);
                 const gameIds = data.reduce((acc, val) => {
                     if(val.is_complete) {
                         acc.push(val.id);
@@ -46,8 +45,6 @@ class ProfileApp extends Component {
                         });
                         return acc;
                     }, { E: 0, I: 0, S: 0, N: 0, F: 0, T: 0, P: 0, J: 0 });
-
-                    console.log(userTotals);
 
                     userTotals.E > userTotals.I ? userMBTI += 'E' : userMBTI += 'I';
                     userTotals.S > userTotals.N ? userMBTI += 'S' : userMBTI += 'N';
@@ -79,7 +76,6 @@ class ProfileApp extends Component {
                                         mainCharProps.description = result[0].description;
                                         mainCharProps.title = result[0].title;
 
-                                        console.log(result);
                                         mainChar.update(mainCharProps);
                                     });
                             });
