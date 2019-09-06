@@ -98,14 +98,18 @@ class App extends Component {
 
             getAnswers(id)
                 .then(data => {
-                    quizProps.answerOne = data[0].text;
-                    quizProps.answerTwo = data[1].text;
-                    quizProps.answerThree = data[2].text;
-                    quizProps.answerFour = data[3].text;
-                    quizProps.answerOneMBTI = data[0].mbti;
-                    quizProps.answerTwoMBTI = data[1].mbti;
-                    quizProps.answerThreeMBTI = data[2].mbti;
-                    quizProps.answerFourMBTI = data[3].mbti;
+
+                    const questionNum = [0, 1, 2, 3];
+                    shuffle(questionNum);
+
+                    quizProps.answerOne = data[questionNum[0]].text;
+                    quizProps.answerTwo = data[questionNum[1]].text;
+                    quizProps.answerThree = data[questionNum[2]].text;
+                    quizProps.answerFour = data[questionNum[3]].text;
+                    quizProps.answerOneMBTI = data[questionNum[0]].mbti;
+                    quizProps.answerTwoMBTI = data[questionNum[1]].mbti;
+                    quizProps.answerThreeMBTI = data[questionNum[2]].mbti;
+                    quizProps.answerFourMBTI = data[questionNum[3]].mbti;
                     quizApp.update(quizProps);
                 });
         }

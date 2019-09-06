@@ -3,7 +3,6 @@ import Component from '../Component.js';
 class MainChar extends Component {
     renderHTML() {
         const props = this.props;
-        console.log('PROPS', props);
         return /*html*/`
             <div id="main-char">
                 <div id="main-img-container" class="main-img">
@@ -18,17 +17,18 @@ class MainChar extends Component {
                     </div>
 
                     <div class="personality">
-                        <h2>${props.personality}</h2>
+                        <h2>${props.personality} (${props.title})</h2>
                             <p><span class="description">${props.description}</span></p>
                     </div>
 
                     <ul class="details">
-                        <li>${props.status}</li>
-                        <li>${props.species}</li>
-                        <li>${props.gender}</li>
-                        <li>${props.origin}</li>
+                        <li>Status: ${props.status}</li>
+                        <li>Species: ${props.species}</li>
+                        <li>Gender: ${props.gender}</li>
+                        <li>Origin: ${props.origin}</li>
                     </ul>
                 </div>
+            </div>
             </div>
         `;
     }
