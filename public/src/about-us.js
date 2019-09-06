@@ -17,7 +17,7 @@ export const about = [
     {
         name: 'Angela',
         image: './assets/img/Angela-icon.png',
-        desc: `My result: Mr. Needful, AKA "The Devil" (ENTP).`
+        desc: `My result: Unity (ENTJ).`
     },
     {
         name: 'Rick',
