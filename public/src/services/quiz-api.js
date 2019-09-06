@@ -29,6 +29,13 @@ function fetchWithError(url, options) {
         });
 }
 
+
+
+export function getAllTimeData() {
+    const url = '/data/game';
+    fetchWithError(url);
+}
+
 export function getMBTI(name) {
     const url = `${URL}/mbti/${name}`;
     return fetchWithError(url);
@@ -101,9 +108,14 @@ export function getCharacterFromApi(name) {
 }
 
 export function getCharacter(mbti) {
-    console.log(mbti);
-    const url = `${URL}/characters/${mbti}`;
-    return fetchWithError(url);
+    if(mbti) {
+        const url = `${URL}/characters/${mbti}`;
+        return fetchWithError(url);
+    }
+    else {
+        const url = 'data/characters';
+        return fetchWithError(url);
+    }
 }
 
 //copy paste from Marty
