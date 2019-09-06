@@ -3,7 +3,8 @@ import Component from '../Component.js';
 class MainChar extends Component {
     renderHTML() {
         const props = this.props;
-        return /*html*/`
+        if(props.image) {
+            return /*html*/`
             <div id="main-char">
                 <div id="main-img-container" class="main-img">
                     <img class="main-img" src="${props.image}";>
@@ -31,6 +32,12 @@ class MainChar extends Component {
             </div>
             </div>
         `;
+        }
+        else {
+            return /*html*/`
+            <div></div>
+            `;
+        }
     }
 }
 

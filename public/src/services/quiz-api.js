@@ -29,8 +29,6 @@ function fetchWithError(url, options) {
         });
 }
 
-
-
 export function getAllTimeData() {
     const url = '/data/game';
     fetchWithError(url);

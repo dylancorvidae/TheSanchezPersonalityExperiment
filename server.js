@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-// const morgan = require('morgan');
+const morgan = require('morgan');
 
 const client = require('./lib/client');
 
@@ -33,7 +33,7 @@ const authRoutes = createAuthRoutes({
 
 const app = express();
 const PORT = process.env.PORT;
-// app.use(morgan('dev'));
+app.use(morgan('dev'));
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
@@ -106,6 +106,7 @@ app.get('/api/game', (req, res) => {
         SELECT * FROM game WHERE users_id = $1;
     `, [req.userId])
         .then(result => {
+            console.log(result.rows);
             res.json(result.rows);
         })
         .catch(err => {
@@ -123,8 +124,8 @@ app.put('/api/game/:id', (req, res) => {
         UPDATE game SET is_complete = $1 WHERE id = $2;
         `, [data.isComplete, id]
         )
-            .then(result => {
-                res.json(result.rows[0]);
+            .then(() => {
+                res.status(204).send();
             })
             .catch(err => {
                 res.status(500).json({
