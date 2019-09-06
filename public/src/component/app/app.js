@@ -85,7 +85,7 @@ class App extends Component {
 
             getQuestion(id)
                 .then(data => {
-                    quizProps.questionHeader = `Question ${questionNumber}`;
+                    quizProps.questionHeader = `Question ${questionNumber} of 21`;
                     quizProps.image = data.img;
                     quizProps.questionText = data.question_text;
                     quizApp.update(quizProps);
