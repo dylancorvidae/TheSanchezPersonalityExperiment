@@ -11,14 +11,14 @@ export const about = [
         desc: `An agendered poly queer circus performer and punk/metal musician that enjoys spending time with their family in the forest and gardening. Their hobbies include: dance trapeze, hand-balancing, playing and making music, guitar, singing in choirs and screaming in bands.`
     },
     {
-        name: 'Kam',
+        name: 'Kam (ISTJ)',
         image: './assets/img/kam-icon.png',
         desc: `THE PRESIDENT The Duty Fulfiller. My name is Kam, i'm a software developer trying to store all the information from my brain into mindblowers. Things I like to not forget: hangin out with people, playing games, workout, and random wikipedia facts.`
     },
     {
-        name: 'Angela',
+        name: 'Angela (ENTP)',
         image: './assets/img/Angela-icon.png',
-        desc: `My result: Unity (ENTJ).`
+        desc: `My result: Mr. Needful AKA The Devil...Graphic Designer/Animator turned Software Developer. Enjoy costume making, cooking/baking, gardening, and horror/sci-fi flicks.`
     },
     {
         name: 'Rick',
