@@ -26,6 +26,7 @@ class ProfileApp extends Component {
                     return acc;
                 }, []);
 
+                console.log('DATA', data);
                 const lastGame = Math.max.apply(Math, gameIds);
 
                 const answer = data.find(val => {

@@ -8,16 +8,12 @@ class StatsApp extends Component {
     onRender(dom) {
         const header = new Header();
         dom.prepend(header.renderDOM());
-        let allProps = [];
 
         getCharacter().then(result => {
 
             result.forEach(char => {
-                let typeProps = {};
 
-                typeProps.name = char.name;
-                typeProps.quote = char.quote;
-                typeProps.personality = char.mbti;
+                let typeProps = {};
 
                 getCharacterFromApi(char.name)
                     .then(result => {
@@ -27,22 +23,16 @@ class StatsApp extends Component {
                         typeProps.gender = result.results[0].gender;
                         typeProps.origin = result.results[0].origin.name;
 
+                        typeProps.name = char.name;
+                        typeProps.quote = char.quote;
+                        typeProps.personality = char.mbti;
+                    })
+                    .then(() => {
+                        const type = new Type(typeProps);
+                        dom.querySelector('#types').appendChild(type.renderDOM());
                     });
-
-                allProps.push(typeProps);
-
             });
-
-
-
-        })
-            .then(() => {
-
-                allProps.forEach(prop => {
-                    const type = new Type(prop);
-                    dom.querySelector('#types').appendChild(type.renderDOM());
-                });
-            });
+        });
     }
 
     renderHTML() {
