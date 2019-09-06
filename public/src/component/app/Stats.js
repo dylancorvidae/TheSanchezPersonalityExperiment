@@ -1,36 +1,48 @@
 import Component from '../Component.js';
 import Header from './Header.js';
 import Type from './Type.js';
+import { getCharacter, getCharacterFromApi } from '../../services/quiz-api.js';
 
 class StatsApp extends Component {
 
     onRender(dom) {
         const header = new Header();
         dom.prepend(header.renderDOM());
+        let allProps = [];
 
-        const typeProps = {
-            name: 'Toxic Rick',
-            image: 'https://rickandmortyapi.com/api/character/avatar/361.jpeg',
-            quote: `I'm a f****** genius and a god!`,
-            personality: 'INTJ',
-            status: 'Status: Dead',
-            species: 'Species: Humanoid',
-            type: `Type: Rick's Toxic Side`,
-            gender: `Gender: Male`,
-            origin: `Origin: Alien Spa`,
-        };
+        getCharacter().then(result => {
 
-        const type = new Type(typeProps);
-        dom.querySelector('#types').appendChild(type.renderDOM());
-        dom.querySelector('#types').appendChild(type.renderDOM());
-        dom.querySelector('#types').appendChild(type.renderDOM());
-        dom.querySelector('#types').appendChild(type.renderDOM());
-        dom.querySelector('#types').appendChild(type.renderDOM());
-        dom.querySelector('#types').appendChild(type.renderDOM());
-        dom.querySelector('#types').appendChild(type.renderDOM());
-        dom.querySelector('#types').appendChild(type.renderDOM());
-        dom.querySelector('#types').appendChild(type.renderDOM());
-        dom.querySelector('#types').appendChild(type.renderDOM());
+            result.forEach(char => {
+                let typeProps = {};
+
+                typeProps.name = char.name;
+                typeProps.quote = char.quote;
+                typeProps.personality = char.mbti;
+
+                getCharacterFromApi(char.name)
+                    .then(result => {
+                        typeProps.image = result.results[0].image;
+                        typeProps.status = result.results[0].status;
+                        typeProps.species = result.results[0].species;
+                        typeProps.gender = result.results[0].gender;
+                        typeProps.origin = result.results[0].origin.name;
+
+                    });
+
+                allProps.push(typeProps);
+
+            });
+
+
+
+        })
+            .then(() => {
+
+                allProps.forEach(prop => {
+                    const type = new Type(prop);
+                    dom.querySelector('#types').appendChild(type.renderDOM());
+                });
+            });
     }
 
     renderHTML() {

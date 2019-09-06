@@ -1,41 +1,49 @@
 /* eslint-disable no-undef */
-const ctx = document.getElementById('all-user-stats').getContext('2d');
 import { getGames } from '../../services/quiz-api.js';
+const ctx = document.getElementById('all-user-stats').getContext('2d');
+Chart.defaults.global.defaultFontColor = '#FFF';
 
-let labels = [];
-let data = [];
+let data = {};
 
 getGames()
     .then(results => {
         console.log(results);
-    });
+        results.forEach(result => {
+            data[result.result] ? data[result.result] = data[result.result] + 1 : data[result.result] = 1;
+        });
+    })
+    .then(() => {
 
-Chart.defaults.global.defaultFontColor = '#FFF';
+        const labels = Object.keys(data);
+        const chartData = labels.map(val => {
+            return data[val];
+        });
 
-// eslint-disable-next-line no-unused-vars
-const allTimeStats = new Chart(ctx, {
+        // eslint-disable-next-line no-unused-vars
+        const allTimeStats = new Chart(ctx, {
 
-    type: 'horizontalBar',
-    defaultFontColor: 'white',
-    data: {
-        labels: [`Birdperson`, `Simple Rick`, `Evil Morty`, `Dr. Wong`, `Armagheadon`, `Jerry`, `The President`, `Morty`, `Mr. PoopyButthole`, `Beth`, `Squanchy`, `Summer`, `Unity`, `Mr. Needful`, `Sleepy Gary`, `Mr. Meeseeks`],
-        datasets: [{
-            label: 'MBTI Personality Results',
-            backgroundColor: 'green',
-            data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
-        }]
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: true,
-        scaleFontColor: '#FFFFFF',
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero: true
+            type: 'horizontalBar',
+            defaultFontColor: 'white',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'MBTI Personality Results',
+                    backgroundColor: 'green',
+                    data: chartData
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                scaleFontColor: '#FFFFFF',
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: false
+                        }
+                    }]
                 }
-            }]
-        }
-    }
+            }
 
-});
+        });
+    });
