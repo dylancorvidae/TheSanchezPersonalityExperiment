@@ -49,11 +49,6 @@ class ProfileApp extends Component {
                     userTotals.F > userTotals.T ? userMBTI += 'F' : userMBTI += 'T';
                     userTotals.P > userTotals.J ? userMBTI += 'P' : userMBTI += 'J';
 
-                    console.log(data);
-                    console.log(lastGame);
-                    console.log(userTotals);
-                    console.log(userMBTI);
-
                     getCharacter(userMBTI).then(result => {
 
                         updateGame({ id: lastGame, method: 'char', character: result.name });
@@ -62,7 +57,8 @@ class ProfileApp extends Component {
                             name: result.name,
                             quote: result.quote,
                             image: result.profile,
-                            personality: result.mbti
+                            personality: result.mbti,
+
                         };
 
                         getCharacterFromApi(result.name)
@@ -76,7 +72,7 @@ class ProfileApp extends Component {
                                 getMBTI(userMBTI)
                                     .then(result => {
                                         mainCharProps.description = result[0].description;
-
+                                        mainCharProps.title = result[0].title;
 
                                         const mainChar = new MainChar(mainCharProps);
                                         document.getElementById('root').appendChild(mainChar.renderDOM());
