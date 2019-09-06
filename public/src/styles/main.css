@@ -1,10 +1,11 @@
+
+
 * {
     box-sizing: border-box;
 }
 
-
 html {
-    height: 100%;
+    height: 100vw;
 }
 
 @font-face {
@@ -26,10 +27,8 @@ body {
     background-image: url('../../assets/img/rick\ and\ morty\ bg.png');
     background-size: cover;
     background-position: center;
-    background-size: cover;
     background-repeat: no-repeat;
     font-family: "rick-and-morty";
-    background-size: cover;
 }
 
 

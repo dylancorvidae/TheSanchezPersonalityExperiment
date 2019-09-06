@@ -17,7 +17,7 @@ class AuthApp extends Component {
         const header = new Header();
         dom.prepend(header.renderDOM());
 
-        const error = dom.querySelector('.error');
+        const error = dom.querySelector('.errors');
         const signUpBox = dom.querySelector('#signup-box');
         const signInBox = dom.querySelector('#signin-box');
 
@@ -52,48 +52,38 @@ class AuthApp extends Component {
 
         signInBox.appendChild(signIn.renderDOM());
 
-        dom.querySelector('#signin-button').addEventListener('click', () => {
+        const switchToSignIn = dom.querySelector('#signin-switch-button');
+        switchToSignIn.addEventListener('click', () => {
             signInBox.classList.remove('hidden');
             signUpBox.classList.add('hidden');
-            dom.querySelector('#signin-button').classList.add('selected');
-            dom.querySelector('#signup-button').classList.remove('selected');
-            error.textContent = '';
-
-
         });
 
-        dom.querySelector('#signup-button').addEventListener('click', () => {
-            signInBox.classList.add('hidden');
+        const switchToSignUp = dom.querySelector('#signup-switch-button');
+        switchToSignUp.addEventListener('click', () => {
             signUpBox.classList.remove('hidden');
-            dom.querySelector('#signin-button').classList.remove('selected');
-            dom.querySelector('#signup-button').classList.add('selected');
-            error.textContent = '';
-
+            signInBox.classList.add('hidden');
         });
-
-
     }
 
 
     renderHTML() {
         return /*html*/`
              <div id="root">
-                <main>
-                    <div id="auth-container">
-                 <section id="button-box"> 
-                        <button id="signin-button" class="option selected">Sign In</button>
-                        <button id="signup-button" class="option">Sign Up</button>
-                        </section>
-                 <section id="auth-box">
-                    <section id="signin-box">
-                    </section>
-                    <section id="signup-box" class="hidden">
-                    </section>
-                    </section>
-                    <p class="error"></p>
-                    </div>
-
-                </main>
+             <main>
+             <div id="auth-container">
+             <p class="errors"></p>
+             <section class="hidden" id="signup-box">
+                 <p class="switch">
+                     <button id="signin-switch-button">Already a User?</button>
+                 </p>
+             </section>
+             <section id="signin-box">
+                 <p class="switch">
+                     <button id="signup-switch-button">Need to create an Account?</button>
+                 </p>
+             </section>
+             </div>
+         </main>
             </div>
         `;
     }

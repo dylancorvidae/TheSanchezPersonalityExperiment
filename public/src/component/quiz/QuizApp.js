@@ -1,9 +1,19 @@
 import Component from '../Component.js';
 
 class QuizApp extends Component {
+
+    onRender(dom) {
+        const selectAnswer = this.props.selectAnswer;
+        const inputs = dom.querySelectorAll('input');
+        [...inputs].forEach(input => {
+            input.addEventListener('click', () => {
+                selectAnswer(input.value);
+            });
+        });
+    }
+
     renderHTML() {
         const props = this.props;
-        console.log(props);
 
         return /*html*/`
         <div>
@@ -16,13 +26,13 @@ class QuizApp extends Component {
                     </div>
                     <div id="answer-box">
                         <label class="answer"><input class="answer-input" type="radio" name="question-one"
-                            value="answer-one">${props.answerOne}</label>
+                            value="${props.answerOneMBTI}">${props.answerOne}</label>
                         <label class="answer"><input class="answer-input" type="radio" name="question-one"
-                            value="answer-two">${props.answerTwo}</label>
+                            value="${props.answerTwoMBTI}">${props.answerTwo}</label>
                         <label class="answer"><input class="answer-input" type="radio" name="question-one"
-                            value="answer-three">${props.answerThree}</label>
+                            value="${props.answerThreeMBTI}">${props.answerThree}</label>
                         <label class="answer"><input class="answer-input" type="radio" name="question-one"
-                            value="answer-four">${props.answerFour}</label>
+                            value="${props.answerFourMBTI}">${props.answerFour}</label>
                     </div>
                     </div>
         `;

@@ -42,24 +42,26 @@ client.connect()
         return Promise.all(
             characters.map(char => {
                 return client.query(`
-                    INSERT INTO characters (name, quote, mbti)
-                    VALUES($1, $2, $3);
-        `, [char.name, char.quote, char.mbti]
+                    INSERT INTO characters (name, quote, mbti, profile)
+                    VALUES($1, $2, $3, $4);
+        `, [char.name, char.quote, char.mbti, char.image]
                 );
             })
         );
     })
-    .then(() => {
-        return Promise.all(
-            profile.map(prof => {
-                return client.query(`
-                    INSERT INTO profile (name, image)
-                    VALUES($1, $2);
-        `, [prof.name, prof.image]
-                );
-            })
-        );
-    })
+    // .then(() => {
+    //     return Promise.all(
+    //         profile.map(prof => {
+    //             return client.query(`
+    //                 INSERT INTO characters (profile)
+    //                 VALUES ($2)
+    //                 WHERE name = $1;
+
+    //     `, [prof.name, prof.image]
+    //             );
+    //         })
+    //     );
+    // })
 
     .then(
         () => console.log('List data seeded successfully'),

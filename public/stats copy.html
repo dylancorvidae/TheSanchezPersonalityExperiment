@@ -9,6 +9,7 @@
     <link rel='stylesheet' href='./src/styles/main.css' type='text/css'>
     <link rel="stylesheet" href="./src/styles/header.css" type="text/css">
     <link rel="stylesheet" href="./src/styles/stats.css" type="text/css">
+    <link rel="stylesheet" href="./src/styles/allUserStats.css" type="text/css">
     <title>Morty's Mindblowers</title>
 </head>
 
@@ -28,13 +29,15 @@
         <section id="all-time-stats">
             <h1>ALL TIME STATS</h1>
             <div id="bar-graph">
+                <canvas id="all-user-stats" width="100" height="40">
+                </canvas>
                 <!-- insert bar graph -->
             </div>
         </section>
     </div>
     <div>
         <div id="types">
-            <h1>PERSONALITY TYPES</h1>
+                <h1>PERSONALITY TYPES</h1>
             <div class="type">
                 <span class="name">Toxic Rick</span>
                 <img src="https://rickandmortyapi.com/api/character/avatar/361.jpeg"
@@ -50,6 +53,8 @@
             </div>
         </div>
     </div>
+    <script type="module" src="./src/component/app/allUserStat-chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </body>
 
 </html>

@@ -2,7 +2,7 @@ require('dotenv').config();
 
 const express = require('express');
 const cors = require('cors');
-const morgan = require('morgan');
+// const morgan = require('morgan');
 
 const client = require('./lib/client');
 
@@ -24,7 +24,7 @@ const authRoutes = createAuthRoutes({
         return client.query(`
             INSERT into users (email, hash, display_name)
             VALUES ($1, $2, $3)
-            RETURNING id, email, display_name as "displayName"
+            RETURNING id, email, display_name as "displayName";
         `,
         [user.email, hash, user.displayName]
         ).then(result => result.rows[0]);
@@ -33,7 +33,7 @@ const authRoutes = createAuthRoutes({
 
 const app = express();
 const PORT = process.env.PORT;
-app.use(morgan('dev'));
+// app.use(morgan('dev'));
 app.use(cors());
 app.use(express.static('public'));
 app.use(express.json());
@@ -43,9 +43,25 @@ app.use('/api', ensureAuth);
 
 //ROUTES
 
+app.get('/api/mbti/:name', (req, res) => {
+    const name = req.params.name;
+    client.query(`
+        SELECT * FROM mbti WHERE name = $1;
+    `, [name])
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
+
+
 app.get('/api/test', (req, res) => {
     client.query(`
-        SELECT * FROM test
+        SELECT * FROM test;
     `)
         .then(result => {
             res.json(result.rows);
@@ -59,7 +75,7 @@ app.get('/api/test', (req, res) => {
 
 app.get('/api/answers', (req, res) => {
     client.query(`
-        SELECT * FROM answers
+        SELECT * FROM answers;
     `)
         .then(result => {
             res.json(result.rows);
@@ -71,10 +87,115 @@ app.get('/api/answers', (req, res) => {
         });
 });
 
+app.get('/api/game', (req, res) => {
+    client.query(`
+        SELECT * FROM game WHERE users_id = $1;
+    `, [req.userId])
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
 
+app.put('/api/game/:id', (req, res) => {
+    const data = req.body;
+    const id = req.params.id;
+    if(data.isComplete) {
+        client.query(`
+        UPDATE game SET is_complete = $1 WHERE id = $2;
+        `, [data.isComplete, id]
+        )
+            .then(result => {
+                res.json(result.rows[0]);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    error: err.message || err
+                });
+            });
+    }
+    if(data.userAnswer) {
+        client.query(`
+        UPDATE game SET user_answer = CONCAT(user_answer, $1::text) WHERE id = $2;
+        `, [data.userAnswer, id])
+            .then(result => {
+                res.json(result.rows[0]);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    error: err.message || err
+                });
+            });
+    }
+    if(data.method === 'back') {
+        client.query(`
+        UPDATE game SET user_answer = SUBSTR(user_answer, 1, LENGTH(user_answer)-5) 
+        WHERE id = $1
+        RETURNING *;
+        `, [id])
+            .then(result => {
+                res.json(result.rows[0]);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    error: err.message || err
+                });
+            });
+    }
+});
 
+app.post('/api/game', (req, res) => {
+    client.query(`
+        INSERT INTO game (users_id, question_order, is_complete)
+        VALUES ($1, $2, $3)
+        RETURNING *;
+    `, [req.userId, req.body.order, false])
+        .then(result => {
+            res.json(result.rows[0]);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
 
+// app.get('/api/characters/', (req, res) => {
+//     client.query(`SELECT *
+//                   FROM characters
+//                   WHERE id = $1 `, [req.id])
+//         .then(result => {
+//             res.json(result.rows);
+//         })
+//         .catch(err => {
+//             res.status(500).json({
+//                 error: err.message || err
+//             });
+//         });
+// });
 
+app.get('/api/characters/:mbti', (req, res) => {
+    const mbti = req.params.mbti;
+    client.query(`
+        SELECT *
+        FROM characters
+        WHERE mbti = $1 
+    `, [mbti])
+        .then(result => {
+            const character = result.rows[0];
+            if(!character) {
+                res.status(404).json({
+                    error: `character mbti ${mbti} does not exist`
+                });
+            } else {
+                res.json(result.rows[0]);
+            }
+        });
+});
 // Start the server
 app.listen(PORT, () => {
     console.log('server running on PORT', PORT);

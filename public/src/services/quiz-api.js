@@ -1,4 +1,5 @@
 import store from './store.js';
+// import { pathToFileURL } from 'url';
 const URL = '/api';
 
 const userToken = store.getToken();
@@ -28,15 +29,9 @@ function fetchWithError(url, options) {
         });
 }
 
-export function makeNewGame(userId) {
-    const url = `${URL}/game`;
-    return fetchWithError(url, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userId)
-    });
+export function getMBTI(name) {
+    const url = `${URL}/mbti/${name}`;
+    return fetchWithError(url);
 }
 
 export function getGames() {
@@ -58,7 +53,6 @@ export function getAnswers(id) {
     const url = `${URL}/answers`;
     return fetchWithError(url)
         .then(answers => {
-            console.log(answers);
             return answers.filter(answer => {
                 return answer.question_id === id;
             });
@@ -66,8 +60,51 @@ export function getAnswers(id) {
 }
 
 
+export function updateGame(data) {
+    const url = `${URL}/game/${data.id}`;
+    return fetchWithError(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
+}
 
+export function backOne(data) {
+    const url = `${URL}/game/${data.id}`;
+    return fetchWithError(url, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data)
+    });
 
+}
+
+export function createGame(order) {
+    const url = `${URL}/game/`;
+    return fetchWithError(url, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(order)
+    });
+}
+
+export function getCharacterFromApi(name) {
+    const url = `https://rickandmortyapi.com/api/character/?name=${name}`;
+    return fetch(url)
+        .then(response => response.json());
+}
+
+export function getCharacter(mbti) {
+    console.log(mbti);
+    const url = `${URL}/characters/${mbti}`;
+    return fetchWithError(url);
+}
 
 //copy paste from Marty
 

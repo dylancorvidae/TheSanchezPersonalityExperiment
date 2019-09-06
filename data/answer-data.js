@@ -16,7 +16,7 @@ module.exports = [
     { text: `A hyperactive trashcat that can't stop squanching all over everybody and their things.`, mbti_id: `ENFP`, question_id: 4 },
     { text: `A black hole of empathy that sucks the motivation out of those around you leaving an empty husk devoid of all potential behind.`, mbti_id: `ISTJ`, question_id: 4 },
     { text: `Enjoy it so much you never leave and die of dehydration.`, mbti_id: `ISFP`, question_id: 5 },
-    { text: `Enjoy it for a couple hours, get bored and leave to do some Kalaxian Crystals with some people who perviously tried to kill you.`, mbti_id: `ESFJ`, question_id: 5 },
+    { text: `Enjoy it for a couple of hours, get bored and leave to do some Kalaxian Crystals with some people who previously tried to kill you.`, mbti_id: `ESFJ`, question_id: 5 },
     { text: `Bring some drinks and squanch it up with friends in the field.`, mbti_id: `ENTP`, question_id: 5 },
     { text: `Avoid the field, it's probably already been detected by the Council of Ricks, or leftover Gromflomites from the Galactic Federation.`, mbti_id: `INTJ`, question_id: 5 },
     { text: `Pencil Vester`, mbti_id: `ESTJ`, question_id: 6 },
