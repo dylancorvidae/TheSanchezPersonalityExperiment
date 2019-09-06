@@ -61,6 +61,6 @@ module.exports = [
     },
     {
         image: './assets/profile-img/MrMeeseeks.png',
-        name: `Mr. Meeseeks`, quote: `Existence is pain."`, mbti: `ENFP`
+        name: `Mr. Meeseeks`, quote: `"Existence is pain."`, mbti: `ENFP`
     }
 ];
