@@ -110,7 +110,11 @@ h1.title {
 }
  
 #log-out:hover {
-background-color: rgb(92, 185, 15);
-box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
-transition-duration: 1000ms;
+    background-color: rgb(92, 185, 15);
+    box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
+    transition-duration: 1000ms;
+}
+
+#log-out:hover {
+    cursor: pointer;
 }

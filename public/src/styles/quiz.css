@@ -27,6 +27,7 @@
     -5px 4px 2px rgb(219, 47, 47),
     -5px 6px 2px rgb(185, 15, 15);
     transition-duration: 500ms;
+    cursor: pointer;
 } 
 
 
@@ -44,6 +45,7 @@
     5px 4px 2px rgb(124, 219, 47),
     5px 6px 2px rgb(92, 185, 15);
     transition-duration: 500ms;
+    cursor: pointer;
 }
 
 .quiz-buttons-p {
@@ -143,4 +145,8 @@
 
 .next-btn-img {
     width: 150px; 
+}
+
+input[type='radio']:hover{
+    cursor: pointer;
 }
