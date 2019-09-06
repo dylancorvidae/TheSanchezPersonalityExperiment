@@ -17,7 +17,7 @@ export const about = [
     {
         name: 'Kam',
         image: './assets/img/kam-icon.png',
-        desc: `We will return… possibly in different clothing. Aw, c'mon Rick. That doesn't seem so bad. We all wanna die, we're meeseeks! It's a device Morty, that when you put it in your ear, you can enter people's dreams Morty. Its just like that movie that you keep crowing about.`
+        desc: `THE PRESIDENT The Duty Fulfiller. My name is Kam, i'm a software developer trying to store all the information from my brain into mindblowers. Things I like to not forget: hangin out with people, playing games, workout, and random wikipedia facts.`
     },
     {
         name: 'Rick',
