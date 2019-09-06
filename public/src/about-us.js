@@ -15,6 +15,7 @@ export const about = [
         image: './assets/img/kam-icon.png',
         desc: `THE PRESIDENT The Duty Fulfiller. My name is Kam, i'm a software developer trying to store all the information from my brain into mindblowers. Things I like to not forget: hangin out with people, playing games, workout, and random wikipedia facts.`
     },
+    {
         name: 'Angela',
         image: './assets/img/Angela-icon.png',
         desc: `My result: Mr. Needful, AKA "The Devil" (ENTP).`
