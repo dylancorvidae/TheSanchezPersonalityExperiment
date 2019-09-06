@@ -32,6 +32,7 @@ morgan
 nodemon
 pg
 superagent
+chartjs
 
 ##User Needs For Deploying Your Own Version Of App:
 Install libraries from above, add .env file (see .env-example)
