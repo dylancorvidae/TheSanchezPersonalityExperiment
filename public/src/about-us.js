@@ -18,7 +18,7 @@ export const about = [
     {
         name: 'Angela (ENTP)',
         image: './assets/img/Angela-icon.png',
-        desc: `My result: Mr. Needful AKA The Devil...Graphic Designer/Animator turned Software Developer. Enjoy costume making, cooking/baking, gardening, and horror/sci-fi flicks.`
+        desc: `My result: Mr. Needful AKA The Devil...Graphic Designer/Animator turned Software Developer. Enjoys costume making, cooking/baking, gardening, and horror/sci-fi flicks.`
     },
     {
         name: 'Rick (RICK)',
