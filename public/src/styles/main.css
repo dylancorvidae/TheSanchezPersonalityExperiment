@@ -27,7 +27,7 @@ body {
     background-image: url('../../assets/img/rick\ and\ morty\ bg.png');
     background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
+    background-repeat: repeat-y;
     font-family: "rick-and-morty";
 }
 
