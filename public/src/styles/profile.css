@@ -6,28 +6,33 @@
     align-items: center;
     justify-content: center;
     margin: auto;
-    margin-top: 50px;
     background-color: rgba(255, 255, 255, 0.75);
-    border:1px solid black;
+    border: 1px solid black;
 }
 
-.main-img-container {
-    /* width: 3; */
-}
-
-#mainchar > div:first-of-type {
-    display: flex;
-    flex-direction: row;
+#main-img-container {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-left: 10px;
+    margin-right: 0;
+    max-height: 500px;
+    max-width: 400px;
 }
 
 .main-img {
-    max-height: 500px;
+    max-width: auto;
+    max-height: 500px;    
     -webkit-filter: drop-shadow(4px 4px 5px gray);
     filter: drop-shadow(4px 4px 5px gray);
 }
 
 .list-container {
-    width: 50%;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    margin-right: 40px;
+    margin-left: 10px;
+    height: auto;
+    width: 55%;
 }
 
 .title {
@@ -51,23 +56,27 @@
     text-align: center;
     font-size: 200%;
     margin-top: 10px;
+    line-height: .85em;
 }
 
 .personality {
     border: solid 1px black;
     text-align: center;
     margin-top: 15px;
-    padding: 10px;
+    padding: 15px;
 }
 
 h2 {
     font-family: "adult-swim-font";
     font-size: 200%;
+    margin-bottom: 10px;
 }
 
 .description {
     font-family: "adult-swim-font";
-    font-size: 125%;
+    line-height: 1.2em;
+    font-size: 110%;
+    margin-top: 20px;
 }
 
 .details {
@@ -75,4 +84,3 @@ h2 {
     margin-top: 25px;
     font-size: 150%;
 }
-

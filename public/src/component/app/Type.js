@@ -11,11 +11,10 @@ class Type extends Component {
                         title="${props.quote}">
                     <span>${props.personality}</span>
                     <ul>
-                        <li>${props.status}</li>
-                        <li>${props.species}</li>
-                        <li>${props.type}</li>
-                        <li>${props.gender}</li>
-                        <li>${props.origin}</li>
+                        <li>Status: ${props.status}</li>
+                        <li>Species: ${props.species}</li>
+                        <li>Gender: ${props.gender}</li>
+                        <li>Origin: ${props.origin}</li>
                     </ul>
                 </div>
         `;
