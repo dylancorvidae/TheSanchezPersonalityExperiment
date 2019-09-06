@@ -17,7 +17,7 @@ class MainChar extends Component {
                     </div>
 
                     <div class="personality">
-                        <h2>${props.personality}</h2>
+                        <h2>${props.personality} (${props.title})</h2>
                             <p><span class="description">${props.description}</span></p>
                     </div>
 
