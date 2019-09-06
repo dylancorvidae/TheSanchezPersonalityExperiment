@@ -46,11 +46,12 @@
     align-items:center;  
     border: 1.5px solid black;
     padding: 10px;
-    margin:5px;
+    margin: 5px;
     color: white;
     background-color: rgba(0, 14, 6, 0.95);
     font-family: 'adult-swim-font';
     transition: 500ms;
+    width: 150px;
 }
 
 .type:hover{
@@ -68,6 +69,8 @@
 ul {
     list-style-type: none;
     margin-top: 5px;
+    overflow-wrap: break-word;
+
 }
 
 li {

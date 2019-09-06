@@ -30,12 +30,6 @@ h1.title {
     1px  0   0 rgb(252, 255, 63),
     1px  1px 0 rgb(252, 255, 63),
     0    1px 0 rgb(252, 255, 63),
-<<<<<<< HEAD
-    -1px  1px 0 rgb(252, 255, 63),
-    -1px  0   0 rgb(252, 255, 63), 
-    0 0 14px rgb(60, 253, 26),
-    0 0 12px rgb(252, 255, 63);
-=======
    -1px  1px 0 rgb(252, 255, 63),
    -1px  0   0 rgb(252, 255, 63), 
     0 0 12px rgb(60, 253, 26, .7),
@@ -66,7 +60,6 @@ h1.title {
 
 @keyframes spin1 {
     100% { transform: rotate(360deg); }
->>>>>>> 87cf68875a222660af56c7d63441b94000917a96
 }
 
 #log-out {
@@ -100,6 +93,7 @@ h1.title {
 background-color: rgb(92, 185, 15);
 box-shadow: 0px 0px 20px 5px rgb(124, 219, 47);
 transition-duration: 1000ms;
+cursor: pointer;
 }
 
 
