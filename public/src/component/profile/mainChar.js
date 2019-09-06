@@ -22,10 +22,10 @@ class MainChar extends Component {
                     </div>
 
                     <ul class="details">
-                        <li>${props.status}</li>
-                        <li>${props.species}</li>
-                        <li>${props.gender}</li>
-                        <li>${props.origin}</li>
+                        <li>Status: ${props.status}</li>
+                        <li>Species: ${props.species}</li>
+                        <li>Gender: ${props.gender}</li>
+                        <li>Origin: ${props.origin}</li>
                     </ul>
                 </div>
             </div>
