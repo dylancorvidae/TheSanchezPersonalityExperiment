@@ -12,7 +12,7 @@ export const about = [
     {
         name: 'Dylan',
         image: './assets/img/Dylan-icon.png',
-        desc: `Those guys are inside you building a piece of shit Ethan! They're inside you building a monument to compromise! Fuck them, fuck those people, fuck this whole thing Ethan. Your blood will be my lotion! Lick, lick, lick my balls! I turned myself into a pickle, Morty! Boom! Big reveal! I'm a pickle! What do you think about that? I turned myself into a pickle! W-what are you just staring at me for, bro? I turned myself into a pickle, Morty.`
+        desc: `An agendered poly queer circus performer and punk/metal musician that enjoys spending time with their family in the forest and gardening. Their hobbies include: dance trapeze, hand-balancing, playing and making music, guitar, singing in choirs and screaming in bands.`
     },
     {
         name: 'Angela',
@@ -22,7 +22,8 @@ export const about = [
     {
         name: 'Rick',
         image: './assets/img/Rick.png',
-        desc: `Oh, I'm sorry Morty, are you the scientist or are you the kid who wanted to get laid? Do you know how many characters there are in the Simpsons Morty? There's like a-a billion characters, M-Morty. There was an episode where Former President BUSH was their neighbor! Puh rum pum pow! Hello Jerry, come to rub my face in urine again?`
+        desc: `I started this experiment because my whiney grandkids kept talking about this Meyer Lemon Personality Test bleeeechhh uuurp. They were going on and on and on about how it was sooooo accurate.  I read the descriptions of the personality types but it was so vague that each type could have applied to almost anyone. It's as dumb and useless astrology or my grandkids. I decided the whole test needed to be redone and convinced some idiot coders to make this test for me to show my grandkids how dumb this whole thing was. The best part is these coders did it for the "exposure", how f****** stupid can you get?!  
+        `
     },
 
 ];
