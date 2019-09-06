@@ -5,6 +5,7 @@ import SignUp from '../auth/signup.js';
 import { userSignUp, userSignIn } from '../../services/quiz-api.js';
 import store from '../../services/store.js';
 
+
 function verifySuccess(user) {
     store.setToken(user.token);
     const searchParams = new URLSearchParams(location.search);

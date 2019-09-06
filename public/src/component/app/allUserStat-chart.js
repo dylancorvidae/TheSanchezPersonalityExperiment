@@ -12,7 +12,7 @@ const allTimeStats = new Chart(ctx, {
     data: {
         labels: [`Birdperson`, `Simple Rick`, `Evil Morty`, `Dr. Wong`, `Armagheadon`, `Jerry`, `The President`, `Morty`, `Mr. PoopyButthole`, `Beth`, `Squanchy`, `Summer`, `Unity`, `Mr. Needful`, `Sleepy Gary`, `Mr. Meeseeks`],
         datasets: [{
-            label: 'MBTI Personality Results',
+            label: 'Sanchez Personality Experiment Assessments',
             backgroundColor: 'green',
             data: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
         }]
@@ -24,7 +24,8 @@ const allTimeStats = new Chart(ctx, {
         scales: {
             yAxes: [{
                 ticks: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    fontFamily: 'adult-swim-font'
                 }
             }]
         }
