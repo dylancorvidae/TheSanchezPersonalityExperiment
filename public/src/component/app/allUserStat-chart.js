@@ -23,12 +23,13 @@ getGames()
         // eslint-disable-next-line no-unused-vars
         const allTimeStats = new Chart(ctx, {
 
+
             type: 'horizontalBar',
             defaultFontColor: 'white',
             data: {
                 labels: labels,
                 datasets: [{
-                    label: 'MBTI Personality Results',
+                    label: 'Sanchez Personality Experiment Assessments',
                     backgroundColor: 'green',
                     data: chartData
                 }]
@@ -41,6 +42,7 @@ getGames()
                     xAxes: [{
                         ticks: {
                             beginAtZero: true,
+                            fontFamily: 'adult-swim-font',
                             stepSize: 1,
                         }
                     }]

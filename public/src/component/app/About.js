@@ -27,6 +27,9 @@ class AboutApp extends Component {
 
                 </div>
             </div>
+            <audio controls autoplay>
+                <source src="../../../assets/sound/humanmusic.mp3">
+            </audio>
         </div>
         `;
     }
