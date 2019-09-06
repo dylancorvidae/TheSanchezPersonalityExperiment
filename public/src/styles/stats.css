@@ -52,13 +52,16 @@
     font-family: 'adult-swim-font';
     transition: 500ms;
     width: 150px;
+    height:250px;
 }
 
 .type:hover{
     transform: scale(1.17);
+    width:300px;
     background-color: rgba(255, 255, 255, 0.95);
     color: black;
-    transition: 500ms;
+    transition: 350ms ease-in-out;
+    height:auto;
 }
 
 .type img {
@@ -105,4 +108,12 @@ h2 {
 h3{
     font-size: 25px;
     color: white;
+}
+
+.hidden {
+    display:none;
+}
+
+#desc {
+    font-size:.7em;
 }
