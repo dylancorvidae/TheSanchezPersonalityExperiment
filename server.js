@@ -41,7 +41,21 @@ app.use(express.json());
 app.use('/api/auth', authRoutes);
 app.use('/api', ensureAuth);
 
-//ROUTES
+//AUTH ROUTES
+
+app.get('/data/game', (req, res) => {
+    client.query(`
+    SELECT * FROM game WHERE is_complete = $1;
+    `, [true])
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
 
 app.get('/api/mbti/:name', (req, res) => {
     const name = req.params.name;
@@ -146,6 +160,21 @@ app.put('/api/game/:id', (req, res) => {
                 });
             });
     }
+    if(data.method === 'char') {
+        client.query(`
+        UPDATE game SET result = $2
+        WHERE id = $1
+        RETURNING *;
+        `, [id, data.character])
+            .then(result => {
+                res.json(result.rows[0]);
+            })
+            .catch(err => {
+                res.status(500).json({
+                    error: err.message || err
+                });
+            });
+    }
 });
 
 app.post('/api/game', (req, res) => {
@@ -164,19 +193,18 @@ app.post('/api/game', (req, res) => {
         });
 });
 
-// app.get('/api/characters/', (req, res) => {
-//     client.query(`SELECT *
-//                   FROM characters
-//                   WHERE id = $1 `, [req.id])
-//         .then(result => {
-//             res.json(result.rows);
-//         })
-//         .catch(err => {
-//             res.status(500).json({
-//                 error: err.message || err
-//             });
-//         });
-// });
+app.get('/data/characters/', (req, res) => {
+    client.query(`SELECT * FROM characters
+        `,)
+        .then(result => {
+            res.json(result.rows);
+        })
+        .catch(err => {
+            res.status(500).json({
+                error: err.message || err
+            });
+        });
+});
 
 app.get('/api/characters/:mbti', (req, res) => {
     const mbti = req.params.mbti;
