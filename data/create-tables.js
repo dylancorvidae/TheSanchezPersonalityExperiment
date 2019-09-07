@@ -3,11 +3,21 @@ const client = require('../lib/client');
 client.connect()
     .then(() => {
         return client.query(`
-    CREATE TABLE questions(
+
+    CREATE TABLE test(
         id SERIAL PRIMARY KEY, 
-        text VARCHAR(1024) NOT NULL
+        question_text VARCHAR(1024),
+        img VARCHAR(256)
     );
-        CREATE TABLE users(
+
+    CREATE TABLE answers(
+        id SERIAL PRIMARY KEY,
+        text VARCHAR(1024),
+        mbti VARCHAR(256),
+        question_id INTEGER
+    );
+
+    CREATE TABLE users(
         id SERIAL PRIMARY KEY,
         email VARCHAR(256) NOT NULL,
         hash VARCHAR(512) NOT NULL,
@@ -17,48 +27,36 @@ client.connect()
     
     CREATE TABLE mbti(
         id SERIAL PRIMARY KEY,
-        name VARCHAR(256) NOT NULL,
-        title VARCHAR(256) NOT NULL,
-        description VARCHAR(1024) NOT NULL
-    );
-
-    CREATE TABLE answers(
-        id SERIAL PRIMARY KEY,
-        text VARCHAR(1024) NOT NULL,
-        mbti_id INTEGER REFERENCES mbti(id),
-        mbti VARCHAR(256),
-        question_id INTEGER REFERENCES questions(id)
+        name VARCHAR(256),
+        title VARCHAR(256),
+        description VARCHAR(1024) 
     );
 
     CREATE TABLE characters(
         id SERIAL PRIMARY KEY,
-        name VARCHAR(256) NOT NULL,
+        name VARCHAR(256),
         quote VARCHAR(1024),
         mbti VARCHAR(256),
-        mbti_id INTEGER REFERENCES mbti(id)
+        profile VARCHAR(256)
     );
 
-
-    CREATE TABLE test(
+    CREATE TABLE game(
         id SERIAL PRIMARY KEY,
-        test_number INTEGER,
-        answers VARCHAR(1024),
-        users_id INTEGER REFERENCES users(id),
-        mbti_id INTEGER REFERENCES mbti(id),
-        character_id INTEGER REFERENCES characters(id)
+        users_id INTEGER,
+        user_answer VARCHAR(256),
+        question_order VARCHAR(256),
+        result VARCHAR(256),
+        is_complete BOOLEAN NOT NULL
     );
 
-`
-        );
+`);
     })
 
     .then(
-
         () => console.log('tables created'),
         err => console.log(err)
     )
 
     .then(
-
         () => { client.end(); }
     );

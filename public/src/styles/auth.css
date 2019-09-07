@@ -1,0 +1,290 @@
+* {
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: "rick-and-morty";
+    src: url(../../assets/fonts/rick-and-morty.ttf);
+}
+
+@font-face {
+    font-family: "get-schwifty";
+    src: url(../../assets/fonts/get-schwifty.ttf);
+}
+
+@font-face {
+    font-family: "adult-swim-font";
+    src: url(../../assets/fonts/adult-swim-font.ttf);
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+div#auth-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 30px;
+    width: 60vw;
+    height: 60vh;
+    max-width: 580px;
+    max-height: 580px;
+    color: black;
+    border-radius: 100%;
+    background: url('../../assets/img/largeportal.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.errors {
+    font-family: "adult-swim-font";
+    color: red;
+    font-size: 1em;
+    align-self: center;
+}
+
+main p.switch, main p.errors {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#signin-box, #signup-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 250%;
+    width: 20vw;
+}
+
+input {
+    font-size: 50%;
+    background-color: rgba(27, 27, 27, 0.75);
+    border: 1px solid black;
+    color: rgb(199, 199, 199);
+}
+
+
+
+#signup-switch-button, #signin-switch-button {
+    background-color: rgba(27, 27, 27, 0.75);
+    font-size: 50%;
+    margin: 10px 0px 20px 0px;
+    color:rgb(199, 199, 199);
+    font-family: "adult-swim-font";
+    border-radius: 50%;
+    padding: 15px;
+    border: none;
+}
+
+#signup-switch-button:hover, #signin-switch-button:hover, #signup-button:hover, #signin-button:hover {
+    box-shadow: 0px 0px 8px 6px rgb(214, 255, 181);
+    transform: scale(1.2);
+}
+
+#signup-button, #signin-button {
+    background-color: rgba(27, 27, 27, 0.75);
+    font-size: 50%;
+    margin: 20px 0px 10px 0px;
+    color:rgb(199, 199, 199);
+    font-family: "adult-swim-font";
+    border-radius: 50%;
+    padding: 12px;
+    border: none;
+}
+
+#signin-email, #email {
+    margin-bottom: 15px;
+}
+
+@media (max-width: 725px) {
+    
+
+div#auth-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+    margin: 20px;
+    width: 60vw;
+    height: 60vh;
+    max-width: 580px;
+    max-height: 580px;
+    color: black;
+    border-radius: 100%;
+    background: url('../../assets/img/largeportal.png');
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.errors {
+    font-family: "adult-swim-font";
+    color: red;
+    font-size: 1em;
+    align-self: center;
+}
+
+main p.switch, main p.errors {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#signin-box, #signup-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 200%;
+    width: 20vw;
+}
+
+input {
+    font-size: 40%;
+    background-color: rgba(27, 27, 27, 0.75);
+    border: 1px solid black;
+    color: rgb(199, 199, 199);
+}
+
+#signup-switch-button, #signin-switch-button {
+    background-color: rgba(27, 27, 27, 0.75);
+    font-size: 40%;
+    margin: 10px 0px 20px 0px;
+    color:rgb(199, 199, 199);
+    font-family: "adult-swim-font";
+    border-radius: 50%;
+    padding: 15px;
+    border: none;
+    letter-spacing: 1px;
+}
+
+#signup-switch-button:hover, #signin-switch-button:hover, #signup-button:hover, #signin-button:hover {
+    box-shadow: 0px 0px 8px 6px rgb(214, 255, 181);
+    transform: scale(1.2);
+}
+
+#signup-button, #signin-button {
+    background-color: rgba(27, 27, 27, 0.75);
+    font-size: 40%;
+    margin: 20px 0px 10px 0px;
+    color:rgb(199, 199, 199);
+    font-family: "adult-swim-font";
+    border-radius: 50%;
+    padding: 12px;
+    border: none;
+    letter-spacing: 1px;
+}
+
+#signin-email, #email {
+    margin-bottom: 15px;
+}
+
+}
+
+@media (max-width: 550px) {
+    
+.hidden {
+    display: none !important;
+}
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+p {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-size: 150%;
+    width: 20vw;
+}
+
+input {
+    font-size: 40%;
+    background-color: rgba(27, 27, 27, 0.75);
+    border: 1px solid black;
+    color: rgb(199, 199, 199);
+}
+
+#signup-switch-button, #signin-switch-button {
+    background-color: rgba(27, 27, 27, 0.75);
+    font-size: 35%;
+    margin: 5px 0px 10px 0px;
+    color:rgb(199, 199, 199);
+    font-family: "adult-swim-font";
+    border-radius: 50%;
+    padding: 5px;
+    border: none;
+    letter-spacing: 1px;
+}
+
+#signup-switch-button:hover, #signin-switch-button:hover, #signup-button:hover, #signin-button:hover {
+    box-shadow: 0px 0px 8px 6px rgb(214, 255, 181);
+    transform: scale(1.2);
+}
+
+#signup-button, #signin-button {
+    background-color: rgba(27, 27, 27, 0.75);
+    font-size: 35%;
+    margin: 10px 0px 5px 0px;
+    color:rgb(199, 199, 199);
+    font-family: "adult-swim-font";
+    border-radius: 50%;
+    padding: 2px;
+    border: none;
+    letter-spacing: 1px;
+}
+
+#signin-email, #email {
+    margin-bottom: 15px;
+}
+}

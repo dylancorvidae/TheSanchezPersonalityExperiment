@@ -1,88 +1,92 @@
 import Component from '../Component.js';
 import Header from './Header.js';
-import SignUp from '../auth/signup.js';
 import SignIn from '../auth/signin.js';
-// import store from '../../services/store.js';
+import SignUp from '../auth/signup.js';
+import { userSignUp, userSignIn } from '../../services/quiz-api.js';
+import store from '../../services/store.js';
 
-// function success(user) {
-//     store.setToken(user.token);
-//     const searchParams = new URLSearchParams(location.search);
-//     location = searchParams.get('redirect') || './index.html';
-// }
+
+function verifySuccess(user) {
+    store.setToken(user.token);
+    const searchParams = new URLSearchParams(location.search);
+    location = searchParams.get('redirect') || './index.html';
+}
 
 class AuthApp extends Component {
+
     onRender(dom) {
         const header = new Header();
         dom.prepend(header.renderDOM());
 
-        // const errors = dom.querySelector('.errors');
-        const signUpContainer = dom.querySelector('#signup-container');
-        const signInContainer = dom.querySelector('#signin-container');
+        const error = dom.querySelector('.errors');
+        const signUpBox = dom.querySelector('#signup-box');
+        const signInBox = dom.querySelector('#signin-box');
 
-        const signUp = new SignUp(
-            // onSignUp: newUser => {
-            //     errors.textContent = '';
+        const signUp = new SignUp({
+            onSignUp: newUser => {
+                error.textContent = '';
 
-            //     return userSignUp(newUser)
-            //         .then(user => {
-            //             success(user);
-            //         })
-            //         .catch(err => {
-            //             errors.textContent = err;
-            //         });
-            // }
-        );
-        signUpContainer.appendChild(signUp.renderDOM());
+                return userSignUp(newUser)
+                    .then(user => {
+                        verifySuccess(user);
+                    })
+                    .catch(err => {
+                        error.textContent = err;
+                    });
+            }
+        });
+        signUpBox.appendChild(signUp.renderDOM());
 
-        const signIn = new SignIn(
-            // onSignIn: credentials => {
-            //     errors.textContent = '';
+        const signIn = new SignIn({
+            onSignIn: userCred => {
+                error.textContent = '';
 
-            //     return userSignIn(credentials)
-            //         .then(user => {
-            //             success(user);
-            //         })
-            //         .catch(err => {
-            //             errors.textContent = err;
-            //         });
-            // }
-        );
-        signInContainer.appendChild(signIn.renderDOM());
+                return userSignIn(userCred)
+                    .then(user => {
+                        verifySuccess(user);
+                    })
+                    .catch(err => {
+                        error.textContent = err;
+                    });
+            }
+        });
 
-        const switchToSignIn = dom.querySelector('#signin-button');
+        signInBox.appendChild(signIn.renderDOM());
 
+        const switchToSignIn = dom.querySelector('#signin-switch-button');
         switchToSignIn.addEventListener('click', () => {
-            signInContainer.classList.remove('no-display');
-            signUpContainer.classList.add('no-display');
+            signInBox.classList.remove('hidden');
+            signUpBox.classList.add('hidden');
         });
 
-        const switchToSignUp = dom.querySelector('#signup-button');
+        const switchToSignUp = dom.querySelector('#signup-switch-button');
         switchToSignUp.addEventListener('click', () => {
-            signUpContainer.classList.remove('no-display');
-            signInContainer.classList.add('no-display');
+            signUpBox.classList.remove('hidden');
+            signInBox.classList.add('hidden');
         });
-
-
     }
+
 
     renderHTML() {
         return /*html*/`
-        <div>
-        <main>
-            <p class="errors"></p>
-            <section class="no-display" id="signup-container">
-                <p class="switch">
-                    <button id="signin-button">Already a User?</button>
-                </p>
-            </section>
-            <section id="signin-container">
-                <p class="switch">
-                    <button id="signup-button">Need to Create an Account?</button>
-                </p>
-            </section>
-        </main>
-        </div>
-            `;
+             <div id="root">
+             <main>
+             <div id="auth-container">
+             <p class="errors"></p>
+             <section class="hidden" id="signup-box">
+                 <p class="switch">
+                     <button id="signin-switch-button">Already a User?</button>
+                 </p>
+             </section>
+             <section id="signin-box">
+                 <p class="switch">
+                     <button id="signup-switch-button">Need to create an Account?</button>
+                 </p>
+             </section>
+             </div>
+         </main>
+            </div>
+        `;
     }
 }
 

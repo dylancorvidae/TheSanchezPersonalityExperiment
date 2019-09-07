@@ -1,0 +1,119 @@
+#img{
+    display: flex;
+    justify-content: center;
+    align-items:flex-end;
+    background-size: cover;
+    height:300px;
+}
+
+#img span{
+    background-color: hsla(240, 100%, 91%, 0.69);
+}
+
+#all-time-stats, #results-wrapper {
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
+
+#bar-graph, #previous-results{
+    height: auto;
+    width: 90%;
+    border:1px solid rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.75);
+    margin: auto;
+}
+
+#types{
+    display:flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    width:100%;
+    color: white;
+}
+
+ #types-wrapper{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    margin:auto;
+}
+
+.type{
+    display:flex;
+    flex-direction: column;
+    align-items:center;  
+    border: 1.5px solid black;
+    padding: 10px;
+    margin: 5px;
+    color: white;
+    background-color: rgba(0, 14, 6, 0.95);
+    font-family: 'adult-swim-font';
+    transition: 500ms;
+    width: 150px;
+    height:250px;
+}
+
+.type:hover{
+    transform: scale(1.17);
+    width:300px;
+    background-color: rgba(255, 255, 255, 0.95);
+    color: black;
+    transition: 350ms ease-in-out;
+    height:auto;
+}
+
+.type img {
+    height: 100px;
+    margin: 5px;
+}
+
+ul {
+    list-style-type: none;
+    margin-top: 5px;
+    overflow-wrap: break-word;
+
+}
+
+li {
+    font-family: 'rick-and-morty';
+}
+
+.name{ 
+    font-size: 25px;
+}
+
+h2 {
+    margin: 20px;
+    color: rgb(16, 206, 212);
+    font-family: "get-schwifty";
+    font-size: 250%;
+    -webkit-text-stroke-color: #000000;
+    -webkit-text-stroke-width: 1px;
+    text-shadow:
+    -1px -1px 0 rgb(213, 255, 63),
+    0   -1px 0 rgb(213, 255, 63),
+    1px -1px 0 rgb(213, 255, 63),
+    1px  0   0 rgb(213, 255, 63),
+    1px  1px 0 rgb(213, 255, 63),
+    0    1px 0 rgb(213, 255, 63),
+    -1px  1px 0 rgb(213, 255, 63),
+    -1px  0   0 rgb(213, 255, 63), 
+    0 0 12px rgb(60, 253, 26, .7),
+    0 0 10px rgb(213, 255, 63, .7);
+    letter-spacing: .05em;
+}
+
+h3{
+    font-size: 25px;
+    color: white;
+}
+
+.hidden {
+    display:none;
+}
+
+#desc {
+    font-size:.7em;
+}

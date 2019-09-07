@@ -1,5 +1,5 @@
 const client = require('../lib/client');
-const q = require('../data/questions-data');
+const questions = require('../data/questions-data');
 const answers = require('../data/answer-data');
 const mbti = require('../data/mbti-data');
 const characters = require('../data/character-data');
@@ -8,11 +8,22 @@ const characters = require('../data/character-data');
 client.connect()
     .then(() => {
         return Promise.all(
-            q[0].questions.map(question => {
+            answers.map(answer => {
                 return client.query(`
-                    INSERT INTO questions (text)
-                    VALUES ($1);
-                `, [question]);
+                    INSERT INTO answers (text, mbti, question_id)
+                    VALUES($1, $2, $3);
+        `, [answer.text, answer.mbti_id, answer.question_id]
+                );
+            })
+        );
+    })
+    .then(() => {
+        return Promise.all(
+            questions.map(question => {
+                return client.query(`
+                    INSERT INTO test (question_text, img)
+                    VALUES ($1, $2);
+                `, [question.question_text, question.img]);
             }),
         );
     })
@@ -28,27 +39,15 @@ client.connect()
     })
     .then(() => {
         return Promise.all(
-            answers.map(answer => {
-                return client.query(`
-                    INSERT INTO answers (text, mbti, question_id)
-                    VALUES($1, $2, $3);
-        `, [answer.text, answer.mbti, answer.question_id]
-                );
-            })
-        );
-    })
-    .then(() => {
-        return Promise.all(
             characters.map(char => {
                 return client.query(`
-                    INSERT INTO characters (name, quote, mbti)
-                    VALUES($1, $2, $3);
-        `, [char.name, char.quote, char.mbti]
+                    INSERT INTO characters (name, quote, mbti, profile)
+                    VALUES($1, $2, $3, $4);
+        `, [char.name, char.quote, char.mbti, char.image]
                 );
             })
         );
     })
-
     .then(
         () => console.log('List data seeded successfully'),
         err => console.log(err)
@@ -56,24 +55,3 @@ client.connect()
     .then(() => {
         client.end();
     });
-
-
-
-
-
-
-
-    // .then(() => {
-    //     return Promise.all(
-    //         answers.map(answer => {
-    //             return client.query(`
-    //                 INSERT INTO answers (mbti_id)
-    //                 SELECT m.id
-    //                 FROM mbti m
-    //                 JOIN answers a
-    //                 ON m.id = a.mbti_id
-    //                 WHERE m.name = a.mbti;
-    //                 `);
-    //         })
-    //     );
-    // })

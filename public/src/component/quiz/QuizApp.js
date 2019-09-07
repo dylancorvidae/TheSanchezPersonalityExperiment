@@ -1,28 +1,38 @@
 import Component from '../Component.js';
 
 class QuizApp extends Component {
+
+    onRender(dom) {
+        const selectAnswer = this.props.selectAnswer;
+        const inputs = dom.querySelectorAll('input');
+        [...inputs].forEach(input => {
+            input.addEventListener('click', () => {
+                selectAnswer(input.value);
+            });
+        });
+    }
+
     renderHTML() {
         const props = this.props;
 
         return /*html*/`
         <div>
             <header id="question-header">
-                        <p><h1>${props.questionHeader} / ${props.quizLength}</h1></p>
+                        <p>${props.questionHeader}</p>
                     </header>
-                    <div id="img" style="background-image:
-                        URL('${props.image}')"> 
+                    <div class="quiz-img-container"><img class="quiz-image" src="${props.image}" alt="portal"></div>
+                    <div id="question">
                         <span>${props.questionText}</span>
                     </div>
                     <div id="answer-box">
-                    <label for="question-one"><input type="radio" name="question-one"
-                            value="answer-one">${props.answerOne}</label>
-                            <label for="question-two"><input type="radio" name="question-one"
-                            value="answer-two">${props.answerTwo}
-                            </label>
-                            <label for="question-three"><input type="radio" name="question-one"
-                            value="answer-three">${props.answerThree}</label>
-                            <label for="question-four"><input type="radio" name="question-one"
-                            value="answer-four">${props.answerFour}</label>
+                        <label class="answer"><input class="answer-input" type="radio" name="question-one"
+                            value="${props.answerOneMBTI}">${props.answerOne}</label>
+                        <label class="answer"><input class="answer-input" type="radio" name="question-one"
+                            value="${props.answerTwoMBTI}">${props.answerTwo}</label>
+                        <label class="answer"><input class="answer-input" type="radio" name="question-one"
+                            value="${props.answerThreeMBTI}">${props.answerThree}</label>
+                        <label class="answer"><input class="answer-input" type="radio" name="question-one"
+                            value="${props.answerFourMBTI}">${props.answerFour}</label>
                     </div>
                     </div>
         `;

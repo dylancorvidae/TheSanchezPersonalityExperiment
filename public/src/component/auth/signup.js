@@ -8,38 +8,42 @@ class SignUp extends Component {
         form.addEventListener('submit', event => {
             event.preventDefault();
 
-            const formData = new FormData(form);
+            const formDaddy = new FormData(form);
 
             const user = {
-                displayName: formData.get('name'),
-                email: formData.get('email'),
-                password: formData.get('password')
+                displayName: formDaddy.get('name'),
+                email: formDaddy.get('email'),
+                password: formDaddy.get('password')
             };
+
             onSignUp(user);
         });
     }
 
     renderHTML() {
         return /*html*/`
-        <form class="auth-form">
-            <p>
-                <label for="name">Name</label>
-                <input id="name" name="name" required placeholder="Display Name">
-            </p>
-            <p>
-                <label for="email">Email</label>
-                <input id="email" type="email" name="email" required placeholder="username@email.com">
-            </p>
+            <form class="auth-form">
+                <p>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" required placeholder="Mr. PoopyButthole">
+                </p>
+                    
+                <p>
+                    <label for="email">Email</label>
+                    <input id="email" type="email" name="email" required placeholder="god@anatomypark.com">
+                </p>
+                
+                <p>
+                    <label for="password">Password</label>
+                    <input id="password" type="password" name="password" required placeholder="
+                    vitaedolorsit69">
+                </p>
 
-            <p>
-                <label for="password">Password</label>
-                <input id="password" type="password" name="password" required placeholder="******">
-            </p>
+                <p>
+                    <button id="signup-button">Sign Up</button>
+                </p>
 
-            <p>
-                <button>Sign Up</button>
-            </p>
-        </form>
+            </form>
         `;
     }
 }

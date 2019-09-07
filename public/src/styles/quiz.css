@@ -1,12 +1,54 @@
 .wrapper{
-    width:1000px;
+    width:100%;
     display:flex;
     flex-direction: row;
     align-items:center;
     justify-content: center;
     margin:auto;
-    margin-top: 50px;
+    margin-top: 30px;
+}
 
+.back-btn, .next-btn {
+    outline: 0;
+}
+
+.back-btn:hover {
+    text-shadow: 
+    0 -1px 0px rgb(185, 15, 15),
+    -1px 0 0px rgb(219, 47, 47),
+    -1px 2px 1px rgb(185, 15, 15),
+    -2px 1px 1px rgb(219, 47, 47),
+    -2px 3px 2px rgb(185, 15, 15),
+    -3px 2px 2px rgb(219, 47, 47),
+    -3px 4px 2px rgb(185, 15, 15),
+    -4px 3px 3px rgb(219, 47, 47),
+    -4px 5px 3px rgb(185, 15, 15),
+    -5px 4px 2px rgb(219, 47, 47),
+    -5px 6px 2px rgb(185, 15, 15);
+    transition-duration: 500ms;
+    cursor: pointer;
+} 
+
+
+.next-btn:hover {
+    text-shadow: 
+    0 1px 0px rgb(92, 185, 15),
+    1px 0 0px rgb(124, 219, 47),
+    1px 2px 1px rgb(92, 185, 15),
+    2px 1px 1px rgb(124, 219, 47),
+    2px 3px 2px rgb(92, 185, 15),
+    3px 2px 2px rgb(124, 219, 47),
+    3px 4px 2px rgb(92, 185, 15),
+    4px 3px 3px rgb(124, 219, 47),
+    4px 5px 3px rgb(92, 185, 15),
+    5px 4px 2px rgb(124, 219, 47),
+    5px 6px 2px rgb(92, 185, 15);
+    transition-duration: 500ms;
+    cursor: pointer;
+}
+
+.quiz-buttons-p {
+    font-size: 200%;
 }
 
 #question-header{
@@ -29,30 +71,22 @@
     justify-content: flex-start;
     height: 150px;
     width: 100%;
-    margin-bottom: -24px;
 }
 
 .quiz-image{
-    object-fit: contain;
+    object-fit: cover;
     max-width: 100%;
-}
-
-#back-button{
-    margin:50px;
-    background-image: url('../../assets/icons/portal-gun.png');
-} 
-
-#forward-button{
-    margin:50px;
+    max-height: 450px;
+    min-height: 450px;
 }
 
 #answer-box{
     border: 2px solid black;
     display: flex;
     flex-direction: column;
-    padding: 30px;
+    padding: 12px;
     background-color: white;
-    font-size: 1.3em;
+    font-size: 1.5em;
 
 }
 
@@ -69,16 +103,85 @@
 
 #question span{
     background-color: hsla(0, 0%, 0%, 0.5);
-    padding: 20px;
+    padding: 10px;
     font-size: 1.3em;
     text-align: center;
+    width: 100%;
 }
 
 .answer {
     display: flex;
-    padding:7px;
+    padding:6px;
 }
 
 .answer-input {
     margin-right: 10px;
 }
+
+.back-btn {
+    background-color: transparent;
+    border-color: transparent;
+    font-family: "adult-swim-font";
+    font-size: 1.5em;
+    color: white;
+    margin-right: 10px;
+}
+
+.next-btn {
+    background-color: transparent;
+    border-color: transparent;
+    margin-left: 10px;
+    font-family: "adult-swim-font";
+    font-size: 1.5em;
+    color: white;
+    margin-left: 10px;
+}
+
+.back-btn-img {
+    width: 150px; 
+    transform: scaleX(-1);
+}
+
+.next-btn-img {
+    width: 150px; 
+}
+
+input[type='radio']:hover{
+    cursor: pointer;
+}
+
+
+@media (max-width: 700px) {
+    .wrapper{
+        width: 700px;
+    }
+    .back-btn-img {
+        width: 75px;
+        transform: scaleX(-1);
+    }
+    .back-btn {
+        background-color: transparent;
+        border-color: transparent;
+        font-family: "adult-swim-font";
+        font-size: .75em;
+        color: white;
+        margin-right: 5px;
+    }
+    .next-btn-img {
+        width: 75px;
+    }
+    .next-btn {
+        background-color: transparent;
+        border-color: transparent;
+        font-family: "adult-swim-font";
+        font-size: .75em;
+        color: white;
+        margin-right: 5px;
+    }
+    #quiz-box{
+        border:1px solid black;
+        width: 75%;
+        height: auto;
+        transform: scale(0.6, 0.6);
+    }
+ }  
