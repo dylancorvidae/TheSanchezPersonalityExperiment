@@ -4,13 +4,13 @@ const URL = '/api';
 
 const userToken = store.getToken();
 
-if(!userToken && location.pathname !== '/auth.html') {
+if (!userToken && location.pathname !== '/auth.html') {
     const searchParams = new URLSearchParams();
     searchParams.set('redirect', location.pathname);
     location = `auth.html?${searchParams.toString()}`;
 }
 function fetchWithError(url, options) {
-    if(userToken) {
+    if (userToken) {
         options = options || {};
         options.headers = options.headers || {};
         options.headers.Authorization = userToken;
@@ -18,7 +18,7 @@ function fetchWithError(url, options) {
 
     return fetch(url, options)
         .then(response => {
-            if(response.ok) {
+            if (response.ok) {
                 return response.json();
             }
             else {
@@ -31,7 +31,7 @@ function fetchWithError(url, options) {
 
 export function getAllTimeData() {
     const url = '/data/game';
-    fetchWithError(url);
+    return fetchWithError(url);
 }
 
 export function getMBTI(name) {
@@ -106,7 +106,7 @@ export function getCharacterFromApi(name) {
 }
 
 export function getCharacter(mbti) {
-    if(mbti) {
+    if (mbti) {
         const url = `${URL}/characters/${mbti}`;
         return fetchWithError(url);
     }

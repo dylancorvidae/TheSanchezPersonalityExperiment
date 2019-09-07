@@ -1,14 +1,14 @@
 /* eslint-disable no-undef */
-import { getGames } from '../../services/quiz-api.js';
+import { getAllTimeData } from '../../services/quiz-api.js';
 const ctx = document.getElementById('all-user-stats').getContext('2d');
 Chart.defaults.global.defaultFontColor = '#FFF';
 
 let data = {};
 
-getGames()
+getAllTimeData()
     .then(results => {
         results.forEach(result => {
-            if(result.result) {
+            if (result.result) {
                 data[result.result] ? data[result.result] = data[result.result] + 1 : data[result.result] = 1;
             }
         });
