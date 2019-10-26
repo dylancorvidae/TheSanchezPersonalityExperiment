@@ -48,7 +48,7 @@
 }
 
 #question-header{
-    background-color:black;
+    background-color: hsla(0, 0%, 0%, 0.5);
     text-align: center;
     color: white;
     font-size: 1.5em;
@@ -57,11 +57,13 @@
 }
 
 #quiz-box {
-    width: 75%;
+    width: 100%;
+    height: auto;
     object-fit: contain; 
 }
 
 .quiz-img-container {
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -69,22 +71,21 @@
     width: 100%;
 }
 
-.quiz-image{
+.quiz-image {
     object-fit: contain;
     max-width: 100%;
-    max-height: 450px;
 }
 
-#answer-box{
-    border: 2px solid black;
+#answer-box {
+    border: 1px solid black;
     display: flex;
     flex-direction: column;
-    padding: 12px;
+    padding: 2%;
     background-color: white;
     font-size: 1.5em;
 }
 
-#question{
+#question {
     display: flex;
     justify-content: center;
     align-items: flex-end;
@@ -97,7 +98,7 @@
 
 #question span{
     background-color: hsla(0, 0%, 0%, 0.5);
-    padding: 10px;
+    padding: 1.5%;
     font-size: 1.3em;
     text-align: center;
     width: 100%;
@@ -105,11 +106,11 @@
 
 .answer {
     display: flex;
-    padding:6px;
+    padding: 1%;
 }
 
 .answer-input {
-    margin-right: 10px;
+    margin-right: 1.5%;
 }
 
 .back-btn {
@@ -118,7 +119,7 @@
     font-family: "adult-swim-font";
     font-size: 1.5em;
     color: white;
-    margin-right: 10px;
+    margin: 0px 30px 0px 20px;
 }
 
 .next-btn {
@@ -127,16 +128,16 @@
     font-family: "adult-swim-font";
     font-size: 1.5em;
     color: white;
-    margin-left: 10px;
+    margin: 0px 20px 0px 30px;
 }
 
 .back-btn-img {
-    width: 150px; 
+    width: 110px; 
     transform: scaleX(-1);
 }
 
 .next-btn-img {
-    width: 150px; 
+    width: 110px; 
 }
 
 input[type='radio']:hover{
@@ -145,115 +146,60 @@ input[type='radio']:hover{
 
 
 @media (max-width: 700px) {    
-    #question-header{
+    #question-header {
         font-size: 1.2em;
     }
-    
-    #quiz-box {
-        width: 75%;
-        object-fit: contain; 
-    }
-    
-    .quiz-img-container {
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-start;
-        height: auto;
-        width: 100%;
-    }
-    
-    .quiz-image{
-        object-fit: contain;
-        max-width: 100%;
-        max-height: 450px;
-    
-    }
-    
-    #answer-box{
-        border: 2px solid black;
-        display: flex;
-        flex-direction: column;
-        padding: 12px;
-        background-color: white;
-        font-size: 1.5em;
-    
-    }
-    
-    #question{
-        height:auto;
-        color: white;
-        font-family: "adult-swim-font";
-        line-height: 1.75em;
-    }
-    
-    #question span{
-        background-color: hsla(0, 0%, 0%, 0.5);
-        padding: 10px;
+
+    #answer-box {
+        padding: 1%;
         font-size: 1.3em;
-        text-align: center;
-        width: 100%;
     }
     
-    .answer {
-        display: flex;
-        padding:6px;
+    #question {
+        line-height: 1.5em;
     }
     
-    .answer-input {
-        margin-right: 10px;
+    #question span {
+        font-size: 1.1em;
     }
 
     .back-btn-img {
-        width: 75px;
+        width: 60px; 
+        transform: scaleX(-1);
     }
-    .back-btn {
-        background-color: transparent;
-        border-color: transparent;
-        font-family: "adult-swim-font";
-        font-size: .75em;
-        color: white;
-    }
+    
     .next-btn-img {
-        width: 75px;
+        width: 60px; 
     }
-    .next-btn {
-        background-color: transparent;
-        border-color: transparent;
-        font-family: "adult-swim-font";
+
+    .back-btn {
         font-size: .75em;
-        color: white;
+        margin: 0px 13px 0px 20px;
     }
-    #quiz-box{
-        width: 100%;
-        height: auto;
+
+    .next-btn {
+        font-size: .75em;
+        margin: 0px 13px 0px 20px;
     }
+
  }  
 
  @media (max-width: 450px) {
+
     .back-btn-img {
-        width: 50px;
+        width: 40px; 
+        transform: scaleX(-1);
     }
-    .back-btn {
-        background-color: transparent;
-        border-color: transparent;
-        font-family: "adult-swim-font";
-        font-size: .6em;
-        color: white;
-        margin-left: 30px;
-    }
+    
     .next-btn-img {
-        width: 50px;
+        width: 40px; 
     }
-    .next-btn {
-        background-color: transparent;
-        border-color: transparent;
-        font-family: "adult-swim-font";
+
+    .back-btn {
         font-size: .6em;
-        color: white;
-        margin-right: 30px;
     }
-    #quiz-box{
-        width: 100%;
-        height: auto;
+
+    .next-btn {
+        font-size: .6em;
     }
  }
