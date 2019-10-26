@@ -1,4 +1,3 @@
-
 * {
     box-sizing: border-box;
 }
@@ -31,6 +30,3 @@ body {
     font-family: "rick-and-morty";
 }
 
-.stat-link {
-    margin-right: 20%;
-}
