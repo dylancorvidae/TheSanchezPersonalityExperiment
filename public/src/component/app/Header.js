@@ -14,7 +14,6 @@ class Header extends Component {
         return /*html*/`
             <header id="main-header">
                  <div id="logo">
-
                    <a href="./"><h1 class="title">
                         The Sanchez Personality Experiment
                     </h1></a>
