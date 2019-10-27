@@ -56,7 +56,7 @@ module.exports = [
     { text: `Two Brothers`, mbti_id: `ENTP`, question_id: 14 },
     { text: `Gazorpazorpfield`, mbti_id: `ISTJ`, question_id: 14 },
     { text: `Aftershave, makes you irresistible to women but also makes you impotent`, mbti_id: `ESFP`, question_id: 15 },
-    { text: `A microscope, shows knowledge beyond comprehension but makes you retarded`, mbti_id: `ISTP`, question_id: 15 },
+    { text: `A microscope, shows knowledge beyond comprehension but makes you stupid`, mbti_id: `ISTP`, question_id: 15 },
     { text: `Skin cream that makes women prettier but also makes them blind`, mbti_id: `ENFJ`, question_id: 15 },
     { text: `Running shoes that make you run fast but you have to run until you die`, mbti_id: `INTJ`, question_id: 15 },
     { text: `Vance Maximus`, mbti_id: `ENFJ`, question_id: 16 },

@@ -1,7 +1,7 @@
 import Component from '../Component.js';
 import Header from './Header.js';
 import Type from './Type.js';
-import { getCharacter, getCharacterFromApi } from '../../services/quiz-api.js';
+import { getCharacter, getCharacterFromApi, getMBTI } from '../../services/quiz-api.js';
 
 class StatsApp extends Component {
 
@@ -26,10 +26,16 @@ class StatsApp extends Component {
                         typeProps.name = char.name;
                         typeProps.quote = char.quote;
                         typeProps.personality = char.mbti;
-                    })
-                    .then(() => {
-                        const type = new Type(typeProps);
-                        dom.querySelector('#types').appendChild(type.renderDOM());
+
+                        getMBTI(char.mbti)
+                            .then(result => {
+                                typeProps.description = result[0].description;
+
+                            })
+                            .then(() => {
+                                const type = new Type(typeProps);
+                                dom.querySelector('#types').appendChild(type.renderDOM());
+                            });
                     });
             });
         });

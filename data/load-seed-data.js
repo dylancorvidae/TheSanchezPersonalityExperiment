@@ -3,7 +3,6 @@ const questions = require('../data/questions-data');
 const answers = require('../data/answer-data');
 const mbti = require('../data/mbti-data');
 const characters = require('../data/character-data');
-const profile = require('../data/profile-data');
 
 
 client.connect()
@@ -49,20 +48,6 @@ client.connect()
             })
         );
     })
-    // .then(() => {
-    //     return Promise.all(
-    //         profile.map(prof => {
-    //             return client.query(`
-    //                 INSERT INTO characters (profile)
-    //                 VALUES ($2)
-    //                 WHERE name = $1;
-
-    //     `, [prof.name, prof.image]
-    //             );
-    //         })
-    //     );
-    // })
-
     .then(
         () => console.log('List data seeded successfully'),
         err => console.log(err)
@@ -70,24 +55,3 @@ client.connect()
     .then(() => {
         client.end();
     });
-
-
-
-
-
-
-
-    // .then(() => {
-    //     return Promise.all(
-    //         answers.map(answer => {
-    //             return client.query(`
-    //                 INSERT INTO answers (mbti_id)
-    //                 SELECT m.id
-    //                 FROM mbti m
-    //                 JOIN answers a
-    //                 ON m.id = a.mbti_id
-    //                 WHERE m.name = a.mbti;
-    //                 `);
-    //         })
-    //     );
-    // })
