@@ -69,22 +69,22 @@ class AuthApp extends Component {
 
     renderHTML() {
         return /*html*/`
-             <div id="root">
-             <main>
-             <div id="auth-container">
-             <p class="errors"></p>
-             <section class="hidden" id="signup-box">
-                 <p class="switch">
-                     <button id="signin-switch-button">Already a User?</button>
-                 </p>
-             </section>
-             <section id="signin-box">
-                 <p class="switch">
-                     <button id="signup-switch-button">Need to create an Account?</button>
-                 </p>
-             </section>
-             </div>
-         </main>
+            <div id="root">
+                <main>
+                    <div id="auth-container">
+                        <p class="errors"></p>
+                        <section class="hidden" id="signup-box">
+                            <p class="switch">
+                                <button id="signin-switch-button">Already a User?</button>
+                            </p>
+                        </section>
+                        <section id="signin-box">
+                            <p class="switch">
+                                <button id="signup-switch-button">Need to create an Account?</button>
+                            </p>
+                        </section>
+                    </div>
+                </main>
             </div>
         `;
     }

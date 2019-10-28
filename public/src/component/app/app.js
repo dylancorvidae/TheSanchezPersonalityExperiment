@@ -64,6 +64,7 @@ class App extends Component {
                     newGame();
                 }
             }).catch(err => {
+                // eslint-disable-next-line no-console
                 console.log(err);
             });
 
@@ -124,7 +125,6 @@ class App extends Component {
             questionOrder = order;
 
             updateQuiz(parseInt(order[position]));
-
         }
 
         function endGame() {
@@ -140,27 +140,29 @@ class App extends Component {
             }
         }
     }
+    
     renderHTML() {
         return /*html*/`
             <div id="root">
                 <div class="wrapper">
-                    <div id="back-button"><button class="back-btn"><img
-                            class="back-btn-img"
-                            src="assets/icons/portal-gun.png"><p class="quiz-buttons-p">BACK</p></button></div>
+                    <div id="back-button">
+                        <button class="back-btn">
+                            <img class="back-btn-img" src="assets/icons/portal-gun.png">
+                            <p class="quiz-buttons-p">BACK</p>
+                        </button>
+                    </div>
                     <section id="quiz-box">
                     </section>
-                    <div id="forward-button"><button class="next-btn"><img
-                            class="next-btn-img"
-                            src="assets/icons/portal-gun.png"><p class="quiz-buttons-p">NEXT</p></button></div>
-
+                    <div id="forward-button">
+                        <button class="next-btn">
+                            <img class="next-btn-img" src="assets/icons/portal-gun.png">
+                            <p class="quiz-buttons-p">NEXT</p>
+                        </button>
+                    </div>
                 </div>            
             </div>
             `;
     }
-
-
-
-
 }
 
 export default App;

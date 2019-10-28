@@ -4,7 +4,6 @@ export const about = [
         image: './assets/img/sam-icon.png',
         desc: `Morty at heart, Jerry in practice.`
     },
-
     {
         name: 'Dylan (ENFP)',
         image: './assets/img/Dylan-icon.png',
@@ -23,8 +22,6 @@ export const about = [
     {
         name: 'Rick (RICK)',
         image: './assets/img/Rick.png',
-        desc: `I started this experiment because my whiney grandkids kept talking about this Meyer Lemon Personality Test bleeeechhh uuurp. They were going on and on and on about how it was sooooo accurate.  I read the descriptions of the personality types but it was so vague that each type could have applied to almost anyone. It's as dumb and useless astrology or my grandkids. I decided the whole test needed to be redone and convinced some idiot coders to make this test for me to show my grandkids how dumb this whole thing was. The best part is these coders did it for the "exposure", how f****** stupid can you get?!
-        `
+        desc: `I started this experiment because my whiney grandkids kept talking about this Meyer Lemon Personality Test bleeeechhh uuurp. They were going on and on and on about how it was sooooo accurate.  I read the descriptions of the personality types but it was so vague that each type could have applied to almost anyone. It's as dumb and useless astrology or my grandkids. I decided the whole test needed to be redone and convinced some idiot coders to make this test for me to show my grandkids how dumb this whole thing was. The best part is these coders did it for the "exposure", how f****** stupid can you get?!`
     },
-
 ];

@@ -22,6 +22,7 @@ body {
     display:flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     margin: 20px;
 }
 
@@ -50,9 +51,10 @@ h2 {
     display:flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
-.about-card{
+.about-card {
     width:300px;
     height:auto;
     background: rgba(0, 0, 0, 0.65);
@@ -60,7 +62,6 @@ h2 {
     display:flex;
     flex-direction:column;
     align-items: center;
-    padding:10px;
     margin: 20px 10px;
     font-family: "adult-swim-font";
 }
@@ -85,9 +86,9 @@ h3 {
 p#about-description {
     font-family: "rick-and-morty";
     font-size: 1.35em;
-    text-align: justify;
+    text-align: center;
     margin-top: 10px;
-    padding: 15px;
+    padding: 3px;
 }
 
 audio {
