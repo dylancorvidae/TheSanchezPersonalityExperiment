@@ -92,10 +92,9 @@ class ProfileApp extends Component {
     renderHTML() {
         return /*html*/`
             <div id="root">
-
-            <div id="results-wrapper"></div>
+                <div id="results-wrapper">
+                </div>
             <h1>PREVIOUS RESULTS</h1>
-
             </div>
         `;
     }
