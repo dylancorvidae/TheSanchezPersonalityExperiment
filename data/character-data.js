@@ -25,7 +25,7 @@ module.exports = [
     },
     {
         image: './assets/profile-img/ThePresident.png',
-        name: `The President`, quote: `"Naturally you'll forget you ever saw them, along with, in order of national embaressment: the Truman Cocaine Lounge, The McKinley Hooker Dump, and the Lincoln Slave Colosseum. He didn't free them all"`, mbti: `ISTJ`
+        name: `The President`, quote: `"Naturally you'll forget you ever saw them, along with, in order of national embarrassment: the Truman Cocaine Lounge, The McKinley Hooker Dump, and the Lincoln Slave Colosseum. He didn't free them all"`, mbti: `ISTJ`
     },
     {
         image: './assets/profile-img/Morty.png',
