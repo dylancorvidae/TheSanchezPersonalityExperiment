@@ -24,7 +24,7 @@ class SignIn extends Component {
             <form class="auth-form">
                 <p>
                     <label for="signin-email">Email</label>
-                    <input id="signin-email" type="email" name="email" required placeholder="god@anatomypark.com">
+                    <input id="signin-email" type="email" name="email" required placeholder="licklicklick@myballs.me">
                 </p>
                 
                 <p>
