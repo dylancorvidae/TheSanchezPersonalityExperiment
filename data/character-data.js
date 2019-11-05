@@ -13,7 +13,7 @@ module.exports = [
     },
     {
         image: './assets/profile-img/DrWong.png',
-        name: `Dr. Wong`, quote: `"I have no doubt that you would be bored senseless by therapy. The same way I'm bored when I brush my teeth and wipe my a**. Because the thing about repairing, maintaining and cleaning is... it's not an adventure. There's no way to do it so wrong you might die. It's just... Work."`, mbti: `INFJ`
+        name: `Dr. Wong`, quote: `"I have no doubt that you would be bored senseless by therapy. The same way I'm bored when I brush my teeth and wipe my ass. Because the thing about repairing, maintaining and cleaning is... it's not an adventure. There's no way to do it so wrong you might die. It's just... Work."`, mbti: `INFJ`
     },
     {
         image: './assets/profile-img/Cromulon.png',
@@ -25,7 +25,7 @@ module.exports = [
     },
     {
         image: './assets/profile-img/ThePresident.png',
-        name: `The President`, quote: `"Naturally you'll forget you ever saw them, along with, in order of national embaressment: the Truman Cocaine Lounge, The McKinley Hooker Dump, and the Lincoln Slave Colosseum. He didn't free them all"`, mbti: `ISTJ`
+        name: `The President`, quote: `"Naturally you'll forget you ever saw them, along with, in order of national embarrassment: the Truman Cocaine Lounge, The McKinley Hooker Dump, and the Lincoln Slave Colosseum. He didn't free them all"`, mbti: `ISTJ`
     },
     {
         image: './assets/profile-img/Morty.png',
@@ -33,7 +33,7 @@ module.exports = [
     },
     {
         image: './assets/profile-img/MrPoopybutthole.png',
-        name: `Mr. PoopyButthole`, quote: `"Hopefully you didn’t just f*** around and waste your life. Ooh-wee!"`, mbti: `ESFJ`
+        name: `Mr. PoopyButthole`, quote: `"Hopefully you didn’t just fuck around and waste your life. Ooh-wee!"`, mbti: `ESFJ`
     },
     {
         image: './assets/profile-img/Beth.png',
