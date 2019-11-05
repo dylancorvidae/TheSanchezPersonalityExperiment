@@ -52,11 +52,10 @@ class StatsApp extends Component {
                         <!-- insert bar graph -->
                     </div>
                 </section>
-
                 <div id ="types-wrapper">
-                <h2>PERSONALITY TYPES</h2>
-                <div id="types">
-
+                    <h2>PERSONALITY TYPES</h2>
+                    <div id="types">
+                    </div>
                 </div>
             </div>
         `;

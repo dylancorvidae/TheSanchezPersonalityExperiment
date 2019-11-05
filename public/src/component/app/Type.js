@@ -20,20 +20,18 @@ class Type extends Component {
         return /*html*/`
         <div id = "top-div">
             <div class="type">
-                    <span>${props.name}</span>
-                    <img
-                        src="${props.image}"
-                        title="${props.quote}">
-                    <span>${props.personality}</span>
-                    <span id="desc" class="hidden">${props.description}</span>
-                    <ul>
-                        <li>Status: ${props.status}</li>
-                        <li>Species: ${props.species}</li>
-                        <li>Gender: ${props.gender}</li>
-                        <li>Origin: ${props.origin}</li>
-                    </ul>
-                </div>
-                </div>
+                <span>${props.name}</span>
+                <img src="${props.image}" title="${props.quote}">
+                <span>${props.personality}</span>
+                <span id="desc" class="hidden">${props.description}</span>
+                <ul>
+                    <li>Status: ${props.status}</li>
+                    <li>Species: ${props.species}</li>
+                    <li>Gender: ${props.gender}</li>
+                    <li>Origin: ${props.origin}</li>
+                </ul>
+            </div>
+        </div>
         `;
     }
 }
