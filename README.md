@@ -5,7 +5,7 @@ Safe For Work:
 https://c-137-mbti-quiz.herokuapp.com/    
 
 Not Safe For Work
-http://c-137-mbti-quiz-nsfw.herokuapp.com/auth.html
+http://c-137-mbti-quiz-nsfw.herokuapp.com/
 
 ## Created By: 
 Angela Vawser, Dylan Corvidae, Kamran Ali, Sam Jespersen
