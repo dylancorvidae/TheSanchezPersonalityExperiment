@@ -4,7 +4,7 @@ Safe For Work:
 https://c-137-mbti-quiz.herokuapp.com/    
 
 Not Safe For Work:
-http://c-137-mbti-quiz-nsfw.herokuapp.com/ (Rated R for language)
+http://c-137-mbti-quiz-nsfw.herokuapp.com/ (Rated R for Rick Language)
 
 ## Created By: 
 Angela Vawser, Dylan Corvidae, Kamran Ali, Sam Jespersen
