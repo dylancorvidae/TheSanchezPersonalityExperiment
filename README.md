@@ -10,7 +10,7 @@
   Safe For Work: https://c-137-mbti-quiz.herokuapp.com/  
   Not Safe For Work: http://c-137-mbti-quiz-nsfw.herokuapp.com/ 
 
-  I believe we went above and beyond in the making of this app. Not only does it fulfill it’s goals and requirements but it looks great doing it. I personally spent a lot of time on how the app looks (CSS, UI content) and feels (UX content). I spent a good amount of time balancing the quiz answers so that it’s highly likely you will get the Myers-Briggs type you would on a legitimate MBTI assessment.  
+  I believe we went above and beyond in the making of this app. Not only does it fulfill it’s goals and requirements but it looks great doing it. I'm particularly proud of what we did for the UI/UX of this app. We did a really great job of making this look and feel like an Adult Swim web page, using the fonts and artwork from the show and network as well as creating new art in the style of the show thanks to Angela's graphic design skills. I personally spent a lot of time on how the app looks (CSS, UI content) and feels (UX content). I spent even spent time balancing the quiz answers so that it’s highly likely you will get the Myers-Briggs type you would on a legitimate MBTI assessment.  
 
 
 3. How does it work? (big picture: think about how you would describe this to someone who was going to review the code or add functionality, to get them started) 
@@ -26,6 +26,8 @@ This project was a small group effort of 4, including: Kamran Ali, Angela Vawser
 
 As for my responsibilities, I shared the role of UI designer with a teammate on this project and was responsible for most of the UX as I wrote the majority of the quiz content and all of the personality assessments. In addition to content creation I coded the authorization and authenticationas well as the entire signin/signup page. I wrote most of the CSS and HTML, and built a majority of the Javascript HTML to DOM rendering components. I made the page responsive for all viewport sizes. I did a large amount of the project organization as I designed the file structure for this project, wrote and organized the supporting docs that our group worked off as we built our app. 
 
+I am particularly proud of my work on The Sanchez Personality Experiment header text. If you take a look at the header.css you can see that h1.title uses 10 different text shadows to create that same colored and glowing effect that the font used in the show displays. I'm also like the little touch of the portal login and logouts. I had to do a lot of research to figure out how to get the login/sign-up to switch back and forth and the logout speeding up it's spin when you hover on it was a fun little animation to throw together. 
+
 
 5. If you were to do it again, what would you do differently? OR If you could spend more time, what would you add/improve?  
 
@@ -39,10 +41,11 @@ If I spent more time on this project I would fix the issue on the stats page und
 
 I just learned about using SCSS to create fluid typography using calc and viewport units which would create a more fluid change in the dynamic responsiveness of the fonts which would be nice. The font jumps around too much at different media query sizes for my liking.
 
+It would be fun to have the login/sign-up portal enlarge on submit to engulf the whole screen and then shrink back down leaving the user to start the quiz that way. I'm not sure how I'd go about doing that but it would be a fun challenge and a cool user interaction.
 
 6. How do I run this code on my own webserver so I can try it out?  
 
-Required installations needed to run app:
+Required installations needed to run app:  
 Node.js and npm both are installed together via Node.js installer found here https://nodejs.org/en/download/
 
 1. Clone the Github repository to local drive
