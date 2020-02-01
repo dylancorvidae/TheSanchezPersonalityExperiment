@@ -8,7 +8,7 @@ let data = {};
 getAllTimeData()
     .then(results => {
         results.forEach(result => {
-            if (result.result) {
+            if(result.result) {
                 data[result.result] ? data[result.result] = data[result.result] + 1 : data[result.result] = 1;
             }
         });

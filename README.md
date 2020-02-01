@@ -1,3 +1,17 @@
+# ThinkShout Questions
+1. What was the goal and what were the requirements?
+
+2. How does the work meet (or not meet) the goal and requirements?
+
+3. How does it work? (big picture: think about how you would describe this to someone who was going to review the code or add functionality, to get them started) 
+
+4. Who did you work on this with, and which parts were you responsible for? (If there is no commit or ticket history to review, please be extra explicit here)
+
+5. If you were to do it again, what would you do differently? OR If you could spend more time, what would you add/improve? 
+
+6. How do I run this code on my own webserver so I can try it out?
+
+
 # The Sanchez Personality Experiment
 ## Links to Deployed Sites:
 Safe For Work:

@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "cd public && npm i esm jsdom && npx qunit test/index.js",
+    "test": "cd public && npm i esm jsdom && npx qunit test/index.js --passWithNoTests",
     "start": "node server.js",
     "start:watch": "nodemon server.js --ignore public",
     "create-tables": "node data/create-tables.js",
@@ -40,7 +40,7 @@
     "dotenv": "^8.1.0",
     "esm": "^3.2.25",
     "express": "^4.17.1",
-    "jsdom": "^15.1.1",
+    "jsdom": "^15.2.1",
     "jsonwebtoken": "^8.5.1",
     "morgan": "^1.9.1",
     "pg": "^7.12.1",
