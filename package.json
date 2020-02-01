@@ -9,7 +9,7 @@
   "scripts": {
     "lint": "eslint .",
     "pretest": "npm run lint",
-    "test": "cd public && npm i esm jsdom && npx qunit test/index.js",
+    "test": "cd public && npm i esm jsdom && npx qunit test/index.js --passWithNoTests",
     "start": "node server.js",
     "start:watch": "nodemon server.js --ignore public",
     "create-tables": "node data/create-tables.js",
